@@ -6,7 +6,13 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
+
 import os
+
+from genex.example import create_job
+from genex.example import extract
+from genex.example import generate
+from genex.example import todolist
 
 __version__ = '0.0.0'
 
