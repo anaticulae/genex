@@ -9,6 +9,8 @@
 
 import os
 
+from genex.example import CONFIG
+from genex.example import ONELINE
 from genex.example import create_job
 from genex.example import extract
 from genex.example import generate
