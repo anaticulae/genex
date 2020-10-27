@@ -222,28 +222,28 @@ def create_job(
 
     pages = f'--pages={pages}' if pages is not None else ''
     task = [
-        f'rawmaker -j=auto -i {src} -o {dest} {rawmaker} {pages}',
-        f'rawmaker -j=auto -i {src} -o {dest} {oneline} {pages}',
-        f'linero -i {dest} -o {dest}',
+        f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
+        f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}',
+        f'linero -i={dest} -o={dest}',
     ]
     if config.get('groupme', False):
         # run all, disable --toc
-        task.append(f'groupme --toc! -j=auto -i {dest} -o {dest}')
+        task.append(f'groupme --toc! -j=auto -i={dest} -o={dest}')
         # toc only
-        task.append(f'groupme --toc --pages=0:10 -i {dest} -o {dest}')
+        task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     if config.get('sections', False):
-        task.append(f'sections -j=auto -i {dest} -o {dest}')
+        task.append(f'sections -j=auto -i={dest} -o={dest}')
     if config.get('words', False):
-        task.append(f'words -j=auto -i {dest} -o {dest}')
+        task.append(f'words -j=auto -i={dest} -o={dest}')
     if config.get('detector', False):
-        task.append(f'detector -i {dest} -o {dest}')
+        task.append(f'detector -i={dest} -o={dest}')
     if config.get('textflow', False):
-        task.append(f'textflow -i {dest} -o {dest}')
+        task.append(f'textflow -i={dest} -o={dest}')
     if config.get('doctextstyle', False):
-        task.append(f'doctextstyle -i {dest} -o {dest}')
+        task.append(f'doctextstyle -i={dest} -o={dest}')
     if config.get('caption', False):
-        task.append(f'caption -i {dest} -o {dest}')
+        task.append(f'caption -i={dest} -o={dest}')
     if config.get('magic', False):
-        task.append(f'magic -i {dest} -o {dest}')
+        task.append(f'magic -i={dest} -o={dest}')
     todo = ' && '.join(task)
     return todo
