@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.2.0
+
+### Feature
+
+* prepare using cache generator (f3876c51fed1)
+
 ## v0.1.5
 
 ## v0.1.4
