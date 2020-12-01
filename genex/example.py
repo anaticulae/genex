@@ -39,6 +39,7 @@ def extract(  # pylint:disable=R0914
         *,
         caption: bool = False,
         detector: bool = False,
+        docref: bool = False,
         doctextstyle: bool = False,
         groupme: bool = False,
         magic: bool = False,
@@ -61,6 +62,7 @@ def extract(  # pylint:disable=R0914
         oneline(str): oneline config
         caption(bool): run if True
         detector(bool): run if True
+        docref(bool): run if True
         doctextstyle(bool): run if True
         groupme(bool): run if True
         magic(bool): run if True
@@ -75,13 +77,14 @@ def extract(  # pylint:disable=R0914
         files,
         destination,
         pages,
-        rawmaker=rawmaker,
-        oneline=oneline,
         caption=caption,
         detector=detector,
+        docref=docref,
         doctextstyle=doctextstyle,
         groupme=groupme,
         magic=magic,
+        oneline=oneline,
+        rawmaker=rawmaker,
         sections=sections,
         textflow=textflow,
         words=words,
@@ -107,6 +110,7 @@ def todolist(  # pylint:disable=R0914
         *,
         caption: bool = False,
         detector: bool = False,
+        docref: bool = False,
         doctextstyle: bool = False,
         groupme: bool = False,
         magic: bool = False,
@@ -125,6 +129,7 @@ def todolist(  # pylint:disable=R0914
         # enable every extraction step
         caption = True
         detector = True
+        docref = True
         doctextstyle = True
         groupme = True
         magic = True
@@ -135,6 +140,7 @@ def todolist(  # pylint:disable=R0914
     config = {
         'caption': caption,
         'detector': detector,
+        'docref': docref,
         'doctextstyle': doctextstyle,
         'groupme': groupme,
         'magic': magic,
@@ -235,6 +241,8 @@ def create_job(
         task.append(f'sections -j=auto -i={dest} -o={dest}')
     if config.get('words', False):
         task.append(f'words -j=auto -i={dest} -o={dest}')
+    if config.get('docref', False):
+        task.append(f'docref -i={dest} -o={dest}')
     if config.get('detector', False):
         task.append(f'detector -i={dest} -o={dest}')
     if config.get('textflow', False):
