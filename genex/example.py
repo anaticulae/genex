@@ -237,21 +237,21 @@ def create_job(
         task.append(f'groupme --toc! -j=auto -i={dest} -o={dest}')
         # toc only
         task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
-    if config.get('sections', False):
-        task.append(f'sections -j=auto -i={dest} -o={dest}')
-    if config.get('words', False):
-        task.append(f'words -j=auto -i={dest} -o={dest}')
-    if config.get('docref', False):
-        task.append(f'docref -i={dest} -o={dest}')
-    if config.get('detector', False):
-        task.append(f'detector -i={dest} -o={dest}')
-    if config.get('textflow', False):
-        task.append(f'textflow -i={dest} -o={dest}')
-    if config.get('doctextstyle', False):
-        task.append(f'doctextstyle -i={dest} -o={dest}')
-    if config.get('caption', False):
-        task.append(f'caption -i={dest} -o={dest}')
-    if config.get('magic', False):
-        task.append(f'magic -i={dest} -o={dest}')
+
+    features = [  # Hint: Pay attention to the order
+        'sections',
+        'words',
+        'docref',
+        'detector',
+        'textflow',
+        'doctextstyle',
+        'caption',
+        'magic',
+    ]
+    for feature in features:
+        if not config.get(feature, False):
+            continue
+        task.append(f'{feature} -j=auto -i={dest} -o={dest}')
+
     todo = ' && '.join(task)
     return todo
