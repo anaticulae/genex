@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.3.0
+
+### Feature
+
+* add docref to example generator (6282d7aacf47)
+
 ## v0.2.1
 
 ## v0.2.0
