@@ -12,5 +12,5 @@ power==1.0.0
 
 # required to run example
 rawmaker==2.9.1
-groupme==0.6.1
-hey==5.5.0
+groupme==0.6.2
+hey==5.5.2
