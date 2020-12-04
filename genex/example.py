@@ -44,6 +44,7 @@ def extract(  # pylint:disable=R0914
         groupme: bool = False,
         magic: bool = False,
         sections: bool = False,
+        smarty: bool = False,
         textflow: bool = False,
         words: bool = False,
         full: bool = False,
@@ -67,6 +68,7 @@ def extract(  # pylint:disable=R0914
         groupme(bool): run if True
         magic(bool): run if True
         sections(bool): run if True
+        smarty(bool): run if True
         textflow(bool): run if True
         words(bool): run if True
         full(bool): overwrites every selection and runs all extraction steps
@@ -117,6 +119,7 @@ def todolist(  # pylint:disable=R0914
         sections: bool = False,
         textflow: bool = False,
         words: bool = False,
+        smarty: bool = False,
         full: bool = False,
 ):
     """Create todo list to extract resources.
@@ -134,6 +137,7 @@ def todolist(  # pylint:disable=R0914
         groupme = True
         magic = True
         sections = True
+        smarty = True
         textflow = True
         words = True
 
@@ -145,6 +149,7 @@ def todolist(  # pylint:disable=R0914
         'groupme': groupme,
         'magic': magic,
         'sections': sections,
+        'smarty': smarty,
         'textflow': textflow,
         'words': words,
     }
@@ -247,6 +252,7 @@ def create_job(
         'doctextstyle',
         'caption',
         'magic',
+        'smarty',
     ]
     for feature in features:
         if not config.get(feature, False):
