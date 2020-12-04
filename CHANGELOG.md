@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.4.0
+
+### Feature
+
+* add smarty application (71e6038647e0)
+
 ## v0.3.0
 
 ### Feature
