@@ -88,6 +88,7 @@ def extract(  # pylint:disable=R0914
         oneline=oneline,
         rawmaker=rawmaker,
         sections=sections,
+        smarty=smarty,
         textflow=textflow,
         words=words,
         full=full,
