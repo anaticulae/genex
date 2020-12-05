@@ -188,9 +188,10 @@ def generate(
     files = list(single_pages.keys())
     names = utilatest.simplify_testfile_names(files, sort=False)
     for inpath, output in zip(files, names):
+        dest = os.path.join(outpath, output)
         next_job = create_job(
             inpath,
-            os.path.join(outpath, output),
+            dest,
             pages=single_pages[inpath],
             config=config,
             rawmaker=rawmaker,
