@@ -22,11 +22,8 @@ import os.path
 import utila
 import utilatest
 
-ONELINE = ('--prefix=oneline '
-           '--font --text '
-           '--boxes_flow=1.0 --char_margin=100.0 --line_margin=0.0001')
-
-CONFIG = '--char_margin=3.1 --boxes_flow=1.0 --line_margin=0.25 '
+import genex.config
+import genex.utils
 
 
 def extract(  # pylint:disable=R0914
@@ -34,8 +31,8 @@ def extract(  # pylint:disable=R0914
         destination: str,
         pages: str = '0:10',
         worker: int = 12,
-        rawmaker: str = CONFIG,
-        oneline: str = ONELINE,
+        rawmaker: str = genex.config.CONFIG,
+        oneline: str = genex.config.ONELINE,
         *,
         caption: bool = False,
         detector: bool = False,
@@ -108,8 +105,8 @@ def todolist(  # pylint:disable=R0914
         files: list,
         destination: str,
         pages: str = '0:10',
-        rawmaker: str = CONFIG,
-        oneline: str = ONELINE,
+        rawmaker: str = genex.config.CONFIG,
+        oneline: str = genex.config.ONELINE,
         *,
         caption: bool = False,
         detector: bool = False,
@@ -181,7 +178,7 @@ def generate(
         oneline: str,
 ) -> list:
     todo = []
-    single_pages = paged(files, default=pages)
+    single_pages = genex.utils.paged(files, default=pages)
     files = list(single_pages.keys())
     names = utilatest.simplify_testfile_names(files, sort=False)
     for inpath, output in zip(files, names):
@@ -195,18 +192,6 @@ def generate(
         )
         todo.append(next_job)
     return todo
-
-
-def paged(files, default=None) -> dict:
-    """Select pages, if given `(source, pages)`, to extract. If no pages
-    are given, use `default` one."""
-    result = {}
-    for item in files:
-        page = default
-        if isinstance(item, tuple):
-            item, page = item
-        result[item] = page
-    return result
 
 
 def create_job(
