@@ -12,7 +12,7 @@ power==1.0.0
 
 # required to run example
 rawmaker==2.9.2
-groupme==0.6.2
-hey==5.5.2
+groupme==0.7.1
+hey==5.5.3
 
 detector==0.11.1
