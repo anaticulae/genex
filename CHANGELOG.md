@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.5.0
+
+### Feature
+
+* use sections to select correct ranges (5389da38f523)
+
+### Fix
+
+* forward missing smarty flag (58342d13cfbb)
+
 ## v0.4.1
 
 ## v0.4.0
