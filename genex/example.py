@@ -19,6 +19,7 @@ import concurrent.futures
 import os
 import os.path
 
+import iamraw
 import utila
 import utilatest
 
@@ -164,8 +165,13 @@ def todolist(  # pylint:disable=R0914
 
 def run_job(job: str):
     utila.log(f'start: {job[0:200]}')
-    completed = utila.run(job)
-    utila.assert_success(completed)
+    for step in job:
+        if not isinstance(step, str):
+            step, inpath, section = step
+            pages = genex.pages.select_pages(inpath, section)
+            step += f' --pages={pages}'
+        completed = utila.run(step)
+        utila.assert_success(completed)
     utila.log(f'completed: {job[0:100]}')
 
 
@@ -233,7 +239,9 @@ def create_job(
         'sections',
         'words',
         'docref',
-        'detector',
+        ('detector --bibliography ', iamraw.sections.Bibliography),
+        ('detector --titlepage ', iamraw.sections.TitlePage),
+        'detector --formula ',
         'textflow',
         'doctextstyle',
         'caption',
@@ -241,9 +249,18 @@ def create_job(
         'smarty',
     ]
     for feature in features:
-        if not config.get(feature, False):
+        if not isinstance(feature, str):
+            feature, section = feature
+        else:
+            section = None
+        if not config.get(feature.split()[0], False):
             continue
-        task.append(f'{feature} -j=auto -i={dest} -o={dest}')
-
-    todo = ' && '.join(task)
-    return todo
+        if section:
+            task.append((
+                f'{feature} -j=auto -i={dest} -o={dest}',
+                dest,
+                section,
+            ))
+        else:
+            task.append(f'{feature} -j=auto -i={dest} -o={dest}')
+    return task

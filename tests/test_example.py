@@ -43,6 +43,8 @@ def test_example_extract(testdir):
         pages='0:5',
         groupme=True,
         doctextstyle=True,
+        sections=True,
+        detector=True,
     )
     assert os.path.exists(generated), str(generated)
 
@@ -58,5 +60,6 @@ def test_example_order():
             magic=True,
         ),
     )
+    todo = ' && '.join(todo)  # pylint:disable=R0204
     # ensure to run caption before magic
     assert todo.find('caption') < todo.find('magic')
