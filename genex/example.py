@@ -35,6 +35,7 @@ def extract(  # pylint:disable=R0914
         rawmaker: str = genex.config.CONFIG,
         oneline: str = genex.config.ONELINE,
         *,
+        morefeatures: list = None,
         caption: bool = False,
         detector: bool = False,
         docref: bool = False,
@@ -59,6 +60,7 @@ def extract(  # pylint:disable=R0914
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
+        morefeatures(list): enable optional features
         caption(bool): run if True
         detector(bool): run if True
         docref(bool): run if True
@@ -90,6 +92,7 @@ def extract(  # pylint:disable=R0914
         textflow=textflow,
         words=words,
         full=full,
+        morefeatures=morefeatures,
     )
     with concurrent.futures.ThreadPoolExecutor(max_workers=worker) as executor:
         futures = [executor.submit(run_job, job) for job in todo]
@@ -120,6 +123,7 @@ def todolist(  # pylint:disable=R0914
         words: bool = False,
         smarty: bool = False,
         full: bool = False,
+        morefeatures: list = None,
 ):
     """Create todo list to extract resources.
 
@@ -159,6 +163,7 @@ def todolist(  # pylint:disable=R0914
         config=config,
         rawmaker=rawmaker,
         oneline=oneline,
+        morefeatures=morefeatures,
     )
     return todo
 
@@ -182,6 +187,7 @@ def generate(
         config: dict,
         rawmaker: str,
         oneline: str,
+        morefeatures: list = None,
 ) -> list:
     todo = []
     single_pages = genex.utils.paged(files, default=pages)
@@ -196,6 +202,7 @@ def generate(
             config=config,
             rawmaker=rawmaker,
             oneline=oneline,
+            morefeatures=morefeatures,
         )
         todo.append(next_job)
     return todo
@@ -208,6 +215,7 @@ def create_job(
         oneline: str,
         pages: tuple = None,
         config: dict = None,
+        morefeatures: list = None,
 ) -> str:
     """Create job to run required steps for next processing unit.
 
@@ -218,6 +226,7 @@ def create_job(
         oneline: default oneline config
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
+        morefeatures: add userbased features
     Returns:
         Created process todo description.
     """
@@ -249,6 +258,14 @@ def create_job(
         'magic',
         'smarty',
     ]
+    if morefeatures:
+        features.extend(morefeatures)
+        # enable all optional features
+        for item in morefeatures:
+            if not isinstance(item, str):
+                item, _ = item
+            config[item] = True
+
     for feature in features:
         if not isinstance(feature, str):
             feature, section = feature
