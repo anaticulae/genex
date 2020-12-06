@@ -190,21 +190,21 @@ def generate(
         morefeatures: list = None,
 ) -> list:
     todo = []
-    single_pages = genex.utils.paged(files, default=pages)
-    files = list(single_pages.keys())
+    singlepages = genex.utils.paged(files, default=pages)
+    files = list(singlepages.keys())
     names = utilatest.simplify_testfile_names(files, sort=False)
     for inpath, output in zip(files, names):
         dest = os.path.join(outpath, output)
-        next_job = create_job(
+        nextjob = create_job(
             inpath,
             dest,
-            pages=single_pages[inpath],
+            pages=singlepages[inpath],
             config=config,
             rawmaker=rawmaker,
             oneline=oneline,
             morefeatures=morefeatures,
         )
-        todo.append(next_job)
+        todo.append(nextjob)
     return todo
 
 
