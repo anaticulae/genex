@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.5.1
+
+### Feature
+
+* add optional features (7a42b39d3cac)
+
 ## v0.5.0
 
 ### Feature
