@@ -21,6 +21,7 @@ import os.path
 
 import iamraw
 import utila
+import utila.logger
 import utilatest
 
 import genex.config
@@ -170,7 +171,8 @@ def todolist(  # pylint:disable=R0914
 
 
 def run_job(steps: list):
-    rawjob = ' && '.join([str(item) for item in steps])[0:200]
+    verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
+    rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
     utila.log(f'start: {rawjob}')
     for step in steps:
         if not isinstance(step, str):
