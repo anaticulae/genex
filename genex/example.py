@@ -169,16 +169,17 @@ def todolist(  # pylint:disable=R0914
     return todo
 
 
-def run_job(job: str):
-    utila.log(f'start: {job[0:200]}')
-    for step in job:
+def run_job(steps: list):
+    rawjob = ' && '.join([str(item) for item in steps])[0:200]
+    utila.log(f'start: {rawjob}')
+    for step in steps:
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
             step += f' --pages={pages}'
         completed = utila.run(step)
         utila.assert_success(completed)
-    utila.log(f'completed: {job[0:100]}')
+    utila.log(f'completed: {rawjob[0:100]}')
 
 
 def generate(
