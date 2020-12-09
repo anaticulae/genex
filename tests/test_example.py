@@ -30,6 +30,7 @@ def test_example_common_root():
     assert root == expected
 
 
+@utilatest.longrun
 def test_example_extract(testdir):
     root = str(testdir)
     generated = os.path.join(root, 'generated')
