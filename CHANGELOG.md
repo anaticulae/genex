@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.5.3
+
+### Feature
+
+* use verbose level to provide more information (02f6ffbb250f)
+
+### Fix
+
+* adjust logging after changing data type (7d97ae862fcf)
+
 ## v0.5.2
 
 ### Fix
