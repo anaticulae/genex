@@ -11,8 +11,8 @@ utilatest==0.2.2
 power==1.0.0
 
 # required to run example
-rawmaker==2.9.2
+rawmaker==2.9.3
 groupme==0.7.1
 hey==5.5.3
 
-detector==0.11.1
+detector==0.12.0
