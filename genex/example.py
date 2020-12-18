@@ -20,6 +20,7 @@ import os
 import os.path
 
 import iamraw
+import power
 import utila
 import utila.logger
 import utilatest
@@ -77,6 +78,12 @@ def extract(  # pylint:disable=R0914
     Raises:
         Exception: if Exception occurs while extracting file
     """
+    # Ensure to handle single file generation or common resource subfolder
+    # correctly. To determine the output path it is required to determine
+    # the parent path of at least two files. If files provide only a
+    # single file the common file pattern-determination is not possible.
+    # Therefore we have to add the data root of all test files.
+    files = files + [power.REPOSITORY]
     todo = todolist(
         files,
         destination,
