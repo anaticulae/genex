@@ -8,11 +8,11 @@
 # =============================================================================
 
 utilatest==0.2.2
-power==1.0.0
+power==1.1.1
 
 # required to run example
-rawmaker==2.9.3
+rawmaker==2.9.4
 groupme==0.7.2
-hey==5.5.4
+hey==5.6.2
 
-detector==0.12.1
+detector==0.13.0

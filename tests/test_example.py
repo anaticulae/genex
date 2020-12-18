@@ -21,8 +21,8 @@ def test_example_common_root():
         power.BACHELOR111_PDF,
     ]
     expected = {
-        'bachelor_page_111_images_toc',
         'docu_porting_extension_modules',
+        'bachelor_bachelor111',
     }
     root = utilatest.simplify_testfile_names(pdfs)
     # the expected order is not important
