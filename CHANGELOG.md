@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.5.6
+
+### Fix
+
+* add base path to improve auto name generator (8d9f7df7c4af)
+
 ## v0.5.5
 
 ### Fix
