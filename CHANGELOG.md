@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.5.5
+
+### Fix
+
+* add default repo to avoid single resource error (3107f159ddba)
+
 ## v0.5.4
 
 ## v0.5.3
