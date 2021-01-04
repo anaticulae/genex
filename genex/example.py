@@ -37,6 +37,7 @@ def extract(  # pylint:disable=R0914
         worker: int = 12,
         rawmaker: str = genex.config.CONFIG,
         oneline: str = genex.config.ONELINE,
+        base: str = None,
         *,
         morefeatures: list = None,
         caption: bool = False,
@@ -63,6 +64,8 @@ def extract(  # pylint:disable=R0914
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
+        base(str): root to determine generated output names, see comment below
+        ----------
         morefeatures(list): enable optional features
         caption(bool): run if True
         detector(bool): run if True
@@ -83,7 +86,8 @@ def extract(  # pylint:disable=R0914
     # the parent path of at least two files. If files provide only a
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
-    files = files + [power.REPOSITORY]
+    base = [base] if base else [power.REPOSITORY]
+    files = files + base
     todo = todolist(
         files,
         destination,
