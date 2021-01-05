@@ -14,6 +14,7 @@ from genex.config import ONELINE
 from genex.example import create_job
 from genex.example import extract
 from genex.example import generate
+from genex.example import run_job
 from genex.example import todolist
 
 __version__ = '0.5.6'
