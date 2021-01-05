@@ -231,7 +231,7 @@ def create_job(
         pages: tuple = None,
         config: dict = None,
         morefeatures: list = None,
-) -> str:
+) -> list:
     """Create job to run required steps for next processing unit.
 
     Args:
