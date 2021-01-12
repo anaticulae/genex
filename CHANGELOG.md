@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.5.7
+
+### Feature
+
+* externalize job run method (32e400dee348)
+
+### Documentation
+
+* Happy New Year! (f7a281baa399)
+* fix return type information (34dcc2d16987)
+
 ## v0.5.6
 
 ### Fix

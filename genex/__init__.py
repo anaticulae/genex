@@ -17,6 +17,6 @@ from genex.example import generate
 from genex.example import run_job
 from genex.example import todolist
 
-__version__ = '0.5.6'
+__version__ = '0.5.7'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
