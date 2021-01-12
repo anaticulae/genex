@@ -48,6 +48,7 @@ def extract(  # pylint:disable=R0914
         magic: bool = False,
         sections: bool = False,
         smarty: bool = False,
+        spacestation: bool = False,
         textflow: bool = False,
         words: bool = False,
         full: bool = False,
@@ -75,6 +76,7 @@ def extract(  # pylint:disable=R0914
         magic(bool): run if True
         sections(bool): run if True
         smarty(bool): run if True
+        spacestation(bool): run if True
         textflow(bool): run if True
         words(bool): run if True
         full(bool): overwrites every selection and runs all extraction steps
@@ -104,6 +106,7 @@ def extract(  # pylint:disable=R0914
         smarty=smarty,
         textflow=textflow,
         words=words,
+        spacestation=spacestation,
         full=full,
         morefeatures=morefeatures,
     )
@@ -132,9 +135,10 @@ def todolist(  # pylint:disable=R0914
         groupme: bool = False,
         magic: bool = False,
         sections: bool = False,
+        smarty: bool = False,
+        spacestation: bool = False,
         textflow: bool = False,
         words: bool = False,
-        smarty: bool = False,
         full: bool = False,
         morefeatures: list = None,
 ):
@@ -156,6 +160,7 @@ def todolist(  # pylint:disable=R0914
         smarty = True
         textflow = True
         words = True
+        spacestation = True
 
     config = {
         'caption': caption,
@@ -166,6 +171,7 @@ def todolist(  # pylint:disable=R0914
         'magic': magic,
         'sections': sections,
         'smarty': smarty,
+        'spacestation': spacestation,
         'textflow': textflow,
         'words': words,
     }
@@ -254,6 +260,8 @@ def create_job(
         f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}',
         f'linero -i={dest} -o={dest}',
     ]
+    if config.get('spacestation', False):
+        task.append(f'spacestation -i={src} -o={dest}')
     if config.get('groupme', False):
         # run all, disable --toc
         task.append(f'groupme --toc! -j=auto -i={dest} -o={dest}')

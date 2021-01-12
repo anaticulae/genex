@@ -46,6 +46,7 @@ def test_example_extract(testdir):
         doctextstyle=True,
         sections=True,
         detector=True,
+        spacestation=True,
     )
     assert os.path.exists(generated), str(generated)
 
