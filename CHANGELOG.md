@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.1
+
+### Fix
+
+* adjust order to required resources (4d8a516cc053)
+
 ## v0.6.0
 
 ### Feature
