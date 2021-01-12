@@ -261,7 +261,7 @@ def create_job(
         f'linero -i={dest} -o={dest}',
     ]
     if config.get('spacestation', False):
-        task.append(f'spacestation -i={src} -o={dest}')
+        task.append(f'spacestation -i={src} -o={dest} {pages}')
     if config.get('groupme', False):
         # run all, disable --toc
         task.append(f'groupme --toc! -j=auto -i={dest} -o={dest}')
