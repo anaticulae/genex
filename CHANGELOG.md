@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.0
+
+### Feature
+
+* add spacestation to example generator (c7750021aa9e)
+
 ## v0.5.7
 
 ### Feature
