@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.6.2
+
+### Fix
+
+* add missing pages parameter (f56e6464db60)
+
 ## v0.6.1
 
 ### Fix
