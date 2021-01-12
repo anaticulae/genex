@@ -275,10 +275,11 @@ def create_job(
         ('detector --bibliography ', iamraw.sections.Bibliography),
         ('detector --titlepage ', iamraw.sections.TitlePage),
         'detector --formula ',
-        'textflow',
+        'textflow --wordspace!',
         'doctextstyle',
         'caption',
         'magic',
+        'textflow --wordspace',
         'smarty',
     ]
     if morefeatures:
