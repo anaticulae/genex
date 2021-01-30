@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.7.0
+
+### Feature
+
+* shrink abbreviation table extractor to section (7387e74a7d62)
+* shrink abbreviation parser (4952b0281bf3)
+
 ## v0.6.2
 
 ### Fix
