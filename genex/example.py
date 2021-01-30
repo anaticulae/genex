@@ -264,9 +264,11 @@ def create_job(
         task.append(f'spacestation -i={src} -o={dest} {pages}')
     if config.get('groupme', False):
         # run all, disable --toc
-        task.append(f'groupme --toc! -j=auto -i={dest} -o={dest}')
+        task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
         # toc only
         task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
+        # abbreviation table
+        task.append(('groupme --abbreviation', iamraw.sections.AbbreviationTable)) # yapf:disable
 
     features = [  # Hint: Pay attention to the order
         'sections',
