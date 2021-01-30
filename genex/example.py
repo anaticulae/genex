@@ -251,9 +251,7 @@ def create_job(
     Returns:
         Created process todo description.
     """
-    if config is None:
-        config = {}
-
+    config = config if config else {}
     pages = f'--pages={pages}' if pages is not None else ''
     task = [
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
@@ -267,22 +265,29 @@ def create_job(
         task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
         # toc only
         task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
+    task.extend(select_features(config, dest, morefeatures))
+    return task
 
-    features = [  # Hint: Pay attention to the order
-        'sections',
-        ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
-        'words',
-        'docref',
-        ('detector --bibliography ', iamraw.sections.Bibliography),
-        ('detector --titlepage ', iamraw.sections.TitlePage),
-        'detector --formula ',
-        'textflow --wordspace!',
-        'doctextstyle',
-        'caption',
-        'magic',
-        'textflow --wordspace',
-        'smarty',
-    ]
+
+FEATURES = [  # Hint: Pay attention to the order
+    'sections',
+    ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
+    'words',
+    'docref',
+    ('detector --bibliography ', iamraw.sections.Bibliography),
+    ('detector --titlepage ', iamraw.sections.TitlePage),
+    'detector --formula ',
+    'textflow --wordspace!',
+    'doctextstyle',
+    'caption',
+    'magic',
+    'textflow --wordspace',
+    'smarty',
+]
+
+
+def select_features(config: dict, dest: str, morefeatures: list) -> list:
+    features = FEATURES[:]
     if morefeatures:
         features.extend(morefeatures)
         # enable all optional features
@@ -290,7 +295,7 @@ def create_job(
             if not isinstance(item, str):
                 item, _ = item
             config[item] = True
-
+    task = []
     for feature in features:
         if not isinstance(feature, str):
             feature, section = feature
