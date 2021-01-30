@@ -267,11 +267,10 @@ def create_job(
         task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
         # toc only
         task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
-        # abbreviation table
-        task.append(('groupme --abbreviation', iamraw.sections.AbbreviationTable)) # yapf:disable
 
     features = [  # Hint: Pay attention to the order
         'sections',
+        ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
         'words',
         'docref',
         ('detector --bibliography ', iamraw.sections.Bibliography),
