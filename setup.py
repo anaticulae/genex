@@ -14,34 +14,26 @@ import re
 import setuptools
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
-UTF8 = 'utf8'
 
-with open(os.path.join(ROOT, 'README.md'), mode='rt', encoding=UTF8) as fp:
+with open(os.path.join(ROOT, 'README.md'), mode='rt', encoding='utf8') as fp:
     README = fp.read()
 
-with open(
-        os.path.join(ROOT, 'genex/__init__.py'), mode='rt',
-        encoding=UTF8) as fp:
+with open(os.path.join(ROOT, 'genex/__init__.py'), encoding='utf8') as fp:
     VERSION = re.search(r'__version__ = \'(.*?)\'', fp.read()).group(1)
 
-with open(
-        os.path.join(ROOT, "requirements.txt"), mode='rt', encoding=UTF8) as fp:
-    INSTALL_REQUIRES = [
-        line for line in fp.readlines() if line and '#' not in line
-    ]
+with open(os.path.join(ROOT, "requirements.txt"), encoding='utf8') as fp:
+    REQUIRES = [line for line in fp.readlines() if line and '#' not in line]
 
 if __name__ == "__main__":
-    # allow ssetup.py to run from another directory
-    os.chdir(ROOT)
     setuptools.setup(
         author='Helmut Konrad Fahrendholz',
         author_email='info@checkitweg.de',
         description='example generator',
-        install_requires=INSTALL_REQUIRES,
+        install_requires=REQUIRES,
         long_description=README,
         name='genex',
         platforms='any',
-        url='https://dev.package.checkitweg.de/genex',
+        url='https://genex.package.dev.checkitweg.de',
         version=VERSION,
         zip_safe=False,  # create 'zip'-file if True. Don't do it!
         classifiers=[
