@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.7.1
+
+### Fix
+
+* disable groupme --abbreviations if sections is not given (ba1a22d4adf6)
+
 ## v0.7.0
 
 ### Feature
