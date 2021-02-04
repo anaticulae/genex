@@ -295,6 +295,10 @@ def select_features(config: dict, dest: str, morefeatures: list) -> list:
             if not isinstance(item, str):
                 item, _ = item
             config[item] = True
+    if not config.get('sections', False):
+        # disable groupme --abbreviations cause sections_result is
+        # required.
+        config['groupme'] = False
     task = []
     for feature in features:
         if not isinstance(feature, str):

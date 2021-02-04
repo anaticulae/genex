@@ -50,6 +50,24 @@ def test_example_extract(testdir):
     assert os.path.exists(generated), str(generated)
 
 
+def test_example_disable_abbreviation_step(testdir):
+    """Disable groupme --abbreviation if sections is disabled cause
+    groupme --abbreviations requires section_result."""
+    generated = os.path.join(testdir.tmpdir, 'generated')
+    pdfs = [
+        power.DOCU09_PDF,
+    ]
+    genex.extract(
+        pdfs,
+        generated,
+        pages='0:5',
+        groupme=True,
+        sections=False,
+        base=power.REPOSITORY,
+    )
+    assert os.path.exists(generated), str(generated)
+
+
 def test_example_order():
     todo = genex.create_job(
         'source',
