@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.7.3
+
+### Fix
+
+* avoid side effect to global config (2e0d470ce9ce)
+
 ## v0.7.2
 
 ## v0.7.1
