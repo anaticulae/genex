@@ -287,6 +287,9 @@ FEATURES = [  # Hint: Pay attention to the order
 
 
 def select_features(config: dict, dest: str, morefeatures: list) -> list:
+    # create a copy to avoid side effects, that disabling groupme does not
+    # interfere with further steps.
+    config = dict(config)
     features = FEATURES[:]
     if morefeatures:
         features.extend(morefeatures)
