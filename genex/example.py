@@ -186,17 +186,24 @@ def todolist(  # pylint:disable=R0914
     return todo
 
 
-def run_job(steps: list):
+def run_job(job: tuple):
+    steps, destination = job
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
     rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
     utila.log(f'start: {rawjob}')
+    logged = []
     for step in steps:
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
             step += f' --pages={pages}'
         completed = utila.run(step)
+        logged.append(completed.stderr)
+        logged.append(completed.stdout)
         utila.assert_success(completed)
+    log = utila.NEWLINE.join(logged)
+    logpath = os.path.join(destination, 'generated.log')
+    utila.file_create(logpath, log)
     utila.log(f'completed: {rawjob[0:100]}')
 
 
@@ -265,7 +272,7 @@ def create_job(
         # toc only
         task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     task.extend(select_features(config, dest, morefeatures))
-    return task
+    return task, dest
 
 
 FEATURES = [  # Hint: Pay attention to the order

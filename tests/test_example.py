@@ -69,7 +69,7 @@ def test_example_disable_abbreviation_step(testdir):
 
 
 def test_example_order():
-    todo = genex.create_job(
+    todo, _ = genex.create_job(
         'source',
         'dest',
         'rawmaker_normal',
