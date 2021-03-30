@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.8.0
+
+### Feature
+
+* gather and write generated log (ad0b73b5a4df)
+
 ## v0.7.3
 
 ### Fix
