@@ -17,7 +17,6 @@ generator code.
 
 import concurrent.futures
 import os
-import os.path
 
 import iamraw
 import power
