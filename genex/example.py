@@ -30,27 +30,27 @@ import genex.utils
 
 
 def extract(  # pylint:disable=R0914
-        files: list,
-        destination: str,
-        pages: str = '0:10',
-        worker: int = 12,
-        rawmaker: str = genex.config.CONFIG,
-        oneline: str = genex.config.ONELINE,
-        base: str = None,
-        *,
-        morefeatures: list = None,
-        caption: bool = False,
-        detector: bool = False,
-        docref: bool = False,
-        doctextstyle: bool = False,
-        groupme: bool = False,
-        magic: bool = False,
-        sections: bool = False,
-        smarty: bool = False,
-        spacestation: bool = False,
-        textflow: bool = False,
-        words: bool = False,
-        full: bool = False,
+    files: list,
+    destination: str,
+    pages: str = '0:10',
+    worker: int = 12,
+    rawmaker: str = genex.config.CONFIG,
+    oneline: str = genex.config.ONELINE,
+    base: str = None,
+    *,
+    morefeatures: list = None,
+    caption: bool = False,
+    detector: bool = False,
+    docref: bool = False,
+    doctextstyle: bool = False,
+    groupme: bool = False,
+    magic: bool = False,
+    sections: bool = False,
+    smarty: bool = False,
+    spacestation: bool = False,
+    textflow: bool = False,
+    words: bool = False,
+    full: bool = False,
 ):
     """Run rawmaker, groupme, sections and words for given `files` and write
     result to `destination`.
@@ -121,25 +121,25 @@ def extract(  # pylint:disable=R0914
 
 
 def todolist(  # pylint:disable=R0914
-        files: list,
-        destination: str,
-        pages: str = '0:10',
-        rawmaker: str = genex.config.CONFIG,
-        oneline: str = genex.config.ONELINE,
-        *,
-        caption: bool = False,
-        detector: bool = False,
-        docref: bool = False,
-        doctextstyle: bool = False,
-        groupme: bool = False,
-        magic: bool = False,
-        sections: bool = False,
-        smarty: bool = False,
-        spacestation: bool = False,
-        textflow: bool = False,
-        words: bool = False,
-        full: bool = False,
-        morefeatures: list = None,
+    files: list,
+    destination: str,
+    pages: str = '0:10',
+    rawmaker: str = genex.config.CONFIG,
+    oneline: str = genex.config.ONELINE,
+    *,
+    caption: bool = False,
+    detector: bool = False,
+    docref: bool = False,
+    doctextstyle: bool = False,
+    groupme: bool = False,
+    magic: bool = False,
+    sections: bool = False,
+    smarty: bool = False,
+    spacestation: bool = False,
+    textflow: bool = False,
+    words: bool = False,
+    full: bool = False,
+    morefeatures: list = None,
 ):
     """Create todo list to extract resources.
 
@@ -208,13 +208,13 @@ def run_job(job: tuple):
 
 
 def generate(
-        files: list,
-        outpath: str,
-        pages: str,
-        config: dict,
-        rawmaker: str,
-        oneline: str,
-        morefeatures: list = None,
+    files: list,
+    outpath: str,
+    pages: str,
+    config: dict,
+    rawmaker: str,
+    oneline: str,
+    morefeatures: list = None,
 ) -> list:
     todo = []
     singlepages = genex.utils.paged(files, default=pages)
@@ -236,13 +236,13 @@ def generate(
 
 
 def create_job(
-        src: str,
-        dest: str,
-        rawmaker: str,
-        oneline: str,
-        pages: tuple = None,
-        config: dict = None,
-        morefeatures: list = None,
+    src: str,
+    dest: str,
+    rawmaker: str,
+    oneline: str,
+    pages: tuple = None,
+    config: dict = None,
+    morefeatures: list = None,
 ) -> list:
     """Create job to run required steps for next processing unit.
 
