@@ -21,7 +21,7 @@ def test_example_common_root():
         power.BACHELOR111_PDF,
     ]
     expected = {
-        'docu_porting_extension_modules',
+        'docu_docu009',
         'bachelor_bachelor111',
     }
     root = utilatest.simplify_testfile_names(pdfs)
