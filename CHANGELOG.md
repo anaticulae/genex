@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.9.0
+
+### Feature
+
+* add extraction with remove step (606c08ff5434)
+
 ## v0.8.0
 
 ### Feature
