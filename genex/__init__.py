@@ -16,6 +16,7 @@ from genex.example import extract
 from genex.example import generate
 from genex.example import run_job
 from genex.example import todolist
+from genex.nopage import extract_removepages
 
 __version__ = '0.8.0'
 
