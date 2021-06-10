@@ -17,12 +17,12 @@ import genex
 
 
 def extract_removepages(
-        resources,
-        dest=None,
-        removepages: str = '1:3',
-        folder: str = 'notoc',
-        worker: str = 8,
-        **kwargs,
+    resources,
+    dest=None,
+    removepages: str = '1:3',
+    folder: str = 'notoc',
+    worker: str = 8,
+    **kwargs,
 ):
     dest = power.generated(folder=folder) if not dest else dest
     files = [
