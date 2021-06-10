@@ -263,6 +263,7 @@ def create_job(
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
         f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}',
         f'linero -i={dest} -o={dest}',
+        f'pdfinfo -i={src} -o={dest} --format=yaml',
     ]
     if config.get('spacestation', False):
         task.append(f'spacestation -i={src} -o={dest} {pages}')
