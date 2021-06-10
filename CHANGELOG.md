@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.10.0
+
+### Feature
+
+* run pdfinfo (8a9d5cdb04e0)
+
 ## v0.9.0
 
 ### Feature
