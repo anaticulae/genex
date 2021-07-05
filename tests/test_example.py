@@ -10,6 +10,7 @@
 import os
 
 import power
+import utila
 import utilatest
 
 import genex
@@ -81,4 +82,6 @@ def test_example_order():
     )
     todo = ' && '.join(todo)  # pylint:disable=R0204
     # ensure to run caption before magic
-    assert todo.find('caption') < todo.find('magic')
+    magics = utila.findindex(todo, 'magic')
+    assert len(magics) == 2
+    assert magics[0] < todo.find('caption') < magics[1]

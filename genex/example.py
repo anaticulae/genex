@@ -281,6 +281,7 @@ def create_job(
 FEATURES = [  # Hint: Pay attention to the order
     'sections',
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
+    'magic',
     'words',
     'docref',
     ('detector --bibliography ', iamraw.sections.Bibliography),
