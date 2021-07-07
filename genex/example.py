@@ -269,11 +269,16 @@ def create_job(
     ]
     if config.get('spacestation', False):
         task.append(f'spacestation -i={src} -o={dest} {pages}')
-    if config.get('groupme', False):
-        # run all, disable --toc
-        task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
-        # toc only
-        task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
+    groupme = config.get('groupme', False)
+    if groupme:
+        if isinstance(groupme, str):
+            # use specialized groupme config
+            task.append(f'groupme -i={dest} -o={dest} {groupme}')
+        else:
+            # run all, disable --toc
+            task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
+            # toc only
+            task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
