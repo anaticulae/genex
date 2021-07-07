@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.11.1
+
+### Fix
+
+* do not fail if dir is already created (bbcf8a19714e)
+
 ## v0.11.0
 
 ### Feature
