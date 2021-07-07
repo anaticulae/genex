@@ -192,7 +192,7 @@ def run_job(job: tuple):
     rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
     rawjob = utila.forward_slash(rawjob)
     utila.log(f'start: {rawjob}')
-    os.makedirs(destination)
+    os.makedirs(destination, exist_ok=True)
     logpath = os.path.join(destination, 'generated.log')
     utila.file_create(logpath, utila.timedate())
     for step in steps:
