@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.11.0
+
+### Feature
+
+* add option to run with specialized groupme config (4deaf969c8a6)
+* run magic to use in words (812b1120d146)
+* use live logging (a2cedf93f149)
+
 ## v0.10.0
 
 ### Feature
