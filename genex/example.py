@@ -194,7 +194,7 @@ def run_job(job: tuple):
     utila.log(f'start: {rawjob}')
     os.makedirs(destination, exist_ok=True)
     logpath = os.path.join(destination, 'generated.log')
-    utila.file_create(logpath, utila.timedate())
+    utila.file_create(logpath, f'{utila.timedate()}\n')
     for step in steps:
         if not isinstance(step, str):
             step, inpath, section = step
