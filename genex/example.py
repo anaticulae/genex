@@ -190,7 +190,7 @@ def run_job(job: tuple):
     steps, destination = job
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
     rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
-    rawjob = utila.forward_slash(rawjob)
+    rawjob = utila.forward_slash(rawjob, newline=False)
     utila.log(f'start: {rawjob}')
     os.makedirs(destination, exist_ok=True)
     logpath = os.path.join(destination, 'generated.log')
@@ -202,7 +202,7 @@ def run_job(job: tuple):
             step += f' --pages={pages}'
         completed = utila.run(step)
         # log progress to log file
-        utila.file_append(logpath, step)
+        utila.file_append(logpath, utila.forward_slash(step, newline=False))
         utila.file_append(logpath, completed.stderr)
         utila.file_append(logpath, completed.stdout)
         utila.assert_success(completed)
