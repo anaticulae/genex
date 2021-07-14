@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.11.2
+
+### Feature
+
+* add option to make generation more specific (1b8cf17c17e9)
+
+### Fix
+
+* convert \n to /n in path (c05ab06ee524)
+* add missing newline (7eb4132a761e)
+
 ## v0.11.1
 
 ### Fix
