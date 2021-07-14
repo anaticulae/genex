@@ -36,6 +36,8 @@ def extract(  # pylint:disable=R0914
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
+    linero: bool = True,
+    pdfinfo: bool = True,
     base: str = None,
     *,
     morefeatures: list = None,
@@ -64,6 +66,8 @@ def extract(  # pylint:disable=R0914
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
+        linero(bool): run if True
+        pdfinfo(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
         morefeatures(list): enable optional features
@@ -98,14 +102,16 @@ def extract(  # pylint:disable=R0914
         docref=docref,
         doctextstyle=doctextstyle,
         groupme=groupme,
+        linero=linero,
         magic=magic,
         oneline=oneline,
+        pdfinfo=pdfinfo,
         rawmaker=rawmaker,
         sections=sections,
         smarty=smarty,
+        spacestation=spacestation,
         textflow=textflow,
         words=words,
-        spacestation=spacestation,
         full=full,
         morefeatures=morefeatures,
     )
@@ -126,6 +132,8 @@ def todolist(  # pylint:disable=R0914
     pages: str = '0:10',
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
+    linero: bool = True,
+    pdfinfo: bool = True,
     *,
     caption: bool = False,
     detector: bool = False,
@@ -154,13 +162,14 @@ def todolist(  # pylint:disable=R0914
         docref = True
         doctextstyle = True
         groupme = True
+        linero = True
         magic = True
+        pdfinfo = True
         sections = True
         smarty = True
+        spacestation = True
         textflow = True
         words = True
-        spacestation = True
-
     config = {
         'caption': caption,
         'detector': detector,
@@ -181,6 +190,8 @@ def todolist(  # pylint:disable=R0914
         config=config,
         rawmaker=rawmaker,
         oneline=oneline,
+        pdfinfo=pdfinfo,
+        linero=linero,
         morefeatures=morefeatures,
     )
     return todo
@@ -209,13 +220,15 @@ def run_job(job: tuple):
     utila.log(f'completed: {rawjob[0:100]}')
 
 
-def generate(
+def generate(  # pylint:disable=R0914
     files: list,
     outpath: str,
     pages: str,
     config: dict,
     rawmaker: str,
     oneline: str,
+    linero: bool = True,
+    pdfinfo: bool = True,
     morefeatures: list = None,
 ) -> list:
     todo = []
@@ -231,6 +244,8 @@ def generate(
             config=config,
             rawmaker=rawmaker,
             oneline=oneline,
+            linero=linero,
+            pdfinfo=pdfinfo,
             morefeatures=morefeatures,
         )
         todo.append(nextjob)
@@ -242,6 +257,8 @@ def create_job(
     dest: str,
     rawmaker: str,
     oneline: str,
+    linero: bool = True,
+    pdfinfo: bool = True,
     pages: tuple = None,
     config: dict = None,
     morefeatures: list = None,
@@ -253,6 +270,8 @@ def create_job(
         dest: output path to output folder
         rawmaker: default config
         oneline: default oneline config
+        linero: run linero
+        pdfinfo: run pdfinfo
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
         morefeatures: add userbased features
@@ -263,10 +282,14 @@ def create_job(
     pages = f'--pages={pages}' if pages is not None else ''
     task = [
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
-        f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}',
-        f'linero -i={dest} -o={dest}',
-        f'pdfinfo -i={src} -o={dest} --format=yaml',
     ]
+    if oneline:
+        # skip with oneline = None
+        task.append(f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}')
+    if linero:
+        task.append(f'linero -i={dest} -o={dest}')
+    if pdfinfo:
+        task.append(f'pdfinfo -i={src} -o={dest} --format=yaml')
     if config.get('spacestation', False):
         task.append(f'spacestation -i={src} -o={dest} {pages}')
     groupme = config.get('groupme', False)
