@@ -16,8 +16,7 @@ import genex
 
 
 def test_extract_bachelor37_abbreviation_table(testdir):
-    """Shrink abbreviation table extractor to abbreviation table
-    section."""
+    """Shrink abbreviation table extractor to abbreviation table section."""
     files = [
         power.BACHELOR037_PDF,
     ]
