@@ -280,6 +280,8 @@ def create_job(
     """
     config = config if config else {}
     pages = f'--pages={pages}' if pages is not None else ''
+    src = utila.forward_slash(src, newline=False)
+    dest = utila.forward_slash(dest, newline=False)
     task = [
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
     ]
@@ -302,6 +304,13 @@ def create_job(
             task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
             # toc only
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
+    if linero:
+        task.append(f'groupme -i={dest} -o={dest} --content')
+        table = utila.forward_slash(os.path.join(dest, "table"), newline=False)
+        task.append(
+            f'python -c "import shutil; shutil.copyfile(\'{src}\', \'{table}\')"'
+        )
+        task.append(f'tablero -i={dest} -o={dest}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
