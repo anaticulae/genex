@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.12.1
+
+### Feature
+
+* run area again to use tablero data (587b651c3b4e)
+* log number of started job (d9b67a09b617)
+
 ## v0.12.0
 
 ### Feature
