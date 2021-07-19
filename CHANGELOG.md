@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.12.0
+
+### Feature
+
+* add tablero extraction step (5409395e385f)
+
 ## v0.11.2
 
 ### Feature
