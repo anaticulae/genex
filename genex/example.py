@@ -116,7 +116,10 @@ def extract(  # pylint:disable=R0914
         morefeatures=morefeatures,
     )
     with concurrent.futures.ThreadPoolExecutor(max_workers=worker) as executor:
-        futures = [executor.submit(run_job, job) for job in todo]
+        futures = [
+            executor.submit(run_job, job, (index, len(todo)))
+            for index, job in enumerate(todo)
+        ]
         for future in concurrent.futures.as_completed(futures):
             try:
                 comment = future.result()
@@ -197,12 +200,13 @@ def todolist(  # pylint:disable=R0914
     return todo
 
 
-def run_job(job: tuple):
+def run_job(job: tuple, number: tuple = None):
     steps, destination = job
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
     rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
     rawjob = utila.forward_slash(rawjob, newline=False)
-    utila.log(f'start: {rawjob}')
+    number = '' if not number else f'[{number[0]}|{number[1]}] '
+    utila.log(f'{number}start: {rawjob}')
     os.makedirs(destination, exist_ok=True)
     logpath = os.path.join(destination, 'generated.log')
     utila.file_create(logpath, f'{utila.timedate()}\n')
