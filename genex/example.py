@@ -315,6 +315,7 @@ def create_job(
             f'python -c "import shutil; shutil.copyfile(\'{src}\', \'{table}\')"'
         )
         task.append(f'tablero -i={dest} -o={dest}')
+        task.append(f'groupme -i={dest} -o={dest} --area')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
