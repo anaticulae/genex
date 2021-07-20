@@ -284,6 +284,8 @@ def create_job(
     """
     config = config if config else {}
     pages = f'--pages={pages}' if pages is not None else ''
+    # ensure that testdir.tmpdir is converted to str before using forward_slash
+    src, dest = str(src), str(dest)
     src = utila.forward_slash(src, newline=False)
     dest = utila.forward_slash(dest, newline=False)
     task = [
