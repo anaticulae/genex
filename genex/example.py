@@ -324,12 +324,13 @@ def create_job(
         )
         task.append(f'tablero -i={dest} -o={dest}')
         task.append(f'groupme -i={dest} -o={dest} --area')
+    if config.get('figureo', False):
+        task.append(f'figureo -i={src} -i={dest} -o={dest}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
 
 FEATURES = [  # Hint: Pay attention to the order
-    'figureo',
     'sections',
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
     'magic',
