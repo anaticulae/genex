@@ -45,6 +45,7 @@ def extract(  # pylint:disable=R0914
     detector: bool = False,
     docref: bool = False,
     doctextstyle: bool = False,
+    figureo: bool = False,
     groupme: bool = False,
     magic: bool = False,
     sections: bool = False,
@@ -75,6 +76,7 @@ def extract(  # pylint:disable=R0914
         detector(bool): run if True
         docref(bool): run if True
         doctextstyle(bool): run if True
+        figureo(bool): run if True
         groupme(bool): run if True
         magic(bool): run if True
         sections(bool): run if True
@@ -101,6 +103,7 @@ def extract(  # pylint:disable=R0914
         detector=detector,
         docref=docref,
         doctextstyle=doctextstyle,
+        figureo=figureo,
         groupme=groupme,
         linero=linero,
         magic=magic,
@@ -142,6 +145,7 @@ def todolist(  # pylint:disable=R0914
     detector: bool = False,
     docref: bool = False,
     doctextstyle: bool = False,
+    figureo: bool = False,
     groupme: bool = False,
     magic: bool = False,
     sections: bool = False,
@@ -164,6 +168,7 @@ def todolist(  # pylint:disable=R0914
         detector = True
         docref = True
         doctextstyle = True
+        figureo = True
         groupme = True
         linero = True
         magic = True
@@ -178,6 +183,7 @@ def todolist(  # pylint:disable=R0914
         'detector': detector,
         'docref': docref,
         'doctextstyle': doctextstyle,
+        'figureo': figureo,
         'groupme': groupme,
         'magic': magic,
         'sections': sections,
@@ -323,6 +329,7 @@ def create_job(
 
 
 FEATURES = [  # Hint: Pay attention to the order
+    'figureo',
     'sections',
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
     'magic',
