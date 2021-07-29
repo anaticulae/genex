@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.13.1
+
+### Fix
+
+* add missing pdf discover path (44ef49e5b877)
+
 ## v0.13.0
 
 ### Feature
