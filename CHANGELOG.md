@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.13.0
+
+### Feature
+
+* add option to run figureo (be0aa5ef61e3)
+
+### Fix
+
+* do not fail on passing test.tmpdir as dest (8feeecda4be2)
+* use zero base indexing (8e7f6d3e43f2)
+
 ## v0.12.1
 
 ### Feature

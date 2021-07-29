@@ -18,6 +18,6 @@ from genex.example import run_job
 from genex.example import todolist
 from genex.nopage import extract_removepages
 
-__version__ = '0.12.1'
+__version__ = '0.13.0'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
