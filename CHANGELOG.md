@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.14.0
+
+### Feature
+
+* use --table parameter to run tablero (b42ac74e17b9)
+
+### Fix
+
+* shrink tablero and figureo to given pages (ecca7e43222e)
+
 ## v0.13.1
 
 ### Fix
