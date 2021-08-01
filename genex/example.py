@@ -318,10 +318,10 @@ def create_job(
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     if linero:
         task.append(f'groupme -i={dest} -o={dest} --content')
-        task.append(f'tablero -i={dest} --table={src} -o={dest}')
+        task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} -j=auto') # yapf:disable
         task.append(f'groupme -i={dest} -o={dest} --area')
     if config.get('figureo', False):
-        task.append(f'figureo -i={src} -i={dest} -o={dest}')
+        task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
