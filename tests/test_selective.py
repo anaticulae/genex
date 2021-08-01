@@ -11,10 +11,12 @@ import os
 
 import power
 import serializeraw
+import utilatest
 
 import genex
 
 
+@utilatest.longrun
 def test_extract_bachelor37_abbreviation_table(testdir):
     """Shrink abbreviation table extractor to abbreviation table section."""
     files = [

@@ -51,6 +51,7 @@ def test_example_extract(testdir):
     assert os.path.exists(generated), str(generated)
 
 
+@utilatest.longrun
 def test_example_disable_abbreviation_step(testdir):
     """Disable groupme --abbreviation if sections is disabled cause
     groupme --abbreviations requires section_result."""
