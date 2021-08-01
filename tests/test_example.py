@@ -81,7 +81,7 @@ def test_example_order():
             magic=True,
         ),
     )
-    todo = ' && '.join(todo)  # pylint:disable=R0204
+    todo = ' && '.join(todo)
     # ensure to run caption before magic
     magics = utila.findindex(todo, 'magic')
     assert len(magics) == 2
