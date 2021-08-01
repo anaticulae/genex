@@ -318,11 +318,7 @@ def create_job(
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     if linero:
         task.append(f'groupme -i={dest} -o={dest} --content')
-        table = utila.forward_slash(os.path.join(dest, "table"), newline=False)
-        task.append(
-            f'python -c "import shutil; shutil.copyfile(\'{src}\', \'{table}\')"'
-        )
-        task.append(f'tablero -i={dest} -o={dest}')
+        task.append(f'tablero -i={dest} --table={src} -o={dest}')
         task.append(f'groupme -i={dest} -o={dest} --area')
     if config.get('figureo', False):
         task.append(f'figureo -i={src} -i={dest} -o={dest}')
