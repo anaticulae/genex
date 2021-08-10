@@ -300,8 +300,6 @@ def create_job(
     if oneline:
         # skip with oneline = None
         task.append(f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}')
-    if linero:
-        task.append(f'linero -i={dest} -o={dest}')
     if pdfinfo:
         task.append(f'pdfinfo -i={src} -o={dest} --format=yaml')
     if config.get('spacestation', False):
