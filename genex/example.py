@@ -9,10 +9,11 @@
 """Test-Data-Generator
 ===================
 
-The purpose of this test-data-generator is to deliver easy use test data
-for following analysis steps. Furthermore these examples shows how to
-use the different tools together. We do not want to duplicate any
-generator code.
+The purpose of this test-data-generator is to deliver easy to use test
+data for following analysis steps.
+
+Furthermore these examples shows how to use the different tools
+together. We do not want to duplicate any generator code.
 """
 
 import concurrent.futures
