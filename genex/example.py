@@ -36,6 +36,7 @@ def extract(  # pylint:disable=R0914
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
+    rawmaker_cleanup: bool = True,
     linero: bool = True,
     pdfinfo: bool = True,
     base: str = None,
@@ -67,6 +68,7 @@ def extract(  # pylint:disable=R0914
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
+        rawmaker_cleanup(str): run if True
         linero(bool): run if True
         pdfinfo(bool): run if True
         base(str): root to determine generated output names, see comment below
@@ -110,6 +112,7 @@ def extract(  # pylint:disable=R0914
         oneline=oneline,
         pdfinfo=pdfinfo,
         rawmaker=rawmaker,
+        rawmaker_cleanup=rawmaker_cleanup,
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
@@ -140,6 +143,7 @@ def todolist(  # pylint:disable=R0914
     oneline: str = genex.config.ONELINE,
     linero: bool = True,
     pdfinfo: bool = True,
+    rawmaker_cleanup: bool = True,
     *,
     caption: bool = False,
     detector: bool = False,
@@ -178,6 +182,7 @@ def todolist(  # pylint:disable=R0914
         spacestation = True
         textflow = True
         words = True
+        rawmaker_cleanup = True
     config = {
         'caption': caption,
         'detector': detector,
@@ -191,6 +196,7 @@ def todolist(  # pylint:disable=R0914
         'spacestation': spacestation,
         'textflow': textflow,
         'words': words,
+        'rawmaker_cleanup': rawmaker_cleanup,
     }
     todo = generate(
         files,
@@ -322,6 +328,11 @@ def create_job(
         task.append(f'groupme -i={dest} -o={dest} --area')
     if config.get('figureo', False):
         task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
+    if config.get('rawmaker_cleanup', False):
+        task.append(f'rawmaker_cleanup -i={dest} -o={dest} --backup {pages}')
+        if oneline:
+            task.append(f'rawmaker_cleanup -i={dest} -o={dest} '
+                        f'--prefix=oneline --backup {pages}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
