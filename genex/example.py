@@ -37,7 +37,7 @@ def extract(  # pylint:disable=R0914
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
     rawmaker_cleanup: bool = True,
-    linero: bool = True,
+    tablero: bool = True,
     pdfinfo: bool = True,
     base: str = None,
     *,
@@ -69,7 +69,7 @@ def extract(  # pylint:disable=R0914
         rawmaker(str): default config
         oneline(str): oneline config
         rawmaker_cleanup(str): run if True
-        linero(bool): run if True
+        tablero(bool): run if True
         pdfinfo(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
@@ -107,7 +107,7 @@ def extract(  # pylint:disable=R0914
         doctextstyle=doctextstyle,
         figureo=figureo,
         groupme=groupme,
-        linero=linero,
+        tablero=tablero,
         magic=magic,
         oneline=oneline,
         pdfinfo=pdfinfo,
@@ -141,7 +141,7 @@ def todolist(  # pylint:disable=R0914
     pages: str = '0:10',
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
-    linero: bool = True,
+    tablero: bool = True,
     pdfinfo: bool = True,
     rawmaker_cleanup: bool = True,
     *,
@@ -174,7 +174,7 @@ def todolist(  # pylint:disable=R0914
         doctextstyle = True
         figureo = True
         groupme = True
-        linero = True
+        tablero = True
         magic = True
         pdfinfo = True
         sections = True
@@ -206,7 +206,7 @@ def todolist(  # pylint:disable=R0914
         rawmaker=rawmaker,
         oneline=oneline,
         pdfinfo=pdfinfo,
-        linero=linero,
+        tablero=tablero,
         morefeatures=morefeatures,
     )
     return todo
@@ -249,7 +249,7 @@ def generate(  # pylint:disable=R0914
     config: dict,
     rawmaker: str,
     oneline: str,
-    linero: bool = True,
+    tablero: bool = True,
     pdfinfo: bool = True,
     morefeatures: list = None,
 ) -> list:
@@ -266,7 +266,7 @@ def generate(  # pylint:disable=R0914
             config=config,
             rawmaker=rawmaker,
             oneline=oneline,
-            linero=linero,
+            tablero=tablero,
             pdfinfo=pdfinfo,
             morefeatures=morefeatures,
         )
@@ -279,7 +279,7 @@ def create_job(
     dest: str,
     rawmaker: str,
     oneline: str,
-    linero: bool = True,
+    tablero: bool = True,
     pdfinfo: bool = True,
     pages: tuple = None,
     config: dict = None,
@@ -292,7 +292,7 @@ def create_job(
         dest: output path to output folder
         rawmaker: default config
         oneline: default oneline config
-        linero: run linero
+        tablero: run linero
         pdfinfo: run pdfinfo
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
@@ -327,7 +327,7 @@ def create_job(
                         f'-o={dest}')
             # toc only
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
-    if linero:
+    if tablero:
         task.append(f'groupme -i={dest} -o={dest} --content')
         task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} '
                     '-j=auto')

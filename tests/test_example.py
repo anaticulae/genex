@@ -46,8 +46,9 @@ def test_example_extract(testdir):
         doctextstyle=True,
         figureo=True,
         groupme=True,
-        linero=True,
+        tablero=True,
         sections=True,
+        rawmaker_cleanup=True,
         spacestation=True,
     )
     assert os.path.exists(generated), str(generated)
