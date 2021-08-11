@@ -311,12 +311,14 @@ def create_job(
             task.append(f'groupme -i={dest} -o={dest} {groupme}')
         else:
             # run all, disable --toc
-            task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} -o={dest}') # yapf:disable
+            task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} '
+                        f'-o={dest}')
             # toc only
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     if linero:
         task.append(f'groupme -i={dest} -o={dest} --content')
-        task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} -j=auto') # yapf:disable
+        task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} '
+                    '-j=auto')
         task.append(f'groupme -i={dest} -o={dest} --area')
     if config.get('figureo', False):
         task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
