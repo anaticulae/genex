@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.15.0
+
+### Feature
+
+* log final execution time (8cab6124f7cd)
+* add cleanup runner (1554246664b4)
+
+### Fix
+
+* log stderr after stdout (e6c33b9a3595)
+
 ## v0.14.0
 
 ### Feature
