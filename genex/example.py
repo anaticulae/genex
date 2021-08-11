@@ -234,6 +234,7 @@ def run_job(job: tuple, number: tuple = None):
         utila.file_append(logpath, completed.stderr)
         utila.file_append(logpath, completed.stdout)
         utila.assert_success(completed)
+    utila.file_append(logpath, f'{utila.timedate()}\n')
     utila.log(f'completed: {rawjob[0:100]}')
 
 
