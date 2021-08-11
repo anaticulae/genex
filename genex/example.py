@@ -27,7 +27,6 @@ import utilatest
 
 import genex.config
 import genex.pages
-import genex.utils
 
 
 def extract(  # pylint:disable=R0914
@@ -255,7 +254,7 @@ def generate(  # pylint:disable=R0914
     morefeatures: list = None,
 ) -> list:
     todo = []
-    singlepages = genex.utils.paged(files, default=pages)
+    singlepages = genex.pages.paged(files, default=pages)
     files = list(singlepages.keys())
     names = utilatest.simplify_testfile_names(files, sort=False)
     for inpath, output in zip(files, names):
