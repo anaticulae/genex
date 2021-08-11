@@ -216,11 +216,15 @@ def todolist(  # pylint:disable=R0914
 def run_job(job: tuple, number: tuple = None):
     steps, dest = job
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
-    rawjob = ' && '.join([str(item) for item in steps])[0:verbosity]
+    # prepare run
+    rawjob = utila.from_tuple(steps, separator=' && ')[0:verbosity]
     rawjob = utila.forward_slash(rawjob, newline=False)
+    # log job start
     number = '' if not number else f'[{number[0]}|{number[1]}] '
     utila.log(f'{number}start: {rawjob}')
+    # create result folder
     os.makedirs(dest, exist_ok=True)
+    # log job start to log folder
     logpath = os.path.join(dest, 'generated.log')
     utila.file_create(logpath, f'{utila.timedate()}\n')
     for step in steps:
@@ -234,6 +238,7 @@ def run_job(job: tuple, number: tuple = None):
         utila.file_append(logpath, completed.stdout)
         utila.file_append(logpath, completed.stderr)
         utila.assert_success(completed)
+    # log final time
     utila.file_append(logpath, f'{utila.timedate()}\n')
     utila.log(f'completed: {rawjob[0:100]}')
 
