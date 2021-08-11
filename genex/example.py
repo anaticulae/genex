@@ -220,7 +220,7 @@ def run_job(job: tuple, number: tuple = None):
     rawjob = utila.forward_slash(rawjob, newline=False)
     # log job start
     number = '' if not number else f'[{number[0]}|{number[1]}] '
-    utila.log(f'{number}start: {rawjob}')
+    utila.log(f'{number} {rawjob}')
     # create result folder
     os.makedirs(dest, exist_ok=True)
     # log job start to log folder
