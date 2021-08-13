@@ -340,12 +340,13 @@ def create_job(
         if oneline:
             task.append(f'rawmaker_cleanup -i={dest} -o={dest} '
                         f'--prefix=oneline --backup {pages}')
+    if config.get('sections', False):
+        task.append(f'sections -i={dest} --pdf={src} -o={dest} {pages}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
 
 FEATURES = [  # Hint: Pay attention to the order
-    'sections',
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
     'magic',
     'words',
