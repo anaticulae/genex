@@ -279,7 +279,7 @@ def generate(  # pylint:disable=R0914
     return todo
 
 
-def create_job(
+def create_job(  # pylint:disable=R1260
     src: str,
     dest: str,
     rawmaker: str,
