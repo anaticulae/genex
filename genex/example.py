@@ -225,21 +225,25 @@ def run_job(job: tuple, number: tuple = None):
     os.makedirs(dest, exist_ok=True)
     # log job start to log folder
     logpath = os.path.join(dest, 'generated.log')
+    logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')
     utila.file_create(logpath, f'{utila.timedate()}\n')
     for step in steps:
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
             step += f' --pages={pages}'
+        start = utila.now()
         completed = utila.run(step)
+        diff = utila.now() - start
         # log progress to log file
-        step = utila.forward_slash(step, newline=False) + utila.NEWLINE
-        utila.file_append(logpath, step)
-        utila.file_append(logpath, completed.stdout)
-        utila.file_append(logpath, completed.stderr)
+        step = utila.forward_slash(step, newline=False)
+        logstep(step)
+        logstep(completed.stdout)
+        logstep(completed.stderr)
+        logstep(f'runtime: {diff} sec')
         utila.assert_success(completed)
     # log final time
-    utila.file_append(logpath, f'{utila.timedate()}\n')
+    logstep(f'{utila.timedate()}')
     utila.log(f'completed: {rawjob[0:100]}')
 
 
