@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.16.0
+
+### Feature
+
+* log runtime (32fb3482df30)
+* add pdf as sections source (aafb0d3eecef)
+
+### Fix
+
+* add missing newline (3f3e86adc617)
+
 ## v0.15.0
 
 ### Feature
