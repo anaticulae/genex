@@ -233,7 +233,8 @@ def run_job(job: tuple, number: tuple = None):
             step += f' --pages={pages}'
         completed = utila.run(step)
         # log progress to log file
-        utila.file_append(logpath, utila.forward_slash(step, newline=False))
+        step = utila.forward_slash(step, newline=False) + utila.NEWLINE
+        utila.file_append(logpath, step)
         utila.file_append(logpath, completed.stdout)
         utila.file_append(logpath, completed.stderr)
         utila.assert_success(completed)
