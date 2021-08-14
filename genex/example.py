@@ -232,12 +232,12 @@ def run_job(job: tuple, number: tuple = None):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
             step += f' --pages={pages}'
+        # log progress to log file
+        forwarded = utila.forward_slash(step, newline=False)
+        logstep(forwarded)
         start = utila.now()
         completed = utila.run(step)
         diff = utila.now() - start
-        # log progress to log file
-        step = utila.forward_slash(step, newline=False)
-        logstep(step)
         logstep(completed.stdout)
         logstep(completed.stderr)
         logstep(f'runtime: {diff} sec')
