@@ -7,6 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import functools
 import os
 
 import power
@@ -36,18 +37,29 @@ def extract_removepages(
             sort=False,
         )
     ]
+    # TODO: USE GHOST?
     # jam
     todo = []
     for inpath, outpath in zip(files, without_titlepage):
-        todo.append(f'jam -i {inpath} -o {outpath} --remove={removepages}')
+        todo.append(
+            functools.partial(
+                utila.run,
+                cmd=f'jam -i {inpath} -o {outpath} --remove={removepages}',
+            ))
     # generate
-    for job, _ in genex.todolist(
-            without_titlepage + [dest],  # ensure correct parent
-            dest,
-            **kwargs,
-    ):
-        job = ' && '.join(job)
+    # ensure correct parent [dest]
+    todolist = genex.todolist(without_titlepage + [dest], dest, **kwargs)
+    for index, job in enumerate(todolist):
+        job = functools.partial(
+            genex.run_job,
+            job=job,
+            number=(index, len(todolist) - 1),
+        )
         todo.append(job)
     # avoid race condition that jam is not ready before starting extraction
     worker = utila.mins(len(files), worker)
-    utila.run_parallel(todo, worker=worker)
+    utila.fork(
+        *todo,
+        worker=worker,
+        process=False,
+    )
