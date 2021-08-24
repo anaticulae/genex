@@ -29,24 +29,25 @@ import genex.config
 import genex.pages
 
 
-def extract(  # pylint:disable=R0914
+def extract(  # pylint:disable=R0914,R0913
     files: list,
     destination: str,
     pages: str = '0:10',
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
-    rawmaker_cleanup: bool = True,
-    tablero: bool = True,
-    pdfinfo: bool = True,
-    base: str = None,
     *,
+    rawmaker_cleanup: bool = True,
+    figureo: bool = False,
+    formulero: bool = True,
+    pdfinfo: bool = True,
+    tablero: bool = True,
+    base: str = None,
     morefeatures: list = None,
     caption: bool = False,
     detector: bool = False,
     docref: bool = False,
     doctextstyle: bool = False,
-    figureo: bool = False,
     groupme: bool = False,
     magic: bool = False,
     sections: bool = False,
@@ -70,6 +71,7 @@ def extract(  # pylint:disable=R0914
         oneline(str): oneline config
         rawmaker_cleanup(str): run if True
         tablero(bool): run if True
+        formulero(bool): run if True
         pdfinfo(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
@@ -106,8 +108,8 @@ def extract(  # pylint:disable=R0914
         docref=docref,
         doctextstyle=doctextstyle,
         figureo=figureo,
+        formulero=formulero,
         groupme=groupme,
-        tablero=tablero,
         magic=magic,
         oneline=oneline,
         pdfinfo=pdfinfo,
@@ -116,6 +118,7 @@ def extract(  # pylint:disable=R0914
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
+        tablero=tablero,
         textflow=textflow,
         words=words,
         full=full,
@@ -142,6 +145,7 @@ def todolist(  # pylint:disable=R0914
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
     tablero: bool = True,
+    formulero: bool = True,
     pdfinfo: bool = True,
     rawmaker_cleanup: bool = True,
     *,
@@ -173,16 +177,17 @@ def todolist(  # pylint:disable=R0914
         docref = True
         doctextstyle = True
         figureo = True
+        formulero = True
         groupme = True
-        tablero = True
         magic = True
         pdfinfo = True
+        rawmaker_cleanup = True
         sections = True
         smarty = True
         spacestation = True
+        tablero = True
         textflow = True
         words = True
-        rawmaker_cleanup = True
     config = {
         'caption': caption,
         'detector': detector,
@@ -207,12 +212,13 @@ def todolist(  # pylint:disable=R0914
         oneline=oneline,
         pdfinfo=pdfinfo,
         tablero=tablero,
+        formulero=formulero,
         morefeatures=morefeatures,
     )
     return todo
 
 
-def run_job(job: tuple, number: tuple = None):
+def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     steps, dest = job
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
     # prepare run
@@ -254,8 +260,10 @@ def generate(  # pylint:disable=R0914
     config: dict,
     rawmaker: str,
     oneline: str,
-    tablero: bool = True,
+    *,
+    formulero: bool = True,
     pdfinfo: bool = True,
+    tablero: bool = True,
     morefeatures: list = None,
 ) -> list:
     todo = []
@@ -272,6 +280,7 @@ def generate(  # pylint:disable=R0914
             rawmaker=rawmaker,
             oneline=oneline,
             tablero=tablero,
+            formulero=formulero,
             pdfinfo=pdfinfo,
             morefeatures=morefeatures,
         )
@@ -284,8 +293,10 @@ def create_job(  # pylint:disable=R1260
     dest: str,
     rawmaker: str,
     oneline: str,
-    tablero: bool = True,
+    *,
+    formulero: bool = True,
     pdfinfo: bool = True,
+    tablero: bool = True,
     pages: tuple = None,
     config: dict = None,
     morefeatures: list = None,
@@ -297,8 +308,9 @@ def create_job(  # pylint:disable=R1260
         dest: output path to output folder
         rawmaker: default config
         oneline: default oneline config
-        tablero: run linero
+        formulero: run formulero
         pdfinfo: run pdfinfo
+        tablero: run linero
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
         morefeatures: add userbased features
@@ -319,6 +331,8 @@ def create_job(  # pylint:disable=R1260
         task.append(f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}')
     if pdfinfo:
         task.append(f'pdfinfo -i={src} -o={dest} --format=yaml')
+    if formulero:
+        task.append(f'formulero -i={src} -o={dest} -j2')
     if config.get('spacestation', False):
         task.append(f'spacestation -i={src} -o={dest} {pages}')
     groupme = config.get('groupme', False)
