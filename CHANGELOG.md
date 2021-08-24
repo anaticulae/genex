@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.17.0
+
+### Feature
+
+* add formulero runner (e4fdf976248d)
+
+### Fix
+
+* handle sections selection correctly (8b81fa9ef323)
+* log run command before run (ab8705bfe10d)
+
 ## v0.16.0
 
 ### Feature
