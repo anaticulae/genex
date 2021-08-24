@@ -18,7 +18,7 @@ import genex
 
 def test_example_common_root():
     pdfs = [
-        power.DOCU09_PDF,
+        power.DOCU009_PDF,
         power.BACHELOR111_PDF,
     ]
     expected = {
@@ -35,7 +35,7 @@ def test_example_common_root():
 def test_example_extract(testdir):
     generated = os.path.join(testdir.tmpdir, 'generated')
     pdfs = [
-        power.DOCU09_PDF,
+        power.DOCU009_PDF,
         power.BACHELOR111_PDF,
     ]
     genex.extract(
@@ -60,7 +60,7 @@ def test_example_disable_abbreviation_step(testdir):
     groupme --abbreviations requires section_result."""
     generated = os.path.join(testdir.tmpdir, 'generated')
     pdfs = [
-        power.DOCU09_PDF,
+        power.DOCU009_PDF,
     ]
     genex.extract(
         pdfs,

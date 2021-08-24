@@ -19,7 +19,7 @@ import genex
 def test_nopage_extract(testdir):
     generated = os.path.join(testdir.tmpdir, 'generated')
     pdfs = [
-        power.DOCU09_PDF,
+        power.DOCU009_PDF,
         power.HOME018_PDF,
     ]
     genex.extract_removepages(
