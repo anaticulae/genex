@@ -332,7 +332,7 @@ def create_job(  # pylint:disable=R1260
     if pdfinfo:
         task.append(f'pdfinfo -i={src} -o={dest} --format=yaml')
     if formulero:
-        task.append(f'formulero -i={src} -o={dest} -j2')
+        task.append(f'formulero -i={src} -o={dest} {pages} -j2')
     if config.get('spacestation', False):
         task.append(f'spacestation -i={src} -o={dest} {pages}')
     groupme = config.get('groupme', False)
