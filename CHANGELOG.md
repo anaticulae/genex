@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.17.1
+
+### Fix
+
+* shrink formulero to given pages (1c359804bf71)
+
 ## v0.17.0
 
 ### Feature
