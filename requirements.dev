@@ -8,16 +8,16 @@
 # =============================================================================
 
 utilatest==0.8.4
-power==2.0.1
+power==2.1.0
 
 # required to run example
 rawmaker==2.24.6
 groupme==0.15.0
-sections==1.6.0
-hey==5.11.9
+sections==1.7.0
+hey==5.12.0
 tablero>=0.6.0<1.0.0
 figureo>=0.8.1<1.0.0
 
-detector==0.25.0
+detector==0.27.1
 
 jam==0.4.0
