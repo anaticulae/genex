@@ -42,6 +42,7 @@ def extract(  # pylint:disable=R0914,R0913
     formulero: bool = True,
     pdfinfo: bool = True,
     tablero: bool = True,
+    codero: bool = True,
     base: str = None,
     morefeatures: list = None,
     caption: bool = False,
@@ -72,6 +73,7 @@ def extract(  # pylint:disable=R0914,R0913
         rawmaker_cleanup(str): run if True
         tablero(bool): run if True
         formulero(bool): run if True
+        codero(bool): run if True
         pdfinfo(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
@@ -103,6 +105,7 @@ def extract(  # pylint:disable=R0914,R0913
         files,
         destination,
         pages,
+        codero=codero,
         caption=caption,
         detector=detector,
         docref=docref,
@@ -146,6 +149,7 @@ def todolist(  # pylint:disable=R0914
     oneline: str = genex.config.ONELINE,
     tablero: bool = True,
     formulero: bool = True,
+    codero: bool = True,
     pdfinfo: bool = True,
     rawmaker_cleanup: bool = True,
     *,
@@ -173,6 +177,7 @@ def todolist(  # pylint:disable=R0914
     if full:
         # enable every extraction step
         caption = True
+        codero = True
         detector = True
         docref = True
         doctextstyle = True
@@ -213,6 +218,7 @@ def todolist(  # pylint:disable=R0914
         pdfinfo=pdfinfo,
         tablero=tablero,
         formulero=formulero,
+        codero=codero,
         morefeatures=morefeatures,
     )
     return todo
@@ -264,6 +270,7 @@ def generate(  # pylint:disable=R0914
     formulero: bool = True,
     pdfinfo: bool = True,
     tablero: bool = True,
+    codero: bool = True,
     morefeatures: list = None,
 ) -> list:
     todo = []
@@ -282,13 +289,14 @@ def generate(  # pylint:disable=R0914
             tablero=tablero,
             formulero=formulero,
             pdfinfo=pdfinfo,
+            codero=codero,
             morefeatures=morefeatures,
         )
         todo.append(nextjob)
     return todo
 
 
-def create_job(  # pylint:disable=R1260
+def create_job(  # pylint:disable=R1260,R0912
     src: str,
     dest: str,
     rawmaker: str,
@@ -297,6 +305,7 @@ def create_job(  # pylint:disable=R1260
     formulero: bool = True,
     pdfinfo: bool = True,
     tablero: bool = True,
+    codero: bool = True,
     pages: tuple = None,
     config: dict = None,
     morefeatures: list = None,
@@ -310,7 +319,8 @@ def create_job(  # pylint:disable=R1260
         oneline: default oneline config
         formulero: run formulero
         pdfinfo: run pdfinfo
-        tablero: run linero
+        tablero: run tablero
+        codero: run codero
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
         morefeatures: add userbased features
@@ -351,6 +361,8 @@ def create_job(  # pylint:disable=R1260
         task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} '
                     '-j=auto')
         task.append(f'groupme -i={dest} -o={dest} --area')
+    if codero:
+        task.append(f'codero -i={dest} -o={dest} -j1')
     if config.get('figureo', False):
         task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
     if config.get('rawmaker_cleanup', False):
