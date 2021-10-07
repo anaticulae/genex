@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.18.1
+
+### Feature
+
+* create optimized findings (0ffcb7ed45b4)
+
 ## v0.18.0
 
 ### Feature
