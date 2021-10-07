@@ -21,6 +21,7 @@ import os
 
 import iamraw
 import power
+import serializeraw
 import utila
 import utila.logger
 import utilatest
@@ -254,6 +255,12 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         logstep(completed.stderr)
         logstep(f'runtime: {diff} sec')
         utila.assert_success(completed)
+    # write optimized findings
+    optimized = os.path.join(dest, '__optimized__')
+    os.makedirs(optimized, exist_ok=True)
+    findings = serializeraw.findings_from_path(dest)
+    findings = utila.flatten_content(findings)
+    serializeraw.write_grouped(findings, dest=optimized)
     # log final time
     logstep(f'{utila.timedate()}')
     utila.log(f'completed: {rawjob[0:100]}')
