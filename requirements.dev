@@ -16,7 +16,7 @@ groupme==0.15.2
 sections==1.11.1
 hey==5.14.1
 tablero>=0.7.1<1.0.0
-figureo>=0.10.2<1.0.0
+figureo>=0.10.3<1.0.0
 
 detector==0.28.1
 
