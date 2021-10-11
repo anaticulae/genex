@@ -21,7 +21,6 @@ import os
 
 import iamraw
 import power
-import serializeraw
 import utila
 import utila.logger
 import utilatest
@@ -39,6 +38,7 @@ def extract(  # pylint:disable=R0914,R0913
     oneline: str = genex.config.ONELINE,
     *,
     rawmaker_cleanup: bool = True,
+    optimize: bool = False,
     figureo: bool = False,
     formulero: bool = True,
     pdfinfo: bool = True,
@@ -76,6 +76,7 @@ def extract(  # pylint:disable=R0914,R0913
         formulero(bool): run if True
         codero(bool): run if True
         pdfinfo(bool): run if True
+        optimize(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
         morefeatures(list): enable optional features
@@ -106,8 +107,8 @@ def extract(  # pylint:disable=R0914,R0913
         files,
         destination,
         pages,
-        codero=codero,
         caption=caption,
+        codero=codero,
         detector=detector,
         docref=docref,
         doctextstyle=doctextstyle,
@@ -116,6 +117,7 @@ def extract(  # pylint:disable=R0914,R0913
         groupme=groupme,
         magic=magic,
         oneline=oneline,
+        optimize=optimize,
         pdfinfo=pdfinfo,
         rawmaker=rawmaker,
         rawmaker_cleanup=rawmaker_cleanup,
@@ -142,7 +144,7 @@ def extract(  # pylint:disable=R0914,R0913
                 raise
 
 
-def todolist(  # pylint:disable=R0914
+def todolist(  # pylint:disable=R0914,R0913
     files: list,
     destination: str,
     pages: str = '0:10',
@@ -153,6 +155,7 @@ def todolist(  # pylint:disable=R0914
     codero: bool = True,
     pdfinfo: bool = True,
     rawmaker_cleanup: bool = True,
+    optimize: bool = False,
     *,
     caption: bool = False,
     detector: bool = False,
@@ -186,6 +189,7 @@ def todolist(  # pylint:disable=R0914
         formulero = True
         groupme = True
         magic = True
+        optimize = True
         pdfinfo = True
         rawmaker_cleanup = True
         sections = True
@@ -202,12 +206,13 @@ def todolist(  # pylint:disable=R0914
         'figureo': figureo,
         'groupme': groupme,
         'magic': magic,
+        'optimize': optimize,
+        'rawmaker_cleanup': rawmaker_cleanup,
         'sections': sections,
         'smarty': smarty,
         'spacestation': spacestation,
         'textflow': textflow,
         'words': words,
-        'rawmaker_cleanup': rawmaker_cleanup,
     }
     todo = generate(
         files,
@@ -255,12 +260,6 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         logstep(completed.stderr)
         logstep(f'runtime: {diff} sec')
         utila.assert_success(completed)
-    # write optimized findings
-    optimized = os.path.join(dest, '__optimized__')
-    os.makedirs(optimized, exist_ok=True)
-    findings = serializeraw.findings_from_path(dest)
-    findings = utila.flatten_content(findings)
-    serializeraw.write_grouped(findings, dest=optimized)
     # log final time
     logstep(f'{utila.timedate()}')
     utila.log(f'completed: {rawjob[0:100]}')
@@ -432,4 +431,6 @@ def select_features(config: dict, dest: str, morefeatures: list) -> list:
             ))
         else:
             task.append(f'{feature} -j=auto -i={dest} -o={dest}')
+    if config.get('optimize', False):
+        task.append(f'findings --optimize -i={dest} -o={dest}')
     return task

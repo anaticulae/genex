@@ -50,6 +50,7 @@ def test_example_extract(testdir):
         sections=True,
         rawmaker_cleanup=True,
         spacestation=True,
+        optimize=True,
     )
     assert os.path.exists(generated), str(generated)
 
