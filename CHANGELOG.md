@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.19.0
+
+### Feature
+
+* replace with findings --optimize feature (491b65d3e4bd)
+
 ## v0.18.1
 
 ### Feature
