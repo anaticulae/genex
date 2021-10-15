@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.19.1
+
+### Feature
+
+* shrink example generator (52082c6c01a1)
+
 ## v0.19.0
 
 ### Feature
