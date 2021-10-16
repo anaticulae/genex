@@ -334,8 +334,15 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     config = config if config else {}
     if overwrite:
         config = utila.dicts_united(config, overwrite)
-        for key, value in overwrite.items():
-            locals()[key] = value
+        # TODO: REMOVE THIS HACK LATER
+        if config.get('tablero', False):
+            tablero = True
+        if config.get('formulero', False):
+            formulero = True
+        if config.get('pdfinfo', False):
+            pdfinfo = True
+        if config.get('codero', False):
+            codero = True
     pages = f'--pages={pages}' if pages is not None else ''
     # ensure that testdir.tmpdir is converted to str before using forward_slash
     src, dest = str(src), str(dest)
