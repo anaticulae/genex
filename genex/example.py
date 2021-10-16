@@ -20,7 +20,6 @@ import concurrent.futures
 import os
 
 import iamraw
-import power
 import utila
 import utila.logger
 import utilatest
@@ -29,7 +28,7 @@ import genex.config
 import genex.pages
 
 
-def extract(  # pylint:disable=R0914,R0913
+def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     destination: str,
     pages: str = '0:10',
@@ -101,8 +100,7 @@ def extract(  # pylint:disable=R0914,R0913
     # the parent path of at least two files. If files provide only a
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
-    base = [base] if base else [power.REPOSITORY]
-    files = files + base
+    # TODO: REMOVE BASE LATER
     todo = todolist(
         files,
         destination,

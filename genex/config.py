@@ -9,30 +9,42 @@
 
 import collections
 
+import utila
+
 ONELINE = ('--prefix=oneline '
            '--font --text '
            '--boxes_flow=1.0 --char_margin=100.0 --line_margin=0.0001')
 
 CONFIG = '--char_margin=3.1 --boxes_flow=1.0 --line_margin=0.25 '
 
-Todo = collections.namedtuple('Todo', 'resource pages config')
+Todo = collections.namedtuple('Todo', 'resource name pages config')
 
 
-def todo(resource: str, pages: tuple = None, **kwargs):
+def todo(resource: str, name: str = None, pages: tuple = None, **kwargs):
     """\
-    >>> todo('master116.pdf', pages=(1,2, 3), groupme=True)
-    Todo(resource='master116.pdf', pages=(1, 2, 3), config={'groupme': True})
-    >>> todo('master116.pdf', pages=None)
-    Todo(resource='master116.pdf', pages=None, config=None)
+    >>> todo('resource/master116.pdf', pages=(1,2, 3), groupme=True)
+    Todo(resource='resource/master116.pdf', name='resource_master116', pages=(1, 2, 3), config={'groupme': True})
+    >>> todo('resource/master116.pdf', pages=None)
+    Todo(resource='resource/master116.pdf', name='resource_master116', pages=None, config=None)
     """
-    result = Todo(resource, pages=pages, config=kwargs if kwargs else None)
+    config = kwargs if kwargs else None
+    if name is None:
+        name = simple(resource)
+    result = Todo(resource, name=name, pages=pages, config=config)
+    return result
+
+
+def simple(path: str) -> str:
+    parent = utila.file_name(utila.path_parent(path))
+    filename = utila.file_name(path)
+    result = f'{parent}_{filename}'
     return result
 
 
 def prepare_files(files, pages: tuple = (5, 6)) -> list:
     """\
-    >>> prepare_files(['master116', ('mitpage', (1, 2, 3))])
-    [Todo(resource='master116', pages=(5, 6),...Todo(resource='mitpage', pages=(1, 2, 3)...)]
+    >>> prepare_files(['resource/master116.pdf', ('resource/mitpage', (1, 2, 3))])
+    [Todo(resource='resource/master116.pdf',...pages=(5, 6),...Todo(...pages=(1, 2, 3), config=None)]
     """
     result = []
     for item in files:
@@ -43,6 +55,6 @@ def prepare_files(files, pages: tuple = (5, 6)) -> list:
             result.append(todo(item, pages=pages))
             continue
         if isinstance(item, tuple):
-            result.append(todo(item[0], item[1]))
+            result.append(todo(resource=item[0], pages=item[1]))
             continue
     return result
