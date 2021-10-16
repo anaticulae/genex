@@ -292,12 +292,13 @@ def generate(  # pylint:disable=R0914
             pdfinfo=pdfinfo,
             codero=codero,
             morefeatures=morefeatures,
+            overwrite=resource.config,
         )
         todo.append(nextjob)
     return todo
 
 
-def create_job(  # pylint:disable=R1260,R0912
+def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     src: str,
     dest: str,
     rawmaker: str,
@@ -310,6 +311,7 @@ def create_job(  # pylint:disable=R1260,R0912
     pages: tuple = None,
     config: dict = None,
     morefeatures: list = None,
+    overwrite: dict = None,
 ) -> list:
     """Create job to run required steps for next processing unit.
 
@@ -325,10 +327,15 @@ def create_job(  # pylint:disable=R1260,R0912
         pages: shrink processing if given - if None process all pages
         config: select which processes to run
         morefeatures: add userbased features
+        overwrite: overwrite config
     Returns:
         Created process todo description.
     """
     config = config if config else {}
+    if overwrite:
+        config = utila.dicts_united(config, overwrite)
+        for key, value in overwrite.items():
+            locals()[key] = value
     pages = f'--pages={pages}' if pages is not None else ''
     # ensure that testdir.tmpdir is converted to str before using forward_slash
     src, dest = str(src), str(dest)
