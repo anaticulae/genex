@@ -23,7 +23,26 @@ def todo(resource: str, pages: tuple = None, **kwargs):
     >>> todo('master116.pdf', pages=(1,2, 3), groupme=True)
     Todo(resource='master116.pdf', pages=(1, 2, 3), config={'groupme': True})
     >>> todo('master116.pdf', pages=None)
-    Todo(resource='master116.pdf', pages=None, config={})
+    Todo(resource='master116.pdf', pages=None, config=None)
     """
-    result = Todo(resource, pages=pages, config=kwargs)
+    result = Todo(resource, pages=pages, config=kwargs if kwargs else None)
+    return result
+
+
+def prepare_files(files, pages: tuple = (5, 6)) -> list:
+    """\
+    >>> prepare_files(['master116', ('mitpage', (1, 2, 3))])
+    [Todo(resource='master116', pages=(5, 6),...Todo(resource='mitpage', pages=(1, 2, 3)...)]
+    """
+    result = []
+    for item in files:
+        if isinstance(item, Todo):
+            result.append(item)
+            continue
+        if isinstance(item, str):
+            result.append(todo(item, pages=pages))
+            continue
+        if isinstance(item, tuple):
+            result.append(todo(item[0], item[1]))
+            continue
     return result
