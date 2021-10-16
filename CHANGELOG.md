@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.20.1
+
+### Fix
+
+* ensure that local is updated (9749b6128c46)
+
 ## v0.20.0
 
 ### Feature
