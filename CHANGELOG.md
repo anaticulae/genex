@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.20.0
+
+### Feature
+
+* overwrite configured step by new config dict (2e341407418f)
+* use new resource definition (05d48dd73e26)
+* introduce name to fix name of generated name (776bc15ae7ed)
+* add method to convert files todo (cdd881e67e38)
+* add todo to create more resource information (7189b3d48f7a)
+
 ## v0.19.1
 
 ### Feature
