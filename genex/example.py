@@ -22,7 +22,6 @@ import os
 import iamraw
 import utila
 import utila.logger
-import utilatest
 
 import genex.config
 import genex.pages
@@ -278,15 +277,13 @@ def generate(  # pylint:disable=R0914
     morefeatures: list = None,
 ) -> list:
     todo = []
-    singlepages = genex.pages.paged(files, default=pages)
-    files = list(singlepages.keys())
-    names = utilatest.simplify_testfile_names(files, sort=False)
-    for inpath, output in zip(files, names):
-        dest = os.path.join(outpath, output)
+    files = genex.config.prepare_files(files, pages=pages)
+    for resource in files:
+        dest = os.path.join(outpath, resource.name)
         nextjob = create_job(
-            inpath,
+            resource.resource,
             dest,
-            pages=singlepages[inpath],
+            pages=resource.pages,
             config=config,
             rawmaker=rawmaker,
             oneline=oneline,

@@ -57,15 +57,3 @@ def pages2str(pages: tuple) -> str:
     if (pages[0]) == pages[1]:
         return str(pages[0])
     return ':'.join([str(item) for item in pages])
-
-
-def paged(files, default=None) -> dict:
-    """Select pages, if given `(source, pages)`, to extract. If no pages
-    are given, use `default` one."""
-    result = {}
-    for item in files:
-        page = default
-        if isinstance(item, tuple):
-            item, page = item
-        result[item] = page
-    return result
