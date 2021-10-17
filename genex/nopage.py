@@ -12,9 +12,9 @@ import os
 
 import power
 import utila
-import utilatest
 
 import genex
+import genex.config
 
 
 def extract_removepages(
@@ -25,17 +25,14 @@ def extract_removepages(
     worker: str = 8,
     **kwargs,
 ):
+    # CLEAN UP THIS HACK Y PLACE
     dest = power.generated(folder=folder) if not dest else dest
     files = [
         item[0] if not isinstance(item, str) else item for item in resources
     ]
     # prepare
     without_titlepage = [
-        os.path.join(dest, f'{item}.pdf')
-        for item in utilatest.simplify_testfile_names(
-            files + [power.REPOSITORY],  # ensure correct parent
-            sort=False,
-        )
+        os.path.join(dest, f'{genex.config.simple(item)}.pdf') for item in files
     ]
     # TODO: USE GHOST?
     # jam
@@ -48,7 +45,11 @@ def extract_removepages(
             ))
     # generate
     # ensure correct parent [dest]
-    todolist = genex.todolist(without_titlepage + [dest], dest, **kwargs)
+    without_titlepage = [
+        genex.config.todo(item, name=utila.file_name(item))
+        for item in without_titlepage
+    ]
+    todolist = genex.todolist(without_titlepage, destination=dest, **kwargs)
     for index, job in enumerate(todolist):
         job = functools.partial(
             genex.run_job,
