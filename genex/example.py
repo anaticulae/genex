@@ -372,7 +372,8 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
             # toc only
             task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
     if tablero:
-        task.append(f'groupme -i={dest} -o={dest} --content')
+        if not groupme:
+            task.append(f'groupme -i={dest} -o={dest} --pagenumbers --footer --content')  # yapf:disable
         task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} '
                     '-j=auto')
         task.append(f'groupme -i={dest} -o={dest} --area')
