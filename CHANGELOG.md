@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.20.2
+
+### Fix
+
+* use Todo to avoid creating wrong output path (4adeb737284e)
+* add missing steps (94f13a898e2b)
+
 ## v0.20.1
 
 ### Fix
