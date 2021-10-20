@@ -232,7 +232,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
     # prepare run
     rawjob = utila.from_tuple(steps, separator=' && ')[0:verbosity]
-    rawjob = utila.forward_slash(rawjob, newline=False)
+    rawjob = utila.forward_slash(rawjob, keep_newline=False)
     # log job start
     number = '' if not number else f'[{number[0]}|{number[1]}] '
     utila.log(f'{number} {rawjob}')
@@ -248,7 +248,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
             pages = genex.pages.select_pages(inpath, section)
             step += f' --pages={pages}'
         # log progress to log file
-        forwarded = utila.forward_slash(step, newline=False)
+        forwarded = utila.forward_slash(step, keep_newline=False)
         logstep(forwarded)
         start = utila.now()
         completed = utila.run(step)
@@ -346,8 +346,8 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     pages = f'--pages={pages}' if pages is not None else ''
     # ensure that testdir.tmpdir is converted to str before using forward_slash
     src, dest = str(src), str(dest)
-    src = utila.forward_slash(src, newline=False)
-    dest = utila.forward_slash(dest, newline=False)
+    src = utila.forward_slash(src, keep_newline=False)
+    dest = utila.forward_slash(dest, keep_newline=False)
     task = [
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
     ]
