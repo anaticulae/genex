@@ -343,6 +343,8 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
             pdfinfo = True
         if config.get('codero', False):
             codero = True
+        if config.get('rawmaker', False):
+            rawmaker = config['rawmaker']
     pages = f'--pages={pages}' if pages is not None else ''
     # ensure that testdir.tmpdir is converted to str before using forward_slash
     src, dest = str(src), str(dest)
