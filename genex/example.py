@@ -397,6 +397,7 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
 FEATURES = [  # Hint: Pay attention to the order
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
     'magic',
+    'caption',
     'words',
     'docref',
     ('detector --bibliography ', iamraw.sections.Bibliography),
@@ -404,7 +405,6 @@ FEATURES = [  # Hint: Pay attention to the order
     'detector --formula ',
     'textflow --wordspace!',
     'doctextstyle',
-    'caption',
     'magic',
     'textflow --wordspace',
     'smarty',
