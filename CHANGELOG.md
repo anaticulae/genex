@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.21.0
+
+### Feature
+
+* add option to overwrite rawmaker layout config (b0f5fb27107d)
+
+### Fix
+
+* run caption before words (9e61ec64ac2e)
+
 ## v0.20.2
 
 ### Fix
