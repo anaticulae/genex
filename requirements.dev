@@ -11,13 +11,13 @@ utilatest==0.9.0
 power==2.2.1
 
 # required to run example
-rawmaker==2.27.1
-groupme==0.15.2
-sections==1.11.1
-hey==5.14.1
-tablero>=0.8.0<1.0.0
-figureo>=0.10.3<1.0.0
+rawmaker==2.27.2
+groupme==0.16.0
+sections==1.12.0
+hey==5.14.2
+tablero>=0.8.1<1.0.0
+figureo>=0.12.0<1.0.0
 
-detector==0.28.1
+detector==0.29.0
 
 jam==0.4.0
