@@ -384,10 +384,10 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     if config.get('figureo', False):
         task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
     if config.get('rawmaker_cleanup', False):
-        task.append(f'rawmaker_cleanup -i={dest} -o={dest} --backup {pages}')
+        task.append(f'rawmaker_cleanup -i={dest} -o={dest} {pages}')
         if oneline:
             task.append(f'rawmaker_cleanup -i={dest} -o={dest} '
-                        f'--prefix=oneline --backup {pages}')
+                        f'--prefix=oneline {pages}')
     if config.get('sections', False):
         task.append(f'sections -i={dest} --pdf={src} -o={dest} {pages}')
     task.extend(select_features(config, dest, morefeatures))
