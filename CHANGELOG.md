@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.21.3
+
+### Feature
+
+* improve path shorten (77c88b9d5a0d)
+
+### Fix
+
+* run caption before magic (4ef571ccb8e0)
+
 ## v0.21.2
 
 ## v0.21.1
