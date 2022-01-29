@@ -401,7 +401,13 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     if codero:
         task.append(f'codero -i={dest} -o={dest} -j1')
     if config.get('figureo', False):
-        task.append(f'figureo -i={src} -i={dest} -o={dest} {pages}')
+        # separate steps are required, cause standard produces figure
+        # files which are required for cleanup step. In the current state
+        # utila determines inputs only at startup time. Therefore figureo
+        # wont know than theses later generated files exists.
+        # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
+        task.append(f'figureo --standard -i={src} -i={dest} -o={dest} {pages}')
+        task.append(f'figureo --cleanup -i={src} -i={dest} -o={dest} {pages}')
     if config.get('rawmaker_cleanup', False):
         task.append(f'rawmaker_cleanup -i={dest} -o={dest} {pages}')
         if oneline:
