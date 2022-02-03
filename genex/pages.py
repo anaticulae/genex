@@ -9,6 +9,7 @@
 
 import iamraw
 import serializeraw
+import utila
 
 
 def select_pages(path: str, select) -> str:
@@ -17,10 +18,11 @@ def select_pages(path: str, select) -> str:
     """
     assert isinstance(select, object.__class__), f'class not: {type(select)}'
     pages = select_section(path, select=select)
-    if pages:
-        pages = pages2str(pages)
-        return pages
-    return ':'
+    if not pages:
+        utila.debug(f'could not find section, skip: {select} in {path}')
+        return None
+    pages = pages2str(pages)
+    return pages
 
 
 def select_section(path: str, select) -> tuple:

@@ -246,6 +246,9 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
+            if not pages:
+                utila.debug(f'skip: {step}')
+                continue
             step += f' --pages={pages}'
         # log progress to log file
         forwarded = utila.forward_slash(step, keep_newline=False)
