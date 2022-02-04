@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.21.4
+
+### Fix
+
+* skip step if area is not found (383e56439473)
+* split figureo steps (63155d32152c)
+
+### Documentation
+
+* adjust modules path (f090bd084fb4)
+* Happy New Year! (8741e00a6807)
+
 ## v0.21.3
 
 ### Feature
