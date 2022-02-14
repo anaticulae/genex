@@ -303,6 +303,7 @@ def generate(  # pylint:disable=R0914
     return todo
 
 
+@utila.defaults_overwrite
 def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     src: str,
     dest: str,
@@ -316,6 +317,7 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     pages: tuple = None,
     config: dict = None,
     morefeatures: list = None,
+    # pylint:disable=W0613
     overwrite: dict = None,
 ) -> list:
     """Create job to run required steps for next processing unit.
@@ -337,19 +339,6 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
         Created process todo description.
     """
     config = config if config else {}
-    if overwrite:
-        config = utila.dicts_united(config, overwrite)
-        # TODO: REMOVE THIS HACK LATER
-        if config.get('tablero', False):
-            tablero = True
-        if config.get('formulero', False):
-            formulero = True
-        if config.get('pdfinfo', False):
-            pdfinfo = True
-        if config.get('codero', False):
-            codero = True
-        if config.get('rawmaker', False):
-            rawmaker = config['rawmaker']
     pages = f'--pages={pages}' if pages is not None else ''
     # ensure that testdir.tmpdir is converted to str before using forward_slash
     src, dest = str(src), str(dest)
