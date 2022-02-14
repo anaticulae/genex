@@ -304,7 +304,7 @@ def generate(  # pylint:disable=R0914
 
 
 @utila.defaults_overwrite
-def create_job(  # pylint:disable=R1260,R0912
+def create_job(  # pylint:disable=R1260,R0912,R0914
     src: str,
     dest: str,
     rawmaker: str,
@@ -338,53 +338,51 @@ def create_job(  # pylint:disable=R1260,R0912
     Returns:
         Created process todo description.
     """
-    src, dest, pages, config = prepare(src, dest, pages, config)
+    src, dest, pages, config, dd, sd, sdp, ddp, sddp = prepare(  # pylint:disable=C0103
+        src, dest, pages, config)
     task = [
-        f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
+        f'rawmaker -j=auto {sdp} {rawmaker}',
     ]
     if oneline:
         # skip with oneline = None
-        task.append(f'rawmaker -j=auto -i={src} -o={dest} {oneline} {pages}')
+        task.append(f'rawmaker -j=auto {sdp} {oneline}')
     if pdfinfo:
-        task.append(f'pdfinfo -i={src} -o={dest} --format=yaml')
+        task.append(f'pdfinfo {sd} --format=yaml')
     if formulero:
-        task.append(f'formulero -i={src} -o={dest} {pages} -j2')
+        task.append(f'formulero {sdp} -j2')
     if config.get('spacestation', False):
-        task.append(f'spacestation -i={src} -o={dest} {pages}')
+        task.append(f'spacestation {sdp}')
     groupme = config.get('groupme', False)
     if groupme:
         if isinstance(groupme, str):
             # use specialized groupme config
-            task.append(f'groupme -i={dest} -o={dest} {groupme}')
+            task.append(f'groupme {dd} {groupme}')
         else:
             # run all, disable --toc
-            task.append(f'groupme --toc! --abbreviation! -j=auto -i={dest} '
-                        f'-o={dest}')
+            task.append(f'groupme --toc! --abbreviation! -j=auto {dd}')
             # toc only
-            task.append(f'groupme --toc --pages=0:10 -i={dest} -o={dest}')
+            task.append(f'groupme --toc --pages=0:10 {dd}')
     if tablero:
         if not groupme:
-            task.append(f'groupme -i={dest} -o={dest} --pagenumbers --footer --content')  # yapf:disable
-        task.append(f'tablero -i={dest} --table={src} -o={dest} {pages} '
-                    '-j=auto')
-        task.append(f'groupme -i={dest} -o={dest} --area')
+            task.append(f'groupme {dd} --pagenumbers --footer --content')
+        task.append(f'tablero --table={src} {ddp} -j=auto')
+        task.append(f'groupme {dd} --area')
     if codero:
-        task.append(f'codero -i={dest} -o={dest} -j1')
+        task.append(f'codero {dd} -j1')
     if config.get('figureo', False):
         # separate steps are required, cause standard produces figure
         # files which are required for cleanup step. In the current state
         # utila determines inputs only at startup time. Therefore figureo
         # wont know than theses later generated files exists.
         # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
-        task.append(f'figureo --standard -i={src} -i={dest} -o={dest} {pages}')
-        task.append(f'figureo --cleanup -i={src} -i={dest} -o={dest} {pages}')
+        task.append(f'figureo --standard {sddp}')
+        task.append(f'figureo --cleanup {sddp}')
     if config.get('rawmaker_cleanup', False):
-        task.append(f'rawmaker_cleanup -i={dest} -o={dest} {pages}')
+        task.append(f'rawmaker_cleanup {ddp}')
         if oneline:
-            task.append(f'rawmaker_cleanup -i={dest} -o={dest} '
-                        f'--prefix=oneline {pages}')
+            task.append(f'rawmaker_cleanup --prefix=oneline {ddp}')
     if config.get('sections', False):
-        task.append(f'sections -i={dest} --pdf={src} -o={dest} {pages}')
+        task.append(f'sections --pdf={src} {ddp}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
 
@@ -396,7 +394,12 @@ def prepare(src, dest, pages, config) -> tuple:
     dest = utila.forward_slash(dest, keep_newline=False)
     pages = f'--pages={pages}' if pages is not None else ''
     config = config if config else {}
-    return src, dest, pages, config
+    dd = f'-i={dest} -o={dest}'  # pylint:disable=C0103
+    sd = f'-i={src} -o={dest}'  # pylint:disable=C0103
+    sdp = f'-i={src} -o={dest} {pages}'
+    ddp = f'-i={dest} -o={dest} {pages}'
+    sddp = f'-i={src} -i={dest} -o={dest} {pages}'
+    return src, dest, pages, config, dd, sd, sdp, ddp, sddp
 
 
 FEATURES = [  # Hint: Pay attention to the order
