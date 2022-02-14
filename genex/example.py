@@ -25,6 +25,7 @@ import utila.logger
 
 import genex.config
 import genex.pages
+import genex.utils
 
 
 def extract(  # pylint:disable=R0914,R0913,W0613
@@ -262,26 +263,8 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         utila.assert_success(completed)
     # log final time
     logstep(f'{utila.timedate()}')
-    rawjob = shorten_path(rawjob)
+    rawjob = genex.utils.shorten_path(rawjob)
     utila.log(f'completed: {rawjob}')
-
-
-def shorten_path(path: str, maxlength: int = 100) -> str:
-    """\
-    >>> shorten_path('rawmaker -j=auto -i=C:/usr/python//master110.pdf -o=C:/tmp/.tmp//master_master110 --char_margin=5.0')
-    'rawmaker -j=auto -i=ython//master110.pdf -o=mp//master_master110 --char_margin=5.0'
-    """
-    path = path.split()
-    result = []
-    for item in path:
-        if item.startswith('-i='):
-            item = '-i=' + item[-20:]
-        elif item.startswith('-o='):
-            item = '-o=' + item[-20:]
-        result.append(item)
-    raw = ' '.join(result)
-    raw = raw[-maxlength:]
-    return raw
 
 
 def generate(  # pylint:disable=R0914
