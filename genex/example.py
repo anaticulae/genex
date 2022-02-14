@@ -386,21 +386,6 @@ def create_job(  # pylint:disable=R1260,R0912,R0914
     return task, dest
 
 
-def prepare(src, dest, pages, config) -> tuple:
-    # ensure that testdir.tmpdir is converted to str before using forward_slash
-    src, dest = str(src), str(dest)
-    src = utila.forward_slash(src, keep_newline=False)
-    dest = utila.forward_slash(dest, keep_newline=False)
-    pages = f'--pages={pages}' if pages is not None else ''
-    config = config if config else {}
-    dd = f'-i={dest} -o={dest}'  # pylint:disable=C0103
-    sd = f'-i={src} -o={dest}'  # pylint:disable=C0103
-    sdp = f'-i={src} -o={dest} {pages}'
-    ddp = f'-i={dest} -o={dest} {pages}'
-    sddp = f'-i={src} -i={dest} -o={dest} {pages}'
-    return src, dest, pages, config, dd, sd, sdp, ddp, sddp
-
-
 FEATURES = [  # Hint: Pay attention to the order
     ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
     'caption',
@@ -453,3 +438,18 @@ def select_features(config: dict, dest: str, morefeatures: list) -> list:
     if config.get('optimize', False):
         task.append(f'findings --optimize -i={dest} -o={dest}')
     return task
+
+
+def prepare(src, dest, pages, config) -> tuple:
+    # ensure that testdir.tmpdir is converted to str before using forward_slash
+    src, dest = str(src), str(dest)
+    src = utila.forward_slash(src, keep_newline=False)
+    dest = utila.forward_slash(dest, keep_newline=False)
+    pages = f'--pages={pages}' if pages is not None else ''
+    config = config if config else {}
+    dd = f'-i={dest} -o={dest}'  # pylint:disable=C0103
+    sd = f'-i={src} -o={dest}'  # pylint:disable=C0103
+    sdp = f'-i={src} -o={dest} {pages}'
+    ddp = f'-i={dest} -o={dest} {pages}'
+    sddp = f'-i={src} -i={dest} -o={dest} {pages}'
+    return src, dest, pages, config, dd, sd, sdp, ddp, sddp
