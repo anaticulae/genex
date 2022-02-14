@@ -304,7 +304,7 @@ def generate(  # pylint:disable=R0914
 
 
 @utila.defaults_overwrite
-def create_job(  # pylint:disable=R1260,R0912,too-many-locals
+def create_job(  # pylint:disable=R1260,R0912
     src: str,
     dest: str,
     rawmaker: str,
@@ -338,12 +338,7 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
     Returns:
         Created process todo description.
     """
-    config = config if config else {}
-    pages = f'--pages={pages}' if pages is not None else ''
-    # ensure that testdir.tmpdir is converted to str before using forward_slash
-    src, dest = str(src), str(dest)
-    src = utila.forward_slash(src, keep_newline=False)
-    dest = utila.forward_slash(dest, keep_newline=False)
+    src, dest, pages, config = prepare(src, dest, pages, config)
     task = [
         f'rawmaker -j=auto -i={src} -o={dest} {rawmaker} {pages}',
     ]
@@ -392,6 +387,16 @@ def create_job(  # pylint:disable=R1260,R0912,too-many-locals
         task.append(f'sections -i={dest} --pdf={src} -o={dest} {pages}')
     task.extend(select_features(config, dest, morefeatures))
     return task, dest
+
+
+def prepare(src, dest, pages, config) -> tuple:
+    # ensure that testdir.tmpdir is converted to str before using forward_slash
+    src, dest = str(src), str(dest)
+    src = utila.forward_slash(src, keep_newline=False)
+    dest = utila.forward_slash(dest, keep_newline=False)
+    pages = f'--pages={pages}' if pages is not None else ''
+    config = config if config else {}
+    return src, dest, pages, config
 
 
 FEATURES = [  # Hint: Pay attention to the order
