@@ -281,63 +281,7 @@ def generate(  # pylint:disable=R0914
     codero: bool = True,
     morefeatures: list = None,
 ) -> list:
-    todo = []
-    files = genex.config.prepare_files(files, pages=pages)
-    for resource in files:
-        dest = os.path.join(outpath, resource.name)
-        nextjob = create_job(
-            resource.resource,
-            dest,
-            pages=resource.pages,
-            config=config,
-            rawmaker=rawmaker,
-            oneline=oneline,
-            tablero=tablero,
-            formulero=formulero,
-            pdfinfo=pdfinfo,
-            codero=codero,
-            morefeatures=morefeatures,
-            overwrite=resource.config,
-        )
-        todo.append(nextjob)
-    return todo
-
-
-@utila.defaults_overwrite
-def create_job(  # pylint:disable=R1260,R0912,R0914
-    src: str,
-    dest: str,
-    rawmaker: str,
-    oneline: str,
-    *,
-    formulero: bool = True,
-    pdfinfo: bool = True,
-    tablero: bool = True,
-    codero: bool = True,
-    pages: str = None,
-    config: dict = None,
-    morefeatures: list = None,
-    # pylint:disable=W0613
-    overwrite: dict = None,
-) -> list:
-    """Create job to run required steps for next processing unit.
-
-    Args:
-        src: pdf file for processing
-        dest: output path to output folder
-        rawmaker: default config
-        oneline: default oneline config
-        formulero: run formulero
-        pdfinfo: run pdfinfo
-        tablero: run tablero
-        codero: run codero
-        pages: shrink processing if given - if None process all pages
-        config: select which processes to run
-        morefeatures: add userbased features
-        overwrite: overwrite config
-    Returns:
-        Created process todo description.
-    """
+    # TODO: MAY REMOVE LATER
     config = utila.dicts_united(
         config,
         dict(
@@ -349,15 +293,24 @@ def create_job(  # pylint:disable=R1260,R0912,R0914
             codero=codero,
         ),
     )
-    jobmaker = JobMaker(
-        src,
-        dest,
-        pages=pages,
-        config=config,
-        more=morefeatures,
-    )
-    task = jobmaker.run()
-    return task, dest
+    files = genex.config.prepare_files(files, pages=pages)
+    todo = []
+    for resource in files:
+        dest = os.path.join(outpath, resource.name)
+        jobconfig = utila.dicts_united(
+            config,
+            resource.config,
+        )
+        jobmaker = JobMaker(
+            src=resource.resource,
+            dest=dest,
+            pages=pages,
+            config=jobconfig,
+            more=morefeatures,
+        )
+        task = jobmaker.run()
+        todo.append((task, dest))
+    return todo
 
 
 class JobMaker:  # pylint:disable=R0904

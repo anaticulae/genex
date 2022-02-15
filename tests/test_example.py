@@ -14,6 +14,7 @@ import utila
 import utilatest
 
 import genex
+import genex.example
 
 
 def test_example_common_root():
@@ -75,17 +76,18 @@ def test_example_disable_abbreviation_step(testdir):
 
 
 def test_example_order():
-    todo, _ = genex.create_job(
-        'source',
-        'dest',
-        'rawmaker_normal',
-        'rawmaker_oneline',
+    generated = genex.example.generate(
+        files=['source/test.pdf'],
+        outpath='dest',
+        rawmaker='rawmaker_normal',
+        oneline='rawmaker_oneline',
         config=dict(
             caption=True,
             magic=True,
         ),
+        pages='0:10',
     )
-    todo = ' && '.join(todo)
+    todo: str = ' && '.join(generated[0][0])
     # ensure to run caption before magic
     magics = utila.findindex(todo, 'magic')
     assert len(magics) == 2
