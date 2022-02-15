@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.22.0
+
+### Feature
+
+* run table detector on section pages (1b1d5cb0307a)
+* replace outdated approach with JobMaker (84308ccae9ad)
+* use automate approach to reduce complexity (d5c87c87e300)
+
 ## v0.21.4
 
 ### Fix
