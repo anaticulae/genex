@@ -395,9 +395,11 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'groupme {self.dd} {self.groupme}']
         elif self.groupme:
             # run all, disable --toc
-            result += [f'groupme --toc! --abbreviation! -j=auto {self.dd}']
-            # toc only
-            result += [f'groupme --toc --pages=0:10 {self.dd}']
+            result += [
+                self.auto(
+                    'groupme --toc! --abbreviation! --figuretable! --tabletable!'
+                )
+            ]
         return result
 
     def add_tablero(self):
@@ -406,8 +408,10 @@ class JobMaker:  # pylint:disable=R0904
         result = []
         if not self.groupme:
             result += [f'groupme {self.dd} --pagenumbers --footer --content']
-        result += [f'tablero --table={self.src} {self.ddp} -j=auto']
-        result += [f'groupme {self.dd} --area']
+        result += [
+            f'tablero --table={self.src} {self.ddp} -j=auto',
+            f'groupme {self.dd} --area',
+        ]
         return result
 
     def add_codero(self):
@@ -444,10 +448,12 @@ class JobMaker:  # pylint:disable=R0904
     def add_groupme_selected(self):
         if not self.sections or not self.groupme:
             return []
-        return [(
-            self.auto('groupme --abbreviation'),
-            iamraw.sections.AbbreviationTable,
-        )]
+        return [
+            (self.auto('groupme --toc'), iamraw.TableOfContent),
+            (self.auto('groupme --abbreviation'), iamraw.AbbreviationTable),
+            (self.auto('groupme --tabletable'), iamraw.TableTable),
+            (self.auto('groupme --figuretable'), iamraw.FigureTable),
+        ]
 
     def add_caption(self):
         # TODO: USE DECORATOR
@@ -465,12 +471,12 @@ class JobMaker:  # pylint:disable=R0904
     def add_detector(self):
         if not self.sections:
             if self.detector:
-                return self.auto('detector --formula ')
+                return self.auto('detector --formula')
             return None
         return [
-            (self.auto('detector --bibliography '), iamraw.Bibliography),
-            (self.auto('detector --titlepage '), iamraw.TitlePage),
-            self.auto('detector --formula '),
+            (self.auto('detector --bibliography'), iamraw.Bibliography),
+            (self.auto('detector --titlepage'), iamraw.TitlePage),
+            self.auto('detector --formula'),
         ]
 
     def add_textflow_no_wordspace(self):
