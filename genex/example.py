@@ -467,13 +467,11 @@ class JobMaker:  # pylint:disable=R0904
             if self.detector:
                 return self.auto('detector --formula ')
             return None
-        # yapf:disable
         return [
-            (self.auto('detector --bibliography '), iamraw.sections.Bibliography),
-            (self.auto('detector --titlepage '), iamraw.sections.TitlePage),
+            (self.auto('detector --bibliography '), iamraw.Bibliography),
+            (self.auto('detector --titlepage '), iamraw.TitlePage),
             self.auto('detector --formula '),
         ]
-        # yapf:enable
 
     def add_textflow_no_wordspace(self):
         return self.auto('textflow --wordspace!') if self.textflow else None
