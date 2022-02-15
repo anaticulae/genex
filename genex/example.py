@@ -314,7 +314,7 @@ def create_job(  # pylint:disable=R1260,R0912,R0914
     pdfinfo: bool = True,
     tablero: bool = True,
     codero: bool = True,
-    pages: tuple = None,
+    pages: str = None,
     config: dict = None,
     morefeatures: list = None,
     # pylint:disable=W0613
@@ -338,121 +338,26 @@ def create_job(  # pylint:disable=R1260,R0912,R0914
     Returns:
         Created process todo description.
     """
-    src, dest, pages, config, dd, sd, sdp, ddp, sddp = prepare(  # pylint:disable=C0103
-        src, dest, pages, config)
-    groupme = config.get('groupme', False)
-    groupme_complex = groupme and not isinstance(groupme, str)
-    cleanup = config.get('rawmaker_cleanup', False)
-    # yapf:disable
-    task = [
-        f'rawmaker -j=auto {sdp} {rawmaker}',
-        (f'rawmaker -j=auto {sdp} {oneline}', oneline),
-        (f'pdfinfo {sd} --format=yaml', pdfinfo),
-        (f'formulero {sdp} -j2', formulero),
-        (f'spacestation {sdp}', config.get('spacestation', False)),
-        # groupme-simple
-        # use specialized groupme config
-        (f'groupme {dd} {groupme}', groupme and not groupme_complex),
-        # groupme-complex
-        # run all, disable --toc
-        (f'groupme --toc! --abbreviation! -j=auto {dd}', groupme_complex),
-        # toc only
-        (f'groupme --toc --pages=0:10 {dd}', groupme_complex),
-        # tablero
-        (f'groupme {dd} --pagenumbers --footer --content', tablero and not groupme),
-        (f'tablero --table={src} {ddp} -j=auto', tablero),
-        (f'groupme {dd} --area', tablero),
-        # codero
-        (f'codero {dd} -j1', codero),
-        # figureo
-        # separate steps are required, cause standard produces figure
-        # files which are required for cleanup step. In the current state
-        # utila determines inputs only at startup time. Therefore figureo
-        # wont know than theses later generated files exists.
-        # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
-        (f'figureo --standard {sddp}', config.get('figureo', False)),
-        (f'figureo --cleanup {sddp}', config.get('figureo', False)),
-        # rawmaker_cleanup
-        (f'rawmaker_cleanup {ddp}', cleanup),
-        (f'rawmaker_cleanup --prefix=oneline {ddp}', cleanup and oneline),
-        # sections
-        (f'sections --pdf={src} {ddp}', config.get('sections', False)),
-    ]
-    # remove disabled tasks
-    task = [item for item in task if isinstance(item, str) or item[1]]
-    task = [item if isinstance(item, str) else item[0] for item in task]
-    # yapf:enable
-    task.extend(select_features(config, dest, morefeatures))
+    config = utila.dicts_united(
+        config,
+        dict(
+            rawmaker=rawmaker,
+            oneline=oneline,
+            formulero=formulero,
+            pdfinfo=pdfinfo,
+            tablero=tablero,
+            codero=codero,
+        ),
+    )
+    jobmaker = JobMaker(
+        src,
+        dest,
+        pages=pages,
+        config=config,
+        more=morefeatures,
+    )
+    task = jobmaker.run()
     return task, dest
-
-
-FEATURES = [  # Hint: Pay attention to the order
-    ('groupme --abbreviation', iamraw.sections.AbbreviationTable),
-    'caption',
-    'magic',
-    'words',
-    'docref',
-    ('detector --bibliography ', iamraw.sections.Bibliography),
-    ('detector --titlepage ', iamraw.sections.TitlePage),
-    'detector --formula ',
-    'textflow --wordspace!',
-    'doctextstyle',
-    'magic',
-    'textflow --wordspace',
-    'smarty',
-]
-
-
-def select_features(config: dict, dest: str, morefeatures: list) -> list:
-    # create a copy to avoid side effects, that disabling groupme does not
-    # interfere with further steps.
-    config = dict(config)
-    features = FEATURES[:]
-    if morefeatures:
-        features.extend(morefeatures)
-        # enable all optional features
-        for item in morefeatures:
-            if not isinstance(item, str):
-                item, _ = item
-            config[item] = True
-    if not config.get('sections', False):
-        # disable groupme --abbreviations cause sections_result is
-        # required.
-        config['groupme'] = False
-    task = []
-    for feature in features:
-        if not isinstance(feature, str):
-            feature, section = feature
-        else:
-            section = None
-        if not config.get(feature.split()[0], False):
-            continue
-        if section:
-            task.append((
-                f'{feature} -j=auto -i={dest} -o={dest}',
-                dest,
-                section,
-            ))
-        else:
-            task.append(f'{feature} -j=auto -i={dest} -o={dest}')
-    if config.get('optimize', False):
-        task.append(f'findings --optimize -i={dest} -o={dest}')
-    return task
-
-
-def prepare(src, dest, pages, config) -> tuple:
-    # ensure that testdir.tmpdir is converted to str before using forward_slash
-    src, dest = str(src), str(dest)
-    src = utila.forward_slash(src, keep_newline=False)
-    dest = utila.forward_slash(dest, keep_newline=False)
-    pages = f'--pages={pages}' if pages is not None else ''
-    config = config if config else {}
-    dd = f'-i={dest} -o={dest}'  # pylint:disable=C0103
-    sd = f'-i={src} -o={dest}'  # pylint:disable=C0103
-    sdp = f'-i={src} -o={dest} {pages}'
-    ddp = f'-i={dest} -o={dest} {pages}'
-    sddp = f'-i={src} -i={dest} -o={dest} {pages}'
-    return src, dest, pages, config, dd, sd, sdp, ddp, sddp
 
 
 class JobMaker:  # pylint:disable=R0904
