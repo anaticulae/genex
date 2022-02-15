@@ -304,7 +304,7 @@ def generate(  # pylint:disable=R0914
         jobmaker = JobMaker(
             src=resource.resource,
             dest=dest,
-            pages=pages,
+            pages=resource.pages,
             config=jobconfig,
             more=morefeatures,
         )
