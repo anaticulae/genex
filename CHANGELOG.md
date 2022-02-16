@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.22.1
+
+### Fix
+
+* do not use global pages (389fecee6527)
+
 ## v0.22.0
 
 ### Feature
