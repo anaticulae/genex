@@ -243,7 +243,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     logpath = os.path.join(dest, 'generated.log')
     logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')
     utila.file_create(logpath, f'{utila.timedate()}\n')
-    for step in steps:
+    for index, step in enumerate(steps):
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
@@ -252,8 +252,9 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
                 continue
             step += f' --pages={pages}'
         # log progress to log file
+        index = str(index).zfill(2)
         forwarded = utila.forward_slash(step, keep_newline=False)
-        logstep(forwarded)
+        logstep(f'::{index}>>{forwarded}')
         start = utila.now()
         completed = utila.run(step)
         diff = utila.now() - start
