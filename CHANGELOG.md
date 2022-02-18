@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.23.0
+
+### Feature
+
+* add cli to rerun log file (144ab2cc7303)
+* add method to parse log file (945586ce5a27)
+* number steps to select steps for rerunning (07b343780e93)
+
+### Fix
+
+* use correct title page section class (8129ab358f25)
+
 ## v0.22.1
 
 ### Fix
