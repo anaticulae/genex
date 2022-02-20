@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.23.1
+
+### Feature
+
+* inform about missing section (c22044196621)
+
+### Fix
+
+* adjust detector skip behavior (3e30484a9c6c)
+
 ## v0.23.0
 
 ### Feature
