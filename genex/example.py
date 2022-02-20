@@ -20,7 +20,6 @@ import concurrent.futures
 import os
 
 import iamraw
-import iamraw.sections
 import utila
 import utila.logger
 
@@ -477,7 +476,7 @@ class JobMaker:  # pylint:disable=R0904
             return None
         return [
             (self.auto('detector --bibliography'), iamraw.Bibliography),
-            (self.auto('detector --titlepage'), iamraw.sections.TitlePage),
+            (self.auto('detector --titlepage'), iamraw.TitlePageSection),
             self.auto('detector --formula'),
         ]
 
