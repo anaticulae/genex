@@ -7,7 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import iamraw
 import serializeraw
 import utila
 
@@ -27,15 +26,12 @@ def select_pages(path: str, select) -> str:
 
 def select_section(path: str, select) -> tuple:
     assert isinstance(select, object.__class__), f'class not: {type(select)}'
-    path = iamraw.path.sections_(path)
-    section_ = serializeraw.load_sections(path)
-
+    sections = serializeraw.load_sections(path)
     flat = []
-    for level in section_:
+    for level in sections:
         # TODO: REPLACE WITH NICE ITERATOR TO IMPROVE CODE STYLE
         flat.append(level)
         flat.extend(level[:])
-
     collected = []
     for item in flat:
         if item.__class__ == select:
