@@ -12,12 +12,12 @@ power==2.5.0
 
 # required to run example
 rawmaker==2.31.0
-groupme==0.23.0
+groupme==0.24.0
 sections==1.17.0
 hey==5.18.0
 tablero>=0.8.3<1.0.0
 figureo>=0.17.1<1.0.0
 
-detector==0.30.0
+detector==0.31.0
 
 jam==0.4.0
