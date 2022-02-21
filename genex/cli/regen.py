@@ -10,24 +10,29 @@
 import argparse
 import functools
 import os
+import sys
 
 import power
 import utila
 
 import genex.rerun
 
+PROCESS = 'genex_regen'
 
-def main():
+
+@utila.saveme
+def main(generated=None):
     root = determine_root(os.getcwd())
     parser = create_parser()
     start, worker = parse_args(parser)
-    if returncode := run(root, start, worker):
-        return returncode
-    return utila.SUCCESS
+    if returncode := run(root, start, worker, generated=generated):
+        return sys.exit(returncode)
+    return sys.exit(utila.SUCCESS)
 
 
-def run(root, start, worker: int = 1) -> int:
-    generated = power.generated(project=root)
+def run(root, start, worker: int = 1, generated=None) -> int:
+    if not generated:
+        generated = power.generated(project=root)
     if not utila.exists(generated):
         utila.error(f'no resource generated: {generated}')
         return utila.FAILURE
@@ -61,7 +66,7 @@ def parse_args(parser) -> tuple:
 
 
 def create_parser():
-    parser = argparse.ArgumentParser(prog='genex_regen')
+    parser = argparse.ArgumentParser(prog=PROCESS)
     # TODO: ADD VERBOSE AND FAIL FAST FLAG
     parser.add_argument(
         'start',
