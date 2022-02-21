@@ -128,9 +128,10 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         full=full,
         morefeatures=morefeatures,
     )
+    todomax = len(todo) - 1
     with concurrent.futures.ThreadPoolExecutor(max_workers=worker) as executor:
         futures = [
-            executor.submit(run_job, job, (index, len(todo) - 1))
+            executor.submit(run_job, job, (index, todomax))
             for index, job in enumerate(todo)
         ]
         for future in concurrent.futures.as_completed(futures):
