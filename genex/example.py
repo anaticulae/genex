@@ -267,7 +267,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         logstep(f'runtime: {diff} sec')
         utila.assert_success(completed)
     # log final time
-    logstep(f'{utila.timedate()}')
+    logstep(utila.timedate())
     rawjob = genex.utils.shorten_path(rawjob)
     utila.log(f'completed: {rawjob}')
 
