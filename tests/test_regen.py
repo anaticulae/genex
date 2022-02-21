@@ -36,8 +36,6 @@ def test_cli_regen(testdir, monkeypatch, capsys):
         files,
         destination=testdir.tmpdir,
         groupme=True,
-        sections=False,
-        detector=False,
         base=power.REPOSITORY,
         pages='0:5',
     )

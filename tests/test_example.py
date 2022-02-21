@@ -34,7 +34,7 @@ def test_example_common_root():
 
 @utilatest.longrun
 def test_example_extract(testdir):
-    generated = os.path.join(testdir.tmpdir, 'generated')
+    generated = testdir.tmpdir.join('generated')
     pdfs = [
         power.DOCU009_PDF,
         power.BACHELOR111_PDF,
@@ -60,7 +60,7 @@ def test_example_extract(testdir):
 def test_example_disable_abbreviation_step(testdir):
     """Disable groupme --abbreviation if sections is disabled cause
     groupme --abbreviations requires section_result."""
-    generated = os.path.join(testdir.tmpdir, 'generated')
+    generated = testdir.tmpdir.join('generated')
     pdfs = [
         power.DOCU009_PDF,
     ]

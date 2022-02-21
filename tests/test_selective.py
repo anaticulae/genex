@@ -30,7 +30,7 @@ def test_extract_bachelor37_abbreviation_table(testdir):
         base=power.REPOSITORY,
         pages='0:15',
     )
-    bachelor37 = os.path.join(testdir.tmpdir, 'bachelor_bachelor037')
+    bachelor37 = testdir.tmpdir.join('bachelor_bachelor037')
     path = os.path.join(bachelor37, 'groupme__abbreviation_abbreviation.yaml')
     assert os.path.exists(path)
     table = serializeraw.load_abbreviation_table(path)

@@ -7,8 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import os
-
 import iamraw
 import power
 import utila
@@ -31,7 +29,7 @@ def test_select_titlepage(testdir):
         base=power.REPOSITORY,
         pages='0:10',
     )
-    generated = os.path.join(testdir.tmpdir, 'bachelor_bachelor090')
+    generated = testdir.tmpdir.join('bachelor_bachelor090')
     utila.exists_assert(generated)
     selected = genex.select_pages(generated, select=iamraw.TitlePageSection)
     assert selected == '1'
