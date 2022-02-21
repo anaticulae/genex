@@ -138,7 +138,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
                 comment = future.result()
                 utila.info(comment)
             except Exception:
-                utila.info(f'{future} failed.')
+                utila.error(f'{future} failed.')
                 raise
 
 
