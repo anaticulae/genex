@@ -175,6 +175,9 @@ def todolist(  # pylint:disable=R0914,R0913
         files: list of resources to extract. There are two list pattens:
                (file, pages) or (file).
         full: overwrites every selection and runs all extraction steps
+
+    >>> todolist(['bachelor/bachelor090_PDF.pdf'], 'basedir', full=True)
+    [(['rawmaker...-o=basedir/bachelor_bachelor090_PDF..., 'basedir/bachelor_bachelor090_PDF')]
     """
     if full:
         # enable every extraction step
@@ -297,7 +300,7 @@ def generate(  # pylint:disable=R0914
     files = genex.config.prepare_files(files, pages=pages)
     todo = []
     for resource in files:
-        dest = os.path.join(outpath, resource.name)
+        dest = utila.forward_slash(os.path.join(outpath, resource.name))
         jobconfig = utila.dicts_united(
             config,
             resource.config,
