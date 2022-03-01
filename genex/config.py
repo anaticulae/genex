@@ -13,7 +13,7 @@ import utila
 
 ONELINE = ('--prefix=oneline '
            '--font --text '
-           '--boxes_flow=1.0 --char_margin=100.0 --line_margin=0.0001')
+           '--boxes_flow=1.0 --char_margin=100.0 --line_margin=0.0001 ')
 
 CONFIG = '--char_margin=3.1 --boxes_flow=1.0 --line_margin=0.25 '
 
