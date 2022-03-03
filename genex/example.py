@@ -506,6 +506,17 @@ class JobMaker:  # pylint:disable=R0904
     def add_smarty(self):
         return self.auto('smarty') if self.smarty else None
 
+    def add_more(self):
+        if not self.more:
+            return None
+        result = []
+        for item in self.more:
+            if not isinstance(item, str):
+                # TODO: VERIFY SECOND
+                item, _ = item
+            result.append(self.auto(item))
+        return result
+
     def add_optimize(self):
         # last method
         if not self.optimize:
