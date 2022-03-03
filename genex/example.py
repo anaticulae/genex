@@ -474,7 +474,7 @@ class JobMaker:  # pylint:disable=R0904
             return self.auto('words')
         return [
             self.auto('words --headlines'),
-            (self.auto('words --headlines!'), iamraw.MainPart),
+            (self.auto('words --headlines!'), (iamraw.MainPart, True)),
         ]
 
     def add_docref(self):

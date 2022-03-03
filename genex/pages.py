@@ -15,9 +15,15 @@ def select_pages(path: str, select) -> str:
     """\
     Support merging multiple selected pages.
     """
+    try:
+        select, always = select
+    except TypeError:
+        always = False
     assert isinstance(select, object.__class__), f'class not: {type(select)}'
     pages = select_section(path, select=select)
     if not pages:
+        if always:
+            return ':'
         utila.debug(f'could not find section, skip: {select} in {path}')
         return None
     pages = pages2str(pages)
