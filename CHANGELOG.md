@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.24.0
+
+### Feature
+
+* add always option to ensure that process is done (d63df27fc0dd)
+* make cli testable (c84151e27165)
+* shrink words extraction to main part (570dd541a53e)
+* run fewest possible data (21185bfa6c9d)
+
+### Fix
+
+* ensure that extending config does not raise error (0f50a50fae26)
+* reduce verbosity (e8595977c168)
+* adjust error level (0317943f790e)
+
 ## v0.23.1
 
 ### Feature
