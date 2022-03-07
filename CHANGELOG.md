@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.24.1
+
+### Feature
+
+* evaluate more (9227b3221d44)
+
+### Fix
+
+* make todo power independent (52714b02e5bb)
+
 ## v0.24.0
 
 ### Feature
