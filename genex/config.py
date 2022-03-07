@@ -52,6 +52,9 @@ def prepare_files(files, pages: tuple = (5, 6)) -> list:
     """
     result = []
     for item in files:
+        if ispowertodo(item):
+            result.append(powertodo_convert(item))
+            continue
         if isinstance(item, Todo):
             result.append(item)
             continue
@@ -62,3 +65,14 @@ def prepare_files(files, pages: tuple = (5, 6)) -> list:
             result.append(todo(resource=item[0], pages=item[1]))
             continue
     return result
+
+
+def ispowertodo(item) -> bool:
+    if hasattr(item, 'name'):
+        return False
+    return hasattr(item, 'config')
+
+
+def powertodo_convert(item) -> Todo:
+    # power import is not required
+    return todo(resource=item.resource, pages=item.pages, **item.config)
