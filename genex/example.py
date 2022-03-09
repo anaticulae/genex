@@ -38,22 +38,23 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     *,
     rawmaker_cleanup: bool = False,
     optimize: bool = False,
-    figureo: bool = False,
-    formulero: bool = False,
-    pdfinfo: bool = True,
-    tablero: bool = False,
-    codero: bool = False,
     base: str = None,
-    morefeatures: list = None,
     caption: bool = False,
+    codero: bool = False,
+    color: bool = False,
     detector: bool = False,
     docref: bool = False,
     doctextstyle: bool = False,
+    figureo: bool = False,
+    formulero: bool = False,
     groupme: bool = False,
     magic: bool = False,
+    morefeatures: list = None,
+    pdfinfo: bool = True,
     sections: bool = False,
     smarty: bool = False,
     spacestation: bool = False,
+    tablero: bool = False,
     textflow: bool = False,
     weblink: bool = False,
     words: bool = False,
@@ -75,6 +76,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         tablero(bool): run if True
         formulero(bool): run if True
         codero(bool): run if True
+        color(bool): run if True
         pdfinfo(bool): run if True
         optimize(bool): run if True
         base(str): root to determine generated output names, see comment below
@@ -109,6 +111,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         pages,
         caption=caption,
         codero=codero,
+        color=color,
         detector=detector,
         docref=docref,
         doctextstyle=doctextstyle,
@@ -156,6 +159,7 @@ def todolist(  # pylint:disable=R0914,R0913
     formulero: bool = False,
     codero: bool = False,
     pdfinfo: bool = True,
+    color: bool = False,
     rawmaker_cleanup: bool = False,
     optimize: bool = False,
     *,
@@ -188,6 +192,7 @@ def todolist(  # pylint:disable=R0914,R0913
         # enable every extraction step
         caption = True
         codero = True
+        color = True
         detector = True
         docref = True
         doctextstyle = True
@@ -207,6 +212,7 @@ def todolist(  # pylint:disable=R0914,R0913
         words = True
     config = {
         'caption': caption,
+        'color': color,
         'detector': detector,
         'docref': docref,
         'doctextstyle': doctextstyle,
@@ -397,6 +403,8 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'formulero {self.sdp} -j2']
         if self.spacestation:
             result += [f'spacestation {self.sdp}']
+        if self.color:
+            result += [f'color {self.sdp}']
         return result
 
     def add_groupme(self):
