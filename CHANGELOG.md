@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.24.3
+
+### Feature
+
+* add color runner (66c9c286170f)
+
 ## v0.24.2
 
 ### Feature
