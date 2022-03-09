@@ -210,24 +210,24 @@ def todolist(  # pylint:disable=R0914,R0913
         textflow = True
         weblink = True
         words = True
-    config = {
-        'caption': caption,
-        'color': color,
-        'detector': detector,
-        'docref': docref,
-        'doctextstyle': doctextstyle,
-        'figureo': figureo,
-        'groupme': groupme,
-        'magic': magic,
-        'optimize': optimize,
-        'rawmaker_cleanup': rawmaker_cleanup,
-        'sections': sections,
-        'smarty': smarty,
-        'spacestation': spacestation,
-        'textflow': textflow,
-        'weblink': weblink,
-        'words': words,
-    }
+    config = dict(
+        caption=caption,
+        color=color,
+        detector=detector,
+        docref=docref,
+        doctextstyle=doctextstyle,
+        figureo=figureo,
+        groupme=groupme,
+        magic=magic,
+        optimize=optimize,
+        rawmaker_cleanup=rawmaker_cleanup,
+        sections=sections,
+        smarty=smarty,
+        spacestation=spacestation,
+        textflow=textflow,
+        weblink=weblink,
+        words=words,
+    )
     todo = generate(
         files,
         destination,
