@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.12.1
+utilatest==0.12.3
 power==2.5.0
 
 # required to run example
-rawmaker==2.31.0
+rawmaker==2.33.0
 groupme==0.26.0
 sections==1.18.0
 hey==5.19.0
