@@ -55,6 +55,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     smarty: bool = False,
     spacestation: bool = False,
     textflow: bool = False,
+    weblink: bool = False,
     words: bool = False,
     full: bool = False,
 ):
@@ -90,6 +91,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         smarty(bool): run if True
         spacestation(bool): run if True
         textflow(bool): run if True
+        weblink(bool): run if True
         words(bool): run if True
         full(bool): overwrites every selection and runs all extraction steps
     Raises:
@@ -124,6 +126,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         spacestation=spacestation,
         tablero=tablero,
         textflow=textflow,
+        weblink=weblink,
         words=words,
         full=full,
         morefeatures=morefeatures,
@@ -167,6 +170,7 @@ def todolist(  # pylint:disable=R0914,R0913
     smarty: bool = False,
     spacestation: bool = False,
     textflow: bool = False,
+    weblink: bool = False,
     words: bool = False,
     full: bool = False,
     morefeatures: list = None,
@@ -199,6 +203,7 @@ def todolist(  # pylint:disable=R0914,R0913
         spacestation = True
         tablero = True
         textflow = True
+        weblink = True
         words = True
     config = {
         'caption': caption,
@@ -214,6 +219,7 @@ def todolist(  # pylint:disable=R0914,R0913
         'smarty': smarty,
         'spacestation': spacestation,
         'textflow': textflow,
+        'weblink': weblink,
         'words': words,
     }
     todo = generate(
@@ -490,6 +496,9 @@ class JobMaker:  # pylint:disable=R0904
             (self.auto('detector --titlepage'), iamraw.TitlePageSection),
             self.auto('detector --formula'),
         ]
+
+    def add_weblink(self):
+        return self.auto('weblink') if self.weblink else None
 
     def add_textflow_no_wordspace(self):
         return self.auto('textflow --wordspace!') if self.textflow else None
