@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.24.2
+
+### Feature
+
+* add weblink processor (0095a1a31b31)
+
 ## v0.24.1
 
 ### Feature
