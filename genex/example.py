@@ -450,7 +450,7 @@ class JobMaker:  # pylint:disable=R0904
         ]
 
     def add_rawmaker_cleanup(self):
-        if not self.cleanup:
+        if not self.rawmaker_cleanup:
             return []
         result = [
             f'rawmaker_cleanup {self.ddp}',
