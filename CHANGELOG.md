@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.24.4
+
+### Fix
+
+* adjust power converter (be9cb8981a95)
+* adjust regression after refactoring (02521b317d6c)
+
 ## v0.24.3
 
 ### Feature
