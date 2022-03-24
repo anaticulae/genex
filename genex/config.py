@@ -68,6 +68,8 @@ def prepare_files(files, pages: tuple = (5, 6)) -> list:
 
 
 def ispowertodo(item) -> bool:
+    if item.__class__.__module__ == 'power.config':
+        return True
     if hasattr(item, 'name'):
         return False
     return hasattr(item, 'config')
