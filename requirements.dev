@@ -14,10 +14,10 @@ power==2.5.0
 rawmaker==2.33.0
 groupme==0.26.0
 sections==1.18.0
-hey==5.19.0
+hey==5.19.2
 tablero>=0.9.0<1.0.0
-figureo>=0.17.1<1.0.0
+figureo>=0.17.2<1.0.0
 
-detector==0.32.0
+detector==0.34.1
 
 jam==0.4.0
