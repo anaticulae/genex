@@ -404,7 +404,7 @@ class JobMaker:  # pylint:disable=R0904
         if self.spacestation:
             result += [f'spacestation {self.sdp}']
         if self.color:
-            result += [f'color {self.sdp}']
+            result += [f'colors {self.sdp}']
         return result
 
     def add_groupme(self):
