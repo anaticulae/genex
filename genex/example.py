@@ -502,6 +502,7 @@ class JobMaker:  # pylint:disable=R0904
         return [
             (self.auto('detector --bibliography'), iamraw.Bibliography),
             (self.auto('detector --titlepage'), iamraw.TitlePageSection),
+            (self.auto('detector --index'), iamraw.Index),
             self.auto('detector --formula'),
         ]
 
