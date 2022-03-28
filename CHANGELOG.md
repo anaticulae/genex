@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.24.5
+
+### Feature
+
+* add index detector (beff69e450ef)
+
+### Fix
+
+* adjust runnable name (23172332c5e5)
+
 ## v0.24.4
 
 ### Fix
