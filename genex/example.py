@@ -462,7 +462,7 @@ class JobMaker:  # pylint:disable=R0904
     def add_sections(self):
         if not self.sections:
             return None
-        return f'sections --pdf={self.src} {self.ddp}'
+        return f'sections --pdf={self.src} {self.ddp} -j=auto'
 
     def add_groupme_selected(self):
         if not self.sections or not self.groupme:
