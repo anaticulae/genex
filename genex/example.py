@@ -186,7 +186,7 @@ def todolist(  # pylint:disable=R0914,R0913
         full: overwrites every selection and runs all extraction steps
 
     >>> todolist(['bachelor/bachelor090_PDF.pdf'], 'basedir', full=True)
-    [(['rawmaker...-o=basedir/bachelor_bachelor090_PDF..., 'basedir/bachelor_bachelor090_PDF')]
+    [(['pdfinfo...', 'rawmaker...-o=basedir/bachelor_bachelor090_PDF..., 'basedir/bachelor_bachelor090_PDF')]
     """
     if full:
         # enable every extraction step
@@ -394,11 +394,14 @@ class JobMaker:  # pylint:disable=R0904
     ############################################################################
 
     def add_basic(self):
-        result = [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']
-        if self.oneline:
-            result += [f'rawmaker -j=auto {self.sdp} {self.oneline}']
+        result = []
         if self.pdfinfo:
             result += [f'pdfinfo {self.sd} --format=yaml']
+        if True:  # pylint:disable=using-constant-test
+            # without rawmaker this makes no sence
+            result += [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']
+        if self.oneline:
+            result += [f'rawmaker -j=auto {self.sdp} {self.oneline}']
         if self.formulero:
             result += [f'formulero {self.sdp} -j2']
         if self.spacestation:
