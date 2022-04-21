@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.25.0
+
+### Feature
+
+* run caption earlier to cleanup captions also (755eb4c90713)
+* run pdfinfo first to verify pdf version if error occurs (2f94a5aa97bb)
+* reduce generation time (abf1598e61d7)
+
 ## v0.24.5
 
 ### Feature
