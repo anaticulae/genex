@@ -452,6 +452,10 @@ class JobMaker:  # pylint:disable=R0904
             f'figureo --cleanup {self.sddp}',
         ]
 
+    def add_caption(self):
+        # TODO: USE DECORATOR
+        return self.auto('caption') if self.caption else None
+
     def add_rawmaker_cleanup(self):
         if not self.rawmaker_cleanup:
             return []
@@ -476,10 +480,6 @@ class JobMaker:  # pylint:disable=R0904
             (self.auto('groupme --tabletable'), iamraw.TableTable),
             (self.auto('groupme --figuretable'), iamraw.FigureTable),
         ]
-
-    def add_caption(self):
-        # TODO: USE DECORATOR
-        return self.auto('caption') if self.caption else None
 
     def add_magic(self):
         return self.auto('magic') if self.magic else None
