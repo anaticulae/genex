@@ -445,7 +445,7 @@ class JobMaker:  # pylint:disable=R0904
         # separate steps are required, cause standard produces figure
         # files which are required for cleanup step. In the current state
         # utila determines inputs only at startup time. Therefore figureo
-        # wont know than theses later generated files exists.
+        # want know that those later generated files exists.
         # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
         return [
             f'figureo --standard {self.sddp}',
