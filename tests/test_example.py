@@ -49,7 +49,7 @@ def test_example_extract(testdir):
         groupme=True,
         tablero=True,
         sections=True,
-        rawmaker_cleanup=True,
+        cleanup=True,
         spacestation=True,
         optimize=True,
     )

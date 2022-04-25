@@ -28,6 +28,7 @@ import genex.pages
 import genex.utils
 
 
+@utila.rename(rawmaker_cleanup='cleanup')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     destination: str,
@@ -36,7 +37,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
     *,
-    rawmaker_cleanup: bool = False,
+    cleanup: bool = False,
     optimize: bool = False,
     base: str = None,
     caption: bool = False,
@@ -72,7 +73,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
-        rawmaker_cleanup(str): run if True
+        cleanup(str): run if True
         tablero(bool): run if True
         formulero(bool): run if True
         codero(bool): run if True
@@ -123,7 +124,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         optimize=optimize,
         pdfinfo=pdfinfo,
         rawmaker=rawmaker,
-        rawmaker_cleanup=rawmaker_cleanup,
+        cleanup=cleanup,
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
@@ -149,6 +150,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
                 raise
 
 
+@utila.rename(rawmaker_cleanup='cleanup')
 def todolist(  # pylint:disable=R0914,R0913
     files: list,
     destination: str,
@@ -160,7 +162,7 @@ def todolist(  # pylint:disable=R0914,R0913
     codero: bool = False,
     pdfinfo: bool = True,
     color: bool = False,
-    rawmaker_cleanup: bool = False,
+    cleanup: bool = False,
     optimize: bool = False,
     *,
     caption: bool = False,
@@ -202,7 +204,7 @@ def todolist(  # pylint:disable=R0914,R0913
         magic = True
         optimize = True
         pdfinfo = True
-        rawmaker_cleanup = True
+        cleanup = True
         sections = True
         smarty = True
         spacestation = True
@@ -220,7 +222,7 @@ def todolist(  # pylint:disable=R0914,R0913
         groupme=groupme,
         magic=magic,
         optimize=optimize,
-        rawmaker_cleanup=rawmaker_cleanup,
+        cleanup=cleanup,
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
@@ -456,14 +458,14 @@ class JobMaker:  # pylint:disable=R0904
         # TODO: USE DECORATOR
         return self.auto('caption') if self.caption else None
 
-    def add_rawmaker_cleanup(self):
-        if not self.rawmaker_cleanup:
+    def add_cleanup(self):
+        if not self.cleanup:
             return []
         result = [
-            f'rawmaker_cleanup {self.ddp}',
+            f'cleanup {self.ddp}',
         ]
         if self.oneline:
-            result += [f'rawmaker_cleanup --prefix=oneline {self.ddp}']
+            result += [f'cleanup --prefix=oneline {self.ddp}']
         return result
 
     def add_sections(self):
