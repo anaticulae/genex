@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.25.1
+
+### Feature
+
+* replace rawmaker cleanup due new cleanup (aecd891e6c27)
+
 ## v0.25.0
 
 ### Feature
