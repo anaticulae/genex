@@ -13,7 +13,7 @@ power==2.7.0
 # required to run example
 rawmaker==2.37.0
 groupme==0.29.1
-sections==1.19.1
+sections==1.19.2
 hey==5.19.2
 tablero>=0.9.3<1.0.0
 figureo>=0.17.2<1.0.0
