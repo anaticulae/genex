@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.26.0
+
+### Feature
+
+* add headlines parameter (a24ce6ccf1e7)
+* add headline step (fee36073498c)
+
 ## v0.25.1
 
 ### Feature
