@@ -21,7 +21,6 @@ import os
 
 import iamraw
 import utila
-import utila.logger
 
 import genex.config
 import genex.pages
@@ -248,7 +247,7 @@ def todolist(  # pylint:disable=R0914,R0913
 
 def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     steps, dest = job
-    verbosity = -1 if utila.logger.LEVEL > utila.LEVEL_DEFAULT else 200
+    verbosity = -1 if utila.level_current() > utila.LEVEL_DEFAULT else 200
     # prepare run
     rawjob = utila.from_tuple(steps, separator=' && ')[0:verbosity]
     rawjob = utila.forward_slash(rawjob, keep_newline=False)
