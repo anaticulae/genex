@@ -52,6 +52,7 @@ def test_example_extract(testdir):
         cleanup=True,
         spacestation=True,
         optimize=True,
+        headlines=True,
     )
     assert os.path.exists(generated), str(generated)
 
