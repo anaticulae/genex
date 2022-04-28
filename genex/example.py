@@ -279,7 +279,10 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         forwarded = utila.forward_slash(step, keep_newline=False)
         logstep(f'::{index}>>{forwarded}')
         start = utila.now()
-        completed = utila.run(step)
+        completed = utila.run(
+            step,
+            expect=None,
+        )
         diff = utila.now() - start
         logstep(completed.stdout)
         logstep(completed.stderr)
