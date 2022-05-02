@@ -48,7 +48,7 @@ def simple(path: str) -> str:
 def prepare_files(files, pages: tuple = (5, 6)) -> list:
     """\
     >>> prepare_files(['resource/master116.pdf', ('resource/mitpage', (1, 2, 3))])
-    [Todo(resource='resource/master116.pdf',...pages=(5, 6),...Todo(...pages=(1, 2, 3), config=None)]
+    [Todo(resource='resource/mitpage'...pages=(1, 2, 3)...Todo(resource='resource/master116.pdf'...pages=(5, 6)...]
     """
     result = []
     for item in files:
@@ -64,7 +64,30 @@ def prepare_files(files, pages: tuple = (5, 6)) -> list:
         if isinstance(item, tuple):
             result.append(todo(resource=item[0], pages=item[1]))
             continue
+    # sort longest page to the front
+    result.sort(
+        key=bypages,
+        reverse=True,
+    )
     return result
+
+
+def bypages(item: Todo) -> int:
+    maxpage = utila.parse_ints(item.name)
+    if not maxpage:
+        return 256
+    pagepattern = item.pages
+    if isinstance(pagepattern, tuple):
+        return len(pagepattern)
+    maxpage: int = int(maxpage[-1])
+    if pagepattern is None:
+        return maxpage
+    parsed = utila.parse_pages(
+        pagepattern,
+        pagecount=maxpage,
+    )
+    count = len(parsed)
+    return count
 
 
 def ispowertodo(item) -> bool:
