@@ -290,9 +290,11 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
             expect=None,
         )
         diff = utila.now() - start
-        logstep(completed.stdout)
-        logstep(completed.stderr)
-        logstep(f'runtime: {diff} sec')
+        if completed.stdout:
+            logstep(completed.stdout)
+        if completed.stderr:
+            logstep(completed.stderr)
+        logstep(f'runtime: {diff} sec\n')
         utila.assert_success(completed)
     # log final time
     logstep(utila.timedate())
