@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.27.0
+
+### Feature
+
+* add reftable processor (6aca57ba991f)
+* add reftable (4c25899d51d3)
+* sort documents by page count (3d2c57fad35e)
+
+### Fix
+
+* ensure that failing process is logged (4ddd79b1e5bb)
+
 ## v0.26.0
 
 ### Feature
