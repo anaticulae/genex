@@ -11,3 +11,5 @@ utila>=2.72.0<3.0.0
 iamraw>=4.70.3<5.0.0
 protocol>=3.18.0<4.0.0
 cleanup>=0.1.1<1.0.0
+# TODO: REMOVE LATER
+reftable>=0.2.0<1.0.0
