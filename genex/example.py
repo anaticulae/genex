@@ -52,6 +52,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     magic: bool = False,
     morefeatures: list = None,
     pdfinfo: bool = True,
+    reftable: bool = False,
     sections: bool = False,
     smarty: bool = False,
     spacestation: bool = False,
@@ -91,6 +92,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         groupme(bool): run if True
         headlines(bool): run if True
         magic(bool): run if True
+        reftable(bool): run if True
         sections(bool): run if True
         smarty(bool): run if True
         spacestation(bool): run if True
@@ -112,6 +114,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         destination,
         pages,
         caption=caption,
+        cleanup=cleanup,
         codero=codero,
         color=color,
         detector=detector,
@@ -120,12 +123,13 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         figureo=figureo,
         formulero=formulero,
         groupme=groupme,
+        headlines=headlines,
         magic=magic,
         oneline=oneline,
         optimize=optimize,
         pdfinfo=pdfinfo,
         rawmaker=rawmaker,
-        cleanup=cleanup,
+        reftable=reftable,
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
@@ -133,7 +137,6 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         textflow=textflow,
         weblink=weblink,
         words=words,
-        headlines=headlines,
         full=full,
         morefeatures=morefeatures,
     )
@@ -175,6 +178,7 @@ def todolist(  # pylint:disable=R0914,R0913
     groupme: bool = False,
     headlines: bool = False,
     magic: bool = False,
+    reftable: bool = False,
     sections: bool = False,
     smarty: bool = False,
     spacestation: bool = False,
@@ -196,6 +200,7 @@ def todolist(  # pylint:disable=R0914,R0913
     if full:
         # enable every extraction step
         caption = True
+        cleanup = True
         codero = True
         color = True
         detector = True
@@ -208,7 +213,7 @@ def todolist(  # pylint:disable=R0914,R0913
         magic = True
         optimize = True
         pdfinfo = True
-        cleanup = True
+        reftable = True
         sections = True
         smarty = True
         spacestation = True
@@ -218,6 +223,7 @@ def todolist(  # pylint:disable=R0914,R0913
         words = True
     config = dict(
         caption=caption,
+        cleanup=cleanup,
         color=color,
         detector=detector,
         docref=docref,
@@ -227,7 +233,7 @@ def todolist(  # pylint:disable=R0914,R0913
         headlines=headlines,
         magic=magic,
         optimize=optimize,
-        cleanup=cleanup,
+        reftable=reftable,
         sections=sections,
         smarty=smarty,
         spacestation=spacestation,
