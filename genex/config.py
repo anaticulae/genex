@@ -80,7 +80,7 @@ def bypages(item: Todo) -> int:
     if isinstance(pagepattern, tuple):
         return len(pagepattern)
     maxpage: int = int(maxpage[-1])
-    if pagepattern is None:
+    if pagepattern in (None, ':'):
         return maxpage
     parsed = utila.parse_pages(
         pagepattern,
