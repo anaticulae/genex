@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.27.1
+
+### Feature
+
+* exit with return code if process fails (234e9333b3ff)
+
+### Fix
+
+* handle double colon correctly (df2774773c5f)
+* adjust logging (078961c6ab96)
+
 ## v0.27.0
 
 ### Feature
