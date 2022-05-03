@@ -18,6 +18,7 @@ together. We do not want to duplicate any generator code.
 
 import concurrent.futures
 import os
+import sys
 
 import utila
 
@@ -295,7 +296,8 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
         if completed.stderr:
             logstep(completed.stderr)
         logstep(f'runtime: {diff} sec\n')
-        utila.assert_success(completed)
+        if completed.returncode:
+            sys.exit(completed.returncode)
     # log final time
     logstep(utila.timedate())
     rawjob = genex.utils.shorten_path(rawjob)
