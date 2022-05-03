@@ -162,6 +162,16 @@ class JobMaker:  # pylint:disable=R0904
             (self.auto('groupme --figuretable'), iamraw.FigureTable),
         ]
 
+    def add_reftable_selected(self):
+        if not self.sections or not self.reftable:
+            return []
+        return [
+            (self.auto('reftable --toc'), iamraw.TableOfContent),
+            (self.auto('reftable --abbrev'), iamraw.AbbreviationTable),
+            (self.auto('reftable --table'), iamraw.TableTable),
+            (self.auto('reftable --figure'), iamraw.FigureTable),
+        ]
+
     def add_magic(self):
         return self.auto('magic') if self.magic else None
 
