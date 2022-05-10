@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.27.2
+
+### Fix
+
+* remove outdated steps (d3f2d6406806)
+
 ## v0.27.1
 
 ### Feature
