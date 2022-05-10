@@ -97,12 +97,7 @@ class JobMaker:  # pylint:disable=R0904
             # use specialized groupme config
             result += [f'groupme {self.dd} {self.groupme}']
         elif self.groupme:
-            # run all, disable --toc
-            result += [
-                self.auto(
-                    'groupme --toc! --abbreviation! --figuretable! --tabletable!'
-                )
-            ]
+            result += [self.auto('groupme')]
         return result
 
     def add_tablero(self):
@@ -151,16 +146,6 @@ class JobMaker:  # pylint:disable=R0904
         if not self.sections:
             return None
         return f'sections --pdf={self.src} {self.ddp} -j=auto'
-
-    def add_groupme_selected(self):
-        if not self.sections or not self.groupme:
-            return []
-        return [
-            (self.auto('groupme --toc'), iamraw.TableOfContent),
-            (self.auto('groupme --abbreviation'), iamraw.AbbreviationTable),
-            (self.auto('groupme --tabletable'), iamraw.TableTable),
-            (self.auto('groupme --figuretable'), iamraw.FigureTable),
-        ]
 
     def add_reftable_selected(self):
         if not self.sections or not self.reftable:
