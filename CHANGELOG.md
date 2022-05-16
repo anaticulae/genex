@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.27.3
+
+### Fix
+
+* run groupme again to use cleanup to improve detection (906014f516e2)
+
 ## v0.27.2
 
 ### Fix
