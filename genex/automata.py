@@ -140,6 +140,9 @@ class JobMaker:  # pylint:disable=R0904
         ]
         if self.oneline:
             result += [f'cleanup --prefix=oneline {self.ddp}']
+        if self.groupme:
+            # run groupme again
+            result += [f'groupme {self.dd} --pagenumbers --footer']
         return result
 
     def add_sections(self):
