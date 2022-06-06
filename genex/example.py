@@ -40,6 +40,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     cleanup: bool = False,
     optimize: bool = False,
     base: str = None,
+    bibliography: bool = False,
     caption: bool = False,
     codero: bool = False,
     color: bool = False,
@@ -85,6 +86,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         base(str): root to determine generated output names, see comment below
         ----------
         morefeatures(list): enable optional features
+        bibliography(bool): run if True
         caption(bool): run if True
         detector(bool): run if True
         docref(bool): run if True
@@ -114,6 +116,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         files,
         destination,
         pages,
+        bibliography=bibliography,
         caption=caption,
         cleanup=cleanup,
         codero=codero,
@@ -171,6 +174,7 @@ def todolist(  # pylint:disable=R0914,R0913
     cleanup: bool = False,
     optimize: bool = False,
     *,
+    bibliography: bool = False,
     caption: bool = False,
     detector: bool = False,
     docref: bool = False,
@@ -200,6 +204,7 @@ def todolist(  # pylint:disable=R0914,R0913
     """
     if full:
         # enable every extraction step
+        bibliography = True
         caption = True
         cleanup = True
         codero = True
@@ -223,6 +228,7 @@ def todolist(  # pylint:disable=R0914,R0913
         weblink = True
         words = True
     config = dict(
+        bibliography=bibliography,
         caption=caption,
         cleanup=cleanup,
         color=color,

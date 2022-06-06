@@ -179,6 +179,13 @@ class JobMaker:  # pylint:disable=R0904
     def add_docref(self):
         return self.auto('docref') if self.docref else None
 
+    def add_bibliography(self):
+        if not self.bibliography:
+            return None
+        if not self.sections:
+            return None
+        return [(self.auto('bibliography'), iamraw.Bibliography)]
+
     def add_detector(self):
         if not self.detector:
             return None
