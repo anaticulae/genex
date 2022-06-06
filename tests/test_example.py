@@ -43,16 +43,17 @@ def test_example_extract(testdir):
         pdfs,
         generated,
         pages='0:5',
+        bibliography=True,
+        cleanup=True,
         detector=True,
         doctextstyle=True,
         figureo=True,
         groupme=True,
-        tablero=True,
-        sections=True,
-        cleanup=True,
-        spacestation=True,
-        optimize=True,
         headlines=True,
+        optimize=True,
+        sections=True,
+        spacestation=True,
+        tablero=True,
     )
     assert os.path.exists(generated), str(generated)
 
