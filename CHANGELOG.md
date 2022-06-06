@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.28.0
+
+### Feature
+
+* use separate bibliography runner (8f09e39e2dc1)
+
 ## v0.27.3
 
 ### Fix
