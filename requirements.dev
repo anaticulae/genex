@@ -17,6 +17,7 @@ sections==1.19.2
 hey==5.19.2
 tablero>=0.9.3<1.0.0
 figureo>=0.17.2<1.0.0
+bibliography>=0.1.0<1.0.0
 
 detector==0.35.1
 headlines==0.9.1
