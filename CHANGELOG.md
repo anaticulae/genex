@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.28.1
+
+### Feature
+
+* add lists runner (7504355a560a)
+
 ## v0.28.0
 
 ### Feature
