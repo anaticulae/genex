@@ -51,6 +51,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     formulero: bool = False,
     groupme: bool = False,
     headlines: bool = False,
+    lists: bool = False,
     magic: bool = False,
     morefeatures: list = None,
     pdfinfo: bool = True,
@@ -94,6 +95,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         figureo(bool): run if True
         groupme(bool): run if True
         headlines(bool): run if True
+        lists(bool): run if True
         magic(bool): run if True
         reftable(bool): run if True
         sections(bool): run if True
@@ -128,6 +130,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         formulero=formulero,
         groupme=groupme,
         headlines=headlines,
+        lists=lists,
         magic=magic,
         oneline=oneline,
         optimize=optimize,
@@ -182,6 +185,7 @@ def todolist(  # pylint:disable=R0914,R0913
     figureo: bool = False,
     groupme: bool = False,
     headlines: bool = False,
+    lists: bool = False,
     magic: bool = False,
     reftable: bool = False,
     sections: bool = False,
@@ -216,6 +220,7 @@ def todolist(  # pylint:disable=R0914,R0913
         formulero = True
         groupme = True
         headlines = True
+        lists = True
         magic = True
         optimize = True
         pdfinfo = True
@@ -238,6 +243,7 @@ def todolist(  # pylint:disable=R0914,R0913
         figureo=figureo,
         groupme=groupme,
         headlines=headlines,
+        lists=lists,
         magic=magic,
         optimize=optimize,
         reftable=reftable,

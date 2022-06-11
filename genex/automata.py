@@ -166,6 +166,11 @@ class JobMaker:  # pylint:disable=R0904
     def add_headlines(self):
         return self.auto('headlines') if self.headlines else None
 
+    def add_lists(self):
+        if not self.lists:
+            return None
+        return self.auto('lists')
+
     def add_words(self):
         if not self.words:
             return None
