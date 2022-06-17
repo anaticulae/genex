@@ -23,3 +23,5 @@ detector==0.38.0
 headlines==0.10.0
 
 jam==0.4.0
+# TODO: REMOVE LATER
+reftable>=0.2.1<1.0.0
