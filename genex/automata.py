@@ -197,7 +197,6 @@ class JobMaker:  # pylint:disable=R0904
         if not self.sections:
             return self.auto('detector --formula')
         return [
-            (self.auto('detector --bibliography'), iamraw.Bibliography),
             (self.auto('detector --titlepage'), iamraw.TitlePageSection),
             (self.auto('detector --index'), iamraw.Index),
             self.auto('detector --formula'),
