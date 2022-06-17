@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.28.2
+
+### Fix
+
+* remove outdated bibliography step (4c4c6db0fda5)
+
 ## v0.28.1
 
 ### Feature
