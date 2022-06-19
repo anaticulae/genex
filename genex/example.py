@@ -31,7 +31,7 @@ import genex.utils
 @utila.rename(rawmaker_cleanup='cleanup')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
-    destination: str,
+    destination: str = None,
     pages: str = '0:10',
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
@@ -113,6 +113,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     # the parent path of at least two files. If files provide only a
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
+    destination = default_destination(destination)
     # TODO: REMOVE BASE LATER
     todo = todolist(
         files,
@@ -160,6 +161,13 @@ def extract(  # pylint:disable=R0914,R0913,W0613
             except Exception:
                 utila.error(f'{future} failed.')
                 raise
+
+
+def default_destination(destination: str) -> str:
+    if destination is None:
+        import power
+        destination = power.generated()
+    return destination
 
 
 @utila.rename(rawmaker_cleanup='cleanup')
