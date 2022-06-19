@@ -32,7 +32,7 @@ import genex.utils
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     destination: str = None,
-    pages: str = '0:10',
+    pages: str = ':',
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
