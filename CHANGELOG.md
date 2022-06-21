@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.29.0
+
+### Feature
+
+* add chapter runner to external interface (a22559225667)
+* use all as default cause nearly all project uses : (de90e140d522)
+* add default dest to ease using interface (c53913486a0f)
+
 ## v0.28.2
 
 ### Fix
