@@ -217,6 +217,9 @@ class JobMaker:  # pylint:disable=R0904
     def add_textflow_wordspace(self):
         return self.auto('textflow --wordspace') if self.textflow else None
 
+    def add_chapter(self):
+        return self.auto('chapter') if self.chapter else None
+
     def add_smarty(self):
         return self.auto('smarty') if self.smarty else None
 

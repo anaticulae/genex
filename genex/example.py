@@ -42,6 +42,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     base: str = None,
     bibliography: bool = False,
     caption: bool = False,
+    chapter: bool = False,
     codero: bool = False,
     color: bool = False,
     detector: bool = False,
@@ -89,6 +90,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         morefeatures(list): enable optional features
         bibliography(bool): run if True
         caption(bool): run if True
+        chapter(bool): run if True
         detector(bool): run if True
         docref(bool): run if True
         doctextstyle(bool): run if True
@@ -121,6 +123,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         pages,
         bibliography=bibliography,
         caption=caption,
+        chapter=chapter,
         cleanup=cleanup,
         codero=codero,
         color=color,
@@ -187,6 +190,7 @@ def todolist(  # pylint:disable=R0914,R0913
     *,
     bibliography: bool = False,
     caption: bool = False,
+    chapter: bool = False,
     detector: bool = False,
     docref: bool = False,
     doctextstyle: bool = False,
@@ -218,6 +222,7 @@ def todolist(  # pylint:disable=R0914,R0913
         # enable every extraction step
         bibliography = True
         caption = True
+        chapter = True
         cleanup = True
         codero = True
         color = True
@@ -243,6 +248,7 @@ def todolist(  # pylint:disable=R0914,R0913
     config = dict(
         bibliography=bibliography,
         caption=caption,
+        chapter=chapter,
         cleanup=cleanup,
         color=color,
         detector=detector,
