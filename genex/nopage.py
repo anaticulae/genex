@@ -10,7 +10,6 @@
 import functools
 import os
 
-import power
 import utila
 
 import genex
@@ -25,6 +24,7 @@ def extract_removepages(
     worker: str = 8,
     **kwargs,
 ):
+    import power
     # CLEAN UP THIS HACK Y PLACE
     dest = power.generated(folder=folder) if not dest else dest
     files = [
