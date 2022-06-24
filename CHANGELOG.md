@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.29.1
+
+### Feature
+
+* do not run generator for duplicate file definition (d5e6e9bef75e)
+
+### Fix
+
+* do not require power for importing genex (ce647b5f108c)
+
 ## v0.29.0
 
 ### Feature
