@@ -110,6 +110,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     Raises:
         Exception: if Exception occurs while extracting file
     """
+    validate_files(files)
     # Ensure to handle single file generation or common resource subfolder
     # correctly. To determine the output path it is required to determine
     # the parent path of at least two files. If files provide only a
@@ -171,6 +172,20 @@ def default_destination(destination: str) -> str:
         import power
         destination = power.generated()
     return destination
+
+
+def validate_files(files: list):
+    """Ensure that file is only defined once."""
+    import power
+    single = utila.Single()
+    error = []
+    for item in files:
+        src = power.pdf(item)
+        if not single.contains(src):
+            continue
+        error.append(src)
+    if error:
+        raise ValueError(f'duplicated resource: {error}')
 
 
 @utila.rename(rawmaker_cleanup='cleanup')
