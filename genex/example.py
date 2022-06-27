@@ -28,10 +28,10 @@ import genex.pages
 import genex.utils
 
 
-@utila.rename(rawmaker_cleanup='cleanup')
+@utila.rename(rawmaker_cleanup='cleanup', destination='dest')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
-    destination: str = None,
+    dest: str = None,
     pages: str = ':',
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
@@ -67,13 +67,13 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     full: bool = False,
 ):
     """Run rawmaker, groupme, sections and words for given `files` and write
-    result to `destination`.
+    result to `dest`.
 
     Args:
         files(list): list of files to work on; list of pattern
                      (file, _pages_) or (file). If `_pages_` is given
                      use default var `pages`.
-        destination(path): create folder for every file and save result
+        dest(path): create folder for every file and save result
         pages(str): range of selected pages
         worker(int): number of threads to extract examples
         rawmaker(str): default config
@@ -116,14 +116,14 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     # the parent path of at least two files. If files provide only a
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
-    destination = default_destination(destination)
-    if utila.exists(destination):
-        # disable write protection to enable regeneration
-        utila.directory_unlock(destination, noerror=True)
+    dest = default_destination(dest)
+    if utila.exists(dest):
+        # disable write protection to enable regenaration
+        utila.directory_unlock(dest, noerror=True)
     # TODO: REMOVE BASE LATER
     todo = todolist(
         files,
-        destination,
+        dest,
         pages,
         bibliography=bibliography,
         caption=caption,
@@ -169,14 +169,14 @@ def extract(  # pylint:disable=R0914,R0913,W0613
                 utila.error(f'{future} failed.')
                 raise
     # enable write protection to avoid changing generated data
-    utila.directory_lock(destination, noerror=True)
+    utila.directory_lock(dest, noerror=True)
 
 
-def default_destination(destination: str) -> str:
-    if destination is None:
+def default_destination(dest: str) -> str:
+    if dest is None:
         import power
-        destination = power.generated()
-    return destination
+        dest = power.generated()
+    return dest
 
 
 def validate_files(files: list):
@@ -193,10 +193,10 @@ def validate_files(files: list):
         raise ValueError(f'duplicated resource: {error}')
 
 
-@utila.rename(rawmaker_cleanup='cleanup')
+@utila.rename(rawmaker_cleanup='cleanup', destination='dest')
 def todolist(  # pylint:disable=R0914,R0913
     files: list,
-    destination: str,
+    dest: str,
     pages: str = '0:10',
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
@@ -290,7 +290,7 @@ def todolist(  # pylint:disable=R0914,R0913
     )
     todo = generate(
         files,
-        destination,
+        dest,
         pages=pages,
         config=config,
         rawmaker=rawmaker,

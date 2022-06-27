@@ -22,7 +22,7 @@ def test_select_titlepage(testdir):
     ]
     genex.extract(
         files,
-        destination=testdir.tmpdir,
+        dest=testdir.tmpdir,
         groupme=True,
         sections=True,
         detector=False,

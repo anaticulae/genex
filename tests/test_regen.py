@@ -34,7 +34,7 @@ def test_cli_regen(testdir, monkeypatch, capsys):
     ]
     genex.extract(
         files,
-        destination=testdir.tmpdir,
+        dest=testdir.tmpdir,
         groupme=True,
         base=power.REPOSITORY,
         pages='0:5',

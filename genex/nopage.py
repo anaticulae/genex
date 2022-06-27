@@ -49,7 +49,7 @@ def extract_removepages(
         genex.config.todo(item, name=utila.file_name(item))
         for item in without_titlepage
     ]
-    todolist = genex.todolist(without_titlepage, destination=dest, **kwargs)
+    todolist = genex.todolist(without_titlepage, dest=dest, **kwargs)
     for index, job in enumerate(todolist):
         job = functools.partial(
             genex.run_job,
