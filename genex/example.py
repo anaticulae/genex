@@ -117,6 +117,9 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
     destination = default_destination(destination)
+    if utila.exists(destination):
+        # disable write protection to enable regeneration
+        utila.directory_unlock(destination, noerror=True)
     # TODO: REMOVE BASE LATER
     todo = todolist(
         files,
@@ -165,6 +168,8 @@ def extract(  # pylint:disable=R0914,R0913,W0613
             except Exception:
                 utila.error(f'{future} failed.')
                 raise
+    # enable write protection to avoid changing generated data
+    utila.directory_lock(destination, noerror=True)
 
 
 def default_destination(destination: str) -> str:
