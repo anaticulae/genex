@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.30.0
+
+### Feature
+
+* add write protection to generated data (a657326926b6)
+
 ## v0.29.1
 
 ### Feature
