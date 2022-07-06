@@ -175,9 +175,8 @@ class JobMaker:  # pylint:disable=R0904
         if not self.words:
             return None
         if not self.sections:
-            return self.auto('words')
+            return self.auto('words --headlines!')
         return [
-            self.auto('words --headlines'),
             (self.auto('words --headlines!'), (iamraw.MainPart, True)),
         ]
 
