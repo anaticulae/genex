@@ -17,21 +17,21 @@ import genex
 
 
 @utilatest.longrun
-def test_extract_bachelor37_abbreviation_table(testdir):
+def test_extract_bachelor37_abbreviation_table(td):
     """Shrink abbreviation table extractor to abbreviation table section."""
     files = [
         power.BACHELOR037_PDF,
     ]
     genex.extract(
         files,
-        dest=testdir.tmpdir,
+        dest=td.tmpdir,
         groupme=True,
         sections=True,
         reftable=True,
         base=power.REPOSITORY,
         pages='0:15',
     )
-    bachelor37 = testdir.tmpdir.join('bachelor_bachelor037')
+    bachelor37 = td.tmpdir.join('bachelor_bachelor037')
     path = os.path.join(bachelor37, 'reftable__abbrev_abbrev.yaml')
     assert os.path.exists(path)
     table = serializeraw.load_abbreviation_table(path)

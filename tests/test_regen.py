@@ -16,32 +16,32 @@ import utilatest
 import genex.cli.regen
 
 
-def run_genex_regen(cmd: str, monkeypatch, generated=None) -> int:
+def run_genex_regen(cmd: str, mp, generated=None) -> int:
     completed = utilatest.run_command(
         cmd,
         genex.cli.regen.PROCESS,
         functools.partial(genex.cli.regen.main, generated=generated),
         success=True,
-        monkeypatch=monkeypatch,
+        mp=mp,
     )
     return completed
 
 
 @utilatest.longrun
-def test_cli_regen(testdir, monkeypatch, capsys):
+def test_cli_regen(td, mp, capsys):
     files = [
         power.BACHELOR090_PDF,
     ]
     genex.extract(
         files,
-        dest=testdir.tmpdir,
+        dest=td.tmpdir,
         groupme=True,
         base=power.REPOSITORY,
         pages='0:5',
     )
-    generated = testdir.tmpdir.join('bachelor_bachelor090')
+    generated = td.tmpdir.join('bachelor_bachelor090')
     utila.exists(generated)
     # start after second step
-    run_genex_regen(cmd='2', monkeypatch=monkeypatch, generated=testdir.tmpdir)
+    run_genex_regen(cmd='2', mp=mp, generated=td.tmpdir)
     stdout = utilatest.stdout(capsys)
     assert 'Steps: 2 Start: 2' in stdout

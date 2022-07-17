@@ -16,20 +16,20 @@ import genex
 
 
 @utilatest.longrun
-def test_select_titlepage(testdir):
+def test_select_titlepage(td):
     files = [
         power.BACHELOR090_PDF,
     ]
     genex.extract(
         files,
-        dest=testdir.tmpdir,
+        dest=td.tmpdir,
         groupme=True,
         sections=True,
         detector=False,
         base=power.REPOSITORY,
         pages='0:10',
     )
-    generated = testdir.tmpdir.join('bachelor_bachelor090')
+    generated = td.tmpdir.join('bachelor_bachelor090')
     utila.exists_assert(generated)
     selected = genex.select_pages(generated, select=iamraw.TitlePageSection)
     assert selected == '1'

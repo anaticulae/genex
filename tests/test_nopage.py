@@ -16,8 +16,8 @@ import genex
 
 
 @utilatest.longrun
-def test_nopage_extract(testdir):
-    generated = testdir.tmpdir.join('generated')
+def test_nopage_extract(td):
+    generated = td.tmpdir.join('generated')
     pdfs = [
         power.DOCU009_PDF,
         power.HOME018_PDF,
