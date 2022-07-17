@@ -25,6 +25,7 @@ def test_nopage_extract(td):
     genex.extract_removepages(
         resources=pdfs,
         dest=generated,
+        pagenumber=True,
         groupme=True,
     )
     assert os.path.exists(generated), str(generated)

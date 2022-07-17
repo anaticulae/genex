@@ -55,6 +55,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     lists: bool = False,
     magic: bool = False,
     morefeatures: list = None,
+    pagenumber: bool = False,
     pdfinfo: bool = True,
     reftable: bool = False,
     sections: bool = False,
@@ -99,6 +100,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         headlines(bool): run if True
         lists(bool): run if True
         magic(bool): run if True
+        pagenumber(bool): run if True
         reftable(bool): run if True
         sections(bool): run if True
         smarty(bool): run if True
@@ -142,6 +144,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         magic=magic,
         oneline=oneline,
         optimize=optimize,
+        pagenumber=pagenumber,
         pdfinfo=pdfinfo,
         rawmaker=rawmaker,
         reftable=reftable,
@@ -219,6 +222,7 @@ def todolist(  # pylint:disable=R0914,R0913
     headlines: bool = False,
     lists: bool = False,
     magic: bool = False,
+    pagenumber: bool = False,
     reftable: bool = False,
     sections: bool = False,
     smarty: bool = False,
@@ -256,6 +260,7 @@ def todolist(  # pylint:disable=R0914,R0913
         lists = True
         magic = True
         optimize = True
+        pagenumber = True
         pdfinfo = True
         reftable = True
         sections = True
@@ -280,6 +285,7 @@ def todolist(  # pylint:disable=R0914,R0913
         lists=lists,
         magic=magic,
         optimize=optimize,
+        pagenumber=pagenumber,
         reftable=reftable,
         sections=sections,
         smarty=smarty,

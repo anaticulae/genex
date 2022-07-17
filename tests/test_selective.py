@@ -25,6 +25,7 @@ def test_extract_bachelor37_abbreviation_table(td):
     genex.extract(
         files,
         dest=td.tmpdir,
+        pagenumber=True,
         groupme=True,
         sections=True,
         reftable=True,

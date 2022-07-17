@@ -28,20 +28,22 @@ def run_genex_regen(cmd: str, mp, generated=None) -> int:
 
 
 @utilatest.longrun
-def test_cli_regen(td, mp, capsys):
+def test_cli_regen(td, mp):
     files = [
         power.BACHELOR090_PDF,
     ]
     genex.extract(
         files,
         dest=td.tmpdir,
+        oneline=None,
+        pagenumber=True,
         groupme=True,
         base=power.REPOSITORY,
         pages='0:5',
     )
     generated = td.tmpdir.join('bachelor_bachelor090')
-    utila.exists(generated)
-    # start after second step
-    run_genex_regen(cmd='2', mp=mp, generated=td.tmpdir)
-    stdout = utilatest.stdout(capsys)
-    assert 'Steps: 2 Start: 2' in stdout
+    utila.exists_assert(generated)
+    with utila.capture_stdout() as stdout:
+        # start after third step
+        run_genex_regen(cmd='3', mp=mp, generated=td.tmpdir)
+    assert 'Steps: 1 Start: 3' in stdout()

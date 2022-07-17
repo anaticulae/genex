@@ -91,6 +91,9 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'colors {self.sdp}']
         return result
 
+    def add_pagenumber(self):
+        return f'pagenumber {self.dd}' if self.pagenumber else None
+
     def add_groupme(self):
         result = []
         if isinstance(self.groupme, str):

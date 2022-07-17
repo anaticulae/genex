@@ -23,6 +23,7 @@ def test_select_titlepage(td):
     genex.extract(
         files,
         dest=td.tmpdir,
+        pagenumber=True,
         groupme=True,
         sections=True,
         detector=False,
