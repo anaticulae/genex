@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.31.0
+
+### Feature
+
+* add pagenumber runner (e84a41150fad)
+* do not run lists on intro/toc/title etc. (0a7764585e92)
+
+### Fix
+
+* replace words headlines with headlines (48b2f07cae55)
+
 ## v0.30.0
 
 ### Feature
