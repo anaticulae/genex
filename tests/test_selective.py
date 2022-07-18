@@ -17,7 +17,7 @@ import genex
 
 
 @utilatest.longrun
-def test_extract_bachelor37_abbreviation_table(td):
+def test_extract_bachelor37_abbrev_table(td):
     """Shrink abbreviation table extractor to abbreviation table section."""
     files = [
         power.BACHELOR037_PDF,

@@ -60,7 +60,7 @@ def test_example_extract(td):
 
 
 @utilatest.longrun
-def test_example_disable_abbreviation_step(td):
+def test_example_disable_abbrev_step(td):
     """Disable groupme --abbreviation if sections is disabled cause
     groupme --abbreviations requires section_result."""
     generated = td.tmpdir.join('generated')
