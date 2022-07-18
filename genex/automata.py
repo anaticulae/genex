@@ -92,7 +92,13 @@ class JobMaker:  # pylint:disable=R0904
         return result
 
     def add_pagenumber(self):
-        return f'pagenumber {self.dd}' if self.pagenumber else None
+        if not self.pagenumber:
+            return None
+        result = [f'pagenumber {self.dd}']
+        if self.cleanup:
+            # hide pagenumber to improve further processing
+            result += [f'cleanup --backup --cleanup {self.ddp}']
+        return result
 
     def add_groupme(self):
         result = []
@@ -109,6 +115,8 @@ class JobMaker:  # pylint:disable=R0904
         result = []
         if not self.groupme:
             result += [f'groupme {self.dd} --pagenumbers --footer --content']
+        if not self.pagenumber:
+            result += [f'pagenumber {self.dd}']
         result += [
             f'tablero --table={self.src} {self.ddp} -j=auto',
             f'groupme {self.dd} --area',
@@ -138,14 +146,19 @@ class JobMaker:  # pylint:disable=R0904
     def add_cleanup(self):
         if not self.cleanup:
             return []
+        # skip backup if pagenumber is generated, this step is already done
+        nobackup = '--backup!' if self.pagenumber else ''
         result = [
-            f'cleanup {self.ddp}',
+            f'cleanup {self.ddp} {nobackup}',
         ]
         if self.oneline:
             result += [f'cleanup --prefix=oneline {self.ddp}']
         if self.groupme:
             # run groupme again
             result += [f'groupme {self.dd} --pagenumbers --footer']
+        if self.pagenumber:
+            # run pagenumber again TODO: GOOD IDEA?
+            result += [f'pagenumber {self.dd}']
         return result
 
     def add_sections(self):
