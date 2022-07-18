@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.32.0
+
+### Feature
+
+* add cleanup step in page number processing (58f0915fc2cc)
+
 ## v0.31.0
 
 ### Feature
