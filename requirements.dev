@@ -12,7 +12,7 @@ power==2.10.1
 
 # required to run example
 rawmaker==2.37.7
-groupme==0.35.0
+groupme==0.36.1
 sections==1.21.2
 hey==5.19.3
 tablero>=0.9.4<1.0.0
@@ -25,4 +25,4 @@ headlines==0.11.0
 
 jam==0.4.0
 # TODO: REMOVE LATER
-reftable>=0.3.0<1.0.0
+reftable>=0.4.0<1.0.0
