@@ -323,6 +323,9 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     os.makedirs(dest, exist_ok=True)
     # log job start to log folder
     logpath = os.path.join(dest, 'generated.log')
+    if utila.exists(logpath):
+        utila.log(f'already generated: {logpath}\nskip: {rawjob}\n')
+        return
     logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')
     utila.file_create(logpath, f'{utila.timedate()}\n')
     for index, step in enumerate(steps):
