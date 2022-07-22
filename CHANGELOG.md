@@ -2,6 +2,13 @@
 
 Every noteable change is logged here.
 
+## v0.33.0
+
+### Feature
+
+* add footnote runner (69640b3fbac4)
+* do not generate resources twice (080b351e1417)
+
 ## v0.32.0
 
 ### Feature
