@@ -83,6 +83,9 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']
         if self.oneline:
             result += [f'rawmaker -j=auto {self.sdp} {self.oneline}']
+        if self.cleanup:
+            # save rawmaker result to ease debugging
+            result += [f'cleanup --backup {self.ddp}']
         if self.formulero:
             result += [f'formulero {self.sdp} -j2']
         if self.spacestation:
@@ -97,7 +100,16 @@ class JobMaker:  # pylint:disable=R0904
         result = [f'pagenumber {self.dd}']
         if self.cleanup:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --backup --cleanup {self.ddp}']
+            result += [f'cleanup --cleanup {self.ddp}']
+        return result
+
+    def add_footnote(self):
+        if not self.footnote:
+            return None
+        result = [f'footnote {self.dd} -j2']
+        if self.cleanup:
+            # hide pagenumber to improve further processing
+            result += [f'cleanup --cleanup {self.ddp}']
         return result
 
     def add_groupme(self):
