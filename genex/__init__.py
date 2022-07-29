@@ -20,6 +20,6 @@ from genex.nopage import extract_removepages
 from genex.pages import select_pages
 from genex.rerun import parse_steps
 
-__version__ = '0.33.0'
+__version__ = '0.34.0'
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))

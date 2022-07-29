@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.34.0
+
+### Feature
+
+* add headnote runner (2b76bc65d4cc)
+
 ## v0.33.0
 
 ### Feature
