@@ -17,11 +17,11 @@ import genex.cli.regen
 
 
 def run_genex_regen(cmd: str, mp, generated=None) -> int:
-    completed = utilatest.run_command(
+    completed = utilatest.run_cov(
         cmd,
         genex.cli.regen.PROCESS,
         functools.partial(genex.cli.regen.main, generated=generated),
-        success=True,
+        expect=True,
         mp=mp,
     )
     return completed
