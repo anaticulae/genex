@@ -51,6 +51,7 @@ def test_example_extract(td):
         footnote=True,
         groupme=True,
         headlines=True,
+        headnote=True,
         optimize=True,
         pagenumber=True,
         sections=True,

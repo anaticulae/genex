@@ -112,6 +112,15 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'cleanup --cleanup {self.ddp}']
         return result
 
+    def add_headnote(self):
+        if not self.headnote:
+            return None
+        result = [f'headnote {self.dd} -j2']
+        if self.cleanup:
+            # hide pagenumber to improve further processing
+            result += [f'cleanup --cleanup {self.ddp}']
+        return result
+
     def add_groupme(self):
         result = []
         if isinstance(self.groupme, str):

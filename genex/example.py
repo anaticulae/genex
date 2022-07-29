@@ -49,10 +49,11 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     docref: bool = False,
     doctextstyle: bool = False,
     figureo: bool = False,
-    formulero: bool = False,
     footnote: bool = False,
+    formulero: bool = False,
     groupme: bool = False,
     headlines: bool = False,
+    headnote: bool = False,
     lists: bool = False,
     magic: bool = False,
     morefeatures: list = None,
@@ -100,6 +101,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         figureo(bool): run if True
         groupme(bool): run if True
         headlines(bool): run if True
+        headnote(bool): run if True
         lists(bool): run if True
         magic(bool): run if True
         pagenumber(bool): run if True
@@ -139,10 +141,11 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         docref=docref,
         doctextstyle=doctextstyle,
         figureo=figureo,
-        formulero=formulero,
         footnote=footnote,
+        formulero=formulero,
         groupme=groupme,
         headlines=headlines,
+        headnote=headnote,
         lists=lists,
         magic=magic,
         oneline=oneline,
@@ -224,6 +227,7 @@ def todolist(  # pylint:disable=R0914,R0913
     footnote: bool = False,
     groupme: bool = False,
     headlines: bool = False,
+    headnote: bool = False,
     lists: bool = False,
     magic: bool = False,
     pagenumber: bool = False,
@@ -259,6 +263,7 @@ def todolist(  # pylint:disable=R0914,R0913
         doctextstyle = True
         figureo = True
         footnote = True
+        headnote = True
         formulero = True
         groupme = True
         headlines = True
@@ -288,6 +293,7 @@ def todolist(  # pylint:disable=R0914,R0913
         footnote=footnote,
         groupme=groupme,
         headlines=headlines,
+        headnote=headnote,
         lists=lists,
         magic=magic,
         optimize=optimize,
