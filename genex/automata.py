@@ -100,7 +100,7 @@ class JobMaker:  # pylint:disable=R0904
         result = [f'pagenumber {self.dd}']
         if self.cleanup:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp}']
+            result += [f'cleanup --cleanup {self.ddp} --select pagenumber']
         return result
 
     def add_footnote(self):
@@ -109,7 +109,7 @@ class JobMaker:  # pylint:disable=R0904
         result = [f'footnote {self.dd} -j2']
         if self.cleanup:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp}']
+            result += [f'cleanup --cleanup {self.ddp} --select footnote']
         return result
 
     def add_headnote(self):
@@ -118,7 +118,7 @@ class JobMaker:  # pylint:disable=R0904
         result = [f'headnote {self.dd} -j2']
         if self.cleanup:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp}']
+            result += [f'cleanup --cleanup {self.ddp} --select headnote']
         return result
 
     def add_groupme(self):
