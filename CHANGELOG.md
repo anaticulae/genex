@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.34.1
+
+### Feature
+
+* use select to reduce cleanup effort (9873044a3815)
+
 ## v0.34.0
 
 ### Feature
