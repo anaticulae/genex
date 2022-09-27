@@ -364,6 +364,10 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
             logstep(completed.stderr)
         logstep(f'runtime: {diff} sec\n')
         if completed.returncode:
+            utila.log(logpath)
+            utila.error(step)
+            utila.error(completed.stderr)
+            utila.log(completed.stdout)
             sys.exit(completed.returncode)
     # log final time
     logstep(utila.timedate())
