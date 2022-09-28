@@ -28,3 +28,4 @@ headlines==0.11.0
 jam==0.5.1
 # TODO: REMOVE LATER
 reftable>=0.4.0<1.0.0
+layout>=0.3.2<1.0.0
