@@ -1,4 +1,4 @@
-# changelog
+# Changelog
 
 Every noteable change is logged here.
 
@@ -574,4 +574,3 @@ Every noteable change is logged here.
 * move example generator from hey project (6afff6846a09)
 
 ## v0.0.0 Initial release
-
