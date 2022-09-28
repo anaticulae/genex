@@ -27,5 +27,6 @@ def test_nopage_extract(td):
         dest=generated,
         pagenumber=True,
         groupme=True,
+        worker=len(pdfs),
     )
     assert os.path.exists(generated), str(generated)

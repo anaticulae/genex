@@ -24,6 +24,7 @@ def extract_removepages(
     worker: str = 8,
     **kwargs,
 ):
+    assert worker <= len(resources), 'worker count too hight, see jam and step after'  # yapf:disable
     import power
     # CLEAN UP THIS HACK Y PLACE
     dest = power.generated(folder=folder) if not dest else dest
