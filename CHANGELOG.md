@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.35.1 (2022-09-28)
+
+### Fix
+
+* do not destroy generation due too many worker (4ba54c81365d)
+
+### Chore
+
+* upgrade requirements.txt (ee0103a1995a)
+
 ## v0.35.0 (2022-09-28)
 
 ### Feature
