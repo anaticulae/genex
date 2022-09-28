@@ -10,7 +10,6 @@
 import os
 
 import power
-import pytest
 import utila
 import utilatest
 
@@ -35,7 +34,6 @@ def test_example_common_root():
 
 @utilatest.longrun
 def test_example_extract(td):
-    pytest.skip(reason='enable later, upgrade detector before')
     generated = td.tmpdir.join('generated')
     pdfs = [
         power.DOCU009_PDF,
