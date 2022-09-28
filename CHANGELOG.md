@@ -2,6 +2,18 @@
 
 Every noteable change is logged here.
 
+## v0.35.0 (2022-09-28)
+
+### Feature
+
+* ease investigate data generation error (760109dc4224)
+
+### Chore
+
+* increase layout to run extraction (8b61a3373175)
+* add Jenkinsfile (fe3559ac4bf5)
+* upgrade requirements.txt (f6d18dc9d2db)
+
 ## v0.34.1
 
 ### Feature
