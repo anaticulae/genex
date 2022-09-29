@@ -134,8 +134,10 @@ class JobMaker:  # pylint:disable=R0904
         if not self.tablero:
             return []
         result = []
+        if not self.footnote:
+            result += [f'footnote {self.dd} -j2']
         if not self.groupme:
-            result += [f'groupme {self.dd} --pagenumbers --footer --content']
+            result += [f'groupme {self.dd} --content']
         if not self.pagenumber:
             result += [f'pagenumber {self.dd}']
         result += [
@@ -174,9 +176,9 @@ class JobMaker:  # pylint:disable=R0904
         ]
         if self.oneline:
             result += [f'cleanup --prefix=oneline {self.ddp}']
-        if self.groupme:
+        if self.footnote:
             # run groupme again
-            result += [f'groupme {self.dd} --pagenumbers --footer']
+            result += [f'footnote {self.dd} -j2']
         if self.pagenumber:
             # run pagenumber again TODO: GOOD IDEA?
             result += [f'pagenumber {self.dd}']
