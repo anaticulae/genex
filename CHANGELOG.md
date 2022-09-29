@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.35.2 (2022-09-29)
+
+### Fix
+
+* use new groupme, footnote, pagenumber split (a746710925f8)
+
+### Chore
+
+* upgrade requirements.txt (6f6ba25f5226)
+
 ## v0.35.1 (2022-09-28)
 
 ### Fix
