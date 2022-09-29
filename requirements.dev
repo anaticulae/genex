@@ -12,11 +12,11 @@ power==2.14.1
 
 # required to run example
 rawmaker==2.40.0
-groupme==0.36.1
+groupme==0.37.0
 sections==1.21.3
 hey==5.19.3
-tablero>=0.10.0<1.0.0
-figureo>=0.17.3<1.0.0
+tablero>=0.10.1<1.0.0
+figureo>=0.18.0<1.0.0
 bibliography>=0.2.3<1.0.0
 pagenumber>=0.2.1<1.0.0
 footnote>=0.2.2<1.0.0
