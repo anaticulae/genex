@@ -26,6 +26,7 @@ def test_extract_bachelor37_abbrev_table(td):
         files,
         dest=td.tmpdir,
         pagenumber=True,
+        footnote=True,
         groupme=True,
         sections=True,
         reftable=True,

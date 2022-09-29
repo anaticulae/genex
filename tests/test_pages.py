@@ -24,6 +24,7 @@ def test_select_titlepage(td):
         files,
         dest=td.tmpdir,
         pagenumber=True,
+        footnote=True,
         groupme=True,
         sections=True,
         detector=False,
