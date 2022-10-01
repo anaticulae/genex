@@ -25,6 +25,12 @@ class JobMaker:  # pylint:disable=R0904
     >>> job = JobMaker('src', 'dest', '0:10', config=dict(rawmaker='config'))
     >>> job.run()
     ['rawmaker -j=auto -i=src -o=dest --pages=0:10 config']
+    >>> job = JobMaker('src', 'dest', '0:10', config=dict(words=True, sections=True))
+    >>> job.run()
+    [...('words --headlines! -j=auto -i=dest -o=dest', 'dest', (<class 'iamraw.sections.MainPart'>, True))]
+    >>> job = JobMaker('src', 'dest', '0:10', config=dict(lists=True))
+    >>> job.run()
+    [...('lists -j=auto -i=dest -o=dest', 'dest', (<class 'iamraw.sections.MainPart'>, <class 'iamraw.sections.Appendix'>))]
     """
 
     def __init__(self, src, dest, pages: str, config: dict, more: list = None):
