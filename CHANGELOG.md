@@ -2,6 +2,12 @@
 
 Every noteable change is logged here.
 
+## v0.35.5 (2022-10-01)
+
+### Fix
+
+* fix list selection (4ba43623fc7b)
+
 ## v0.35.4 (2022-10-01)
 
 ### Feature
