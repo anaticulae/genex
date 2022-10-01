@@ -347,6 +347,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
             if not pages:
                 utila.debug(f'could not find section: {section}; skip: {step}')
                 continue
+            assert isinstance(pages, str), f'invalid page: {pages}; {job}'
             step += f' --pages={pages}'
         # log progress to log file
         index = str(index).zfill(2)
