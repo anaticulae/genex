@@ -209,10 +209,9 @@ class JobMaker:  # pylint:disable=R0904
         if not self.lists:
             return None
         # do not run lists on table of content or title page etc.
-        result = (self.auto('lists'), (
-            iamraw.MainPart,
-            iamraw.Appendix,
-        ))
+        result = [
+            (self.auto('lists'), (iamraw.MainPart, iamraw.Appendix)),
+        ]
         return result
 
     def add_words(self):
