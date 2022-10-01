@@ -174,9 +174,11 @@ def extract(  # pylint:disable=R0914,R0913,W0613
             try:
                 comment = future.result()
                 utila.info(comment)
-            except Exception:
+            except Exception as failure:
+                selected = todo[futures.index(future)]
+                utila.error(f'Failed, example: {selected}')
                 utila.error(f'{future} failed.')
-                raise
+                raise failure
     # enable write protection to avoid changing generated data
     utila.directory_lock(dest, noerror=True)
 
