@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.35.4 (2022-10-01)
+
+### Feature
+
+* add example debugging information (33a0926c3948)
+
+### Fix
+
+* debug information about invalid pages (7c6d49381e39)
+
 ## v0.35.3 (2022-09-29)
 
 ### Chore
