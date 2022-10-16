@@ -36,6 +36,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     worker: int = 12,
     rawmaker: str = genex.config.CONFIG,
     oneline: str = genex.config.ONELINE,
+    lock: bool = True,
     *,
     cleanup: bool = False,
     optimize: bool = False,
@@ -81,6 +82,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         worker(int): number of threads to extract examples
         rawmaker(str): default config
         oneline(str): oneline config
+        lock(bool): add write lock if selected
         cleanup(str): run if True
         tablero(bool): run if True
         formulero(bool): run if True
@@ -179,8 +181,9 @@ def extract(  # pylint:disable=R0914,R0913,W0613
                 utila.error(f'Failed, example: {selected}')
                 utila.error(f'{future} failed.')
                 raise failure
-    # enable write protection to avoid changing generated data
-    utila.directory_lock(dest, noerror=True)
+    if lock:
+        # enable write protection to avoid changing generated data
+        utila.directory_lock(dest, noerror=True)
 
 
 def default_destination(dest: str) -> str:
