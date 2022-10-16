@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v0.36.0 (2022-10-16)
+
+### Feature
+
+* add parameter to skip result locking (c06b8caf1e95)
+
+### Chore
+
+* upgrade requirements.txt (55fa53852e70)
+* upgrade baw (172ae53ba529)
+* do not run in privileged mode (580c27d85611)
+* convert nightly to all (cb9f7c1a3153)
+
 ## v0.35.5 (2022-10-01)
 
 ### Fix
