@@ -340,7 +340,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     if utila.exists(logpath):
         utila.log(f'already generated: {logpath}\nskip: {rawjob}\n')
         return
-    logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')
+    logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')  # pylint:disable=C3001
     utila.file_create(logpath, f'{utila.timedate()}\n')
     for index, step in enumerate(steps):
         if not isinstance(step, str):
