@@ -26,33 +26,17 @@ def extract_removepages(
 ):
     assert worker <= len(resources), 'worker count too high, see jam and step after'  # yapf:disable
     dest, files = dest_and_files(resources, dest, folder)
-    # prepare
-    without_titlepage = [
-        os.path.join(dest, f'{genex.config.simple(item)}.pdf') for item in files
-    ]
-    # TODO: USE GHOST?
-    # jam
-    todo = []
-    for inpath, outpath in zip(files, without_titlepage):
-        todo.append(
-            functools.partial(
-                utila.run,
-                cmd=f'jam -i {inpath} -o {outpath} --remove={removepages}',
-            ))
-    # generate
-    # ensure correct parent [dest]
-    without_titlepage = [
-        genex.config.todo(item, name=utila.file_name(item))
-        for item in without_titlepage
-    ]
-    todolist = genex.todolist(without_titlepage, dest=dest, **kwargs)
-    for index, job in enumerate(todolist):
-        job = functools.partial(
-            genex.run_job,
-            job=job,
-            number=(index, len(todolist) - 1),
-        )
-        todo.append(job)
+    todo, without_titlepage = pdf_strip(
+        files,
+        removepages,
+        dest=dest,
+    )
+    extract_pdf = generate(
+        without_titlepage,
+        dest,
+        **kwargs,
+    )
+    todo.extend(extract_pdf)
     # avoid race condition that jam is not ready before starting extraction
     worker = utila.mins(len(files), worker)
     utila.fork(
@@ -70,3 +54,43 @@ def dest_and_files(resources, dest, folder):
         item[0] if not isinstance(item, str) else item for item in resources
     ]
     return dest, files
+
+
+def pdf_strip(files, removepages, dest):
+    # prepare
+    without_titlepage = [
+        os.path.join(dest, f'{genex.config.simple(item)}.pdf') for item in files
+    ]
+    # TODO: USE GHOST?
+    # jam
+    todo = []
+    for inpath, outpath in zip(files, without_titlepage):
+        todo.append(
+            functools.partial(
+                utila.run,
+                cmd=f'jam -i {inpath} -o {outpath} --remove={removepages}',
+            ))
+    # ensure correct parent [dest]
+    without_titlepage = [
+        genex.config.todo(item, name=utila.file_name(item))
+        for item in without_titlepage
+    ]
+    return todo, without_titlepage
+
+
+def generate(
+    without_titlepage,
+    dest,
+    **kwargs,
+):
+    # generate
+    todolist = genex.todolist(without_titlepage, dest=dest, **kwargs)
+    todo = []
+    for index, job in enumerate(todolist):
+        job = functools.partial(
+            genex.run_job,
+            job=job,
+            number=(index, len(todolist) - 1),
+        )
+        todo.append(job)
+    return todo
