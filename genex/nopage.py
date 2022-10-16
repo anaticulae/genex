@@ -24,13 +24,8 @@ def extract_removepages(
     worker: str = 8,
     **kwargs,
 ):
-    assert worker <= len(resources), 'worker count too hight, see jam and step after'  # yapf:disable
-    import power
-    # CLEAN UP THIS HACK Y PLACE
-    dest = power.generated(folder=folder) if not dest else dest
-    files = [
-        item[0] if not isinstance(item, str) else item for item in resources
-    ]
+    assert worker <= len(resources), 'worker count too high, see jam and step after'  # yapf:disable
+    dest, files = dest_and_files(resources, dest, folder)
     # prepare
     without_titlepage = [
         os.path.join(dest, f'{genex.config.simple(item)}.pdf') for item in files
@@ -65,3 +60,13 @@ def extract_removepages(
         worker=worker,
         process=False,
     )
+
+
+def dest_and_files(resources, dest, folder):
+    import power
+    # CLEAN UP THIS HACK Y PLACE
+    dest = power.generated(folder=folder) if not dest else dest
+    files = [
+        item[0] if not isinstance(item, str) else item for item in resources
+    ]
+    return dest, files
