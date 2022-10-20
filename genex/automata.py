@@ -45,7 +45,7 @@ class JobMaker:  # pylint:disable=R0904
     def run(self) -> list:
         result = []
         methods = utila.methods(self, starts='add_')
-        assert methods[-1] == self.add_optimize, 'optimize last'  # pylint:disable=W0143
+        assert methods[-1] == self.add_optimize, f'optimize last: {methods}'  # pylint:disable=W0143
         for method in methods:
             task = method()
             if not task:
