@@ -7,25 +7,25 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.24.0
-power==2.14.2
+utilatest==0.24.1
+power==2.18.0
 
 # required to run example
-rawmaker==2.40.0
-groupme==0.37.1
-sections==1.22.0
+rawmaker==2.40.1
+groupme==0.40.2
+sections==1.22.1
 hey==5.19.3
 tablero>=0.10.1<1.0.0
 figureo>=0.18.1<1.0.0
 bibliography>=0.3.0<1.0.0
-pagenumber>=0.2.1<1.0.0
-footnote>=0.2.2<1.0.0
-headnote>=0.4.0<1.0.0
+pagenumber>=0.3.1<1.0.0
+footnote>=0.2.5<1.0.0
+headnote>=0.5.1<1.0.0
 
-detector==0.39.2
+detector==0.39.3
 headlines==0.11.0
 
-jam==0.5.1
+jam==0.5.3
 # TODO: REMOVE LATER
 reftable>=0.4.0<1.0.0
 layout>=0.3.2<1.0.0
