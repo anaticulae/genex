@@ -31,3 +31,19 @@ def test_nopage_extract(td):
         worker=len(pdfs),
     )
     assert os.path.exists(generated), str(generated)
+
+
+@utilatest.nightly
+def test_nopage_full(td):
+    generated = td.tmpdir.join('generated')
+    pdfs = [
+        power.DOCU009_PDF,
+        power.DOCU007_PDF,
+    ]
+    genex.extract_removepages(
+        resources=pdfs,
+        dest=generated,
+        full=True,
+        worker=len(pdfs),
+    )
+    assert os.path.exists(generated), str(generated)

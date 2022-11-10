@@ -48,6 +48,7 @@ def extract_removepages(
 
 def dest_and_files(resources, dest, folder):
     import power
+
     # CLEAN UP THIS HACK Y PLACE
     dest = power.generated(folder=folder) if not dest else dest
     files = [
