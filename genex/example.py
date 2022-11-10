@@ -20,6 +20,7 @@ import concurrent.futures
 import os
 import sys
 
+import resinf
 import utila
 
 import genex.automata
@@ -188,18 +189,16 @@ def extract(  # pylint:disable=R0914,R0913,W0613
 
 def default_destination(dest: str) -> str:
     if dest is None:
-        import power
-        dest = power.generated()
+        dest = resinf.generated()
     return dest
 
 
 def validate_files(files: list):
     """Ensure that file is only defined once."""
-    import power
     single = utila.Single()
     error = []
     for item in files:
-        src = power.pdf(item)
+        src = resinf.pdf(item)
         if not single.contains(src):
             continue
         error.append(src)

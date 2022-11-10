@@ -12,7 +12,7 @@ import functools
 import os
 import sys
 
-import power
+import resinf
 import utila
 
 import genex.rerun
@@ -32,7 +32,7 @@ def main(generated=None):
 
 def run(root, start, worker: int = 1, generated=None) -> int:
     if not generated:
-        generated = power.generated(project=root)
+        generated = resinf.generated(project=root)
     if not utila.exists(generated):
         utila.error(f'no resource generated: {generated}')
         return utila.FAILURE

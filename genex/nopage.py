@@ -10,6 +10,7 @@
 import functools
 import os
 
+import resinf
 import utila
 
 import genex
@@ -47,10 +48,8 @@ def extract_removepages(
 
 
 def dest_and_files(resources, dest, folder):
-    import power
-
     # CLEAN UP THIS HACK Y PLACE
-    dest = power.generated(folder=folder) if not dest else dest
+    dest = resinf.generated(folder=folder) if not dest else dest
     files = [
         item[0] if not isinstance(item, str) else item for item in resources
     ]
