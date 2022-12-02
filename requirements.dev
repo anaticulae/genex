@@ -21,6 +21,7 @@ bibliography>=0.3.0<1.0.0
 pagenumber>=0.3.1<1.0.0
 footnote>=0.2.5<1.0.0
 headnote>=0.5.1<1.0.0
+formulero>=0.7.0<1.0.0
 
 detector==0.39.3
 headlines==0.11.0
