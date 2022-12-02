@@ -2,6 +2,21 @@
 
 Every noteable change is logged here.
 
+## v0.37.0 (2022-12-02)
+
+### Feature
+
+* make assertion more informative (0a32254f8757)
+
+### Chore
+
+* simplify requirements (eafd066e80e5)
+* upgrade pipeline (76f6d69cc397)
+* use quick installer (a84d1937eb51)
+* add missing resource generator (b040963f9e94)
+* upgrade requirements.txt (965f1c023bc6)
+* add resinf (a1eaec2182a3)
+
 ## v0.36.0 (2022-10-16)
 
 ### Feature
