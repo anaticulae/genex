@@ -23,11 +23,12 @@ def test_select_titlepage(td):
     genex.extract(
         files,
         dest=td.tmpdir,
-        pagenumber=True,
+        detector=False,
         footnote=True,
         groupme=True,
+        headnote=True,
+        pagenumber=True,
         sections=True,
-        detector=False,
         base=power.REPOSITORY,
         pages='0:10',
     )

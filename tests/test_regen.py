@@ -38,6 +38,7 @@ def test_cli_regen(td, mp):
         oneline=None,
         footnote=True,
         groupme=True,
+        headnote=True,
         pagenumber=True,
         base=power.REPOSITORY,
         pages='0:5',
@@ -47,4 +48,4 @@ def test_cli_regen(td, mp):
     with utila.capture_stdout() as stdout:
         # start after third step
         run_genex_regen(cmd='3', mp=mp, generated=td.tmpdir)
-    assert 'Steps: 2 Start: 3' in stdout()
+    assert 'Steps: 3 Start: 3' in stdout()

@@ -25,11 +25,12 @@ def test_extract_bachelor37_abbrev_table(td):
     genex.extract(
         files,
         dest=td.tmpdir,
-        pagenumber=True,
         footnote=True,
         groupme=True,
-        sections=True,
+        headnote=True,
+        pagenumber=True,
         reftable=True,
+        sections=True,
         base=power.REPOSITORY,
         pages='0:15',
     )

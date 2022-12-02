@@ -75,6 +75,7 @@ def test_example_disable_abbrev_step(td):
         pages='0:5',
         footnote=True,
         groupme=True,
+        headnote=True,
         pagenumber=True,
         sections=False,
         base=power.REPOSITORY,

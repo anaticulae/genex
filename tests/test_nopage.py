@@ -26,6 +26,7 @@ def test_nopage_extract(td):
         resources=pdfs,
         dest=generated,
         pagenumber=True,
+        headnote=True,
         footnote=True,
         groupme=True,
         worker=len(pdfs),
