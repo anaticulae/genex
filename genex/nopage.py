@@ -14,7 +14,6 @@ import resinf
 import utila
 
 import genex
-import genex.config
 
 
 def extract_removepages(
@@ -59,7 +58,7 @@ def dest_and_files(resources, dest, folder):
 def pdf_strip(files, removepages, dest):
     # prepare
     without_titlepage = [
-        os.path.join(dest, f'{genex.config.simple(item)}.pdf') for item in files
+        os.path.join(dest, f'{resinf.simple(item)}.pdf') for item in files
     ]
     # TODO: USE GHOST?
     # jam
@@ -72,7 +71,7 @@ def pdf_strip(files, removepages, dest):
             ))
     # ensure correct parent [dest]
     without_titlepage = [
-        genex.config.todo(item, name=utila.file_name(item))
+        resinf.todo(item, name=utila.file_name(item))
         for item in without_titlepage
     ]
     return todo, without_titlepage

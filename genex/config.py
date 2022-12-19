@@ -7,8 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import collections
-
+import resinf
 import utila
 
 ONELINE = ('--prefix=oneline '
@@ -17,62 +16,8 @@ ONELINE = ('--prefix=oneline '
 
 CONFIG = '--char_margin=3.1 --boxes_flow=1.0 --line_margin=0.25 '
 
-Todo = collections.namedtuple('Todo', 'resource name pages config')
 
-
-def todo(resource: str, name: str = None, pages: tuple = None, **kwargs):
-    """\
-    >>> todo('resource/master116.pdf', pages=(1,2, 3), groupme=True)
-    Todo(resource='resource/master116.pdf', name='resource_master116', pages=(1, 2, 3), config={'groupme': True})
-    >>> todo('resource/master116.pdf', pages=None)
-    Todo(resource='resource/master116.pdf', name='resource_master116', pages=None, config=None)
-    """
-    config = kwargs if kwargs else None
-    if name is None:
-        name = simple(resource)
-    result = Todo(resource, name=name, pages=pages, config=config)
-    return result
-
-
-def simple(path: str) -> str:
-    """\
-    >>> simple('repository/bachelor/bachelor090.pdf')
-    'bachelor_bachelor090'
-    """
-    parent = utila.file_name(utila.path_parent(path))
-    filename = utila.file_name(path)
-    result = f'{parent}_{filename}'
-    return result
-
-
-def prepare_files(files, pages: tuple = (5, 6)) -> list:
-    """\
-    >>> prepare_files(['resource/master116.pdf', ('resource/mitpage', (1, 2, 3))])
-    [Todo(resource='resource/mitpage'...pages=(1, 2, 3)...Todo(resource='resource/master116.pdf'...pages=(5, 6)...]
-    """
-    result = []
-    for item in files:
-        if ispowertodo(item):
-            result.append(powertodo_convert(item))
-            continue
-        if isinstance(item, Todo):
-            result.append(item)
-            continue
-        if isinstance(item, str):
-            result.append(todo(item, pages=pages))
-            continue
-        if isinstance(item, tuple):
-            result.append(todo(resource=item[0], pages=item[1]))
-            continue
-    # sort longest page to the front
-    result.sort(
-        key=bypages,
-        reverse=True,
-    )
-    return result
-
-
-def bypages(item: Todo) -> int:
+def bypages(item: resinf.Todo) -> int:
     maxpage = utila.parse_ints(item.name)
     if not maxpage:
         return 256
@@ -88,16 +33,3 @@ def bypages(item: Todo) -> int:
     )
     count = len(parsed)
     return count
-
-
-def ispowertodo(item) -> bool:
-    if item.__class__.__module__ == 'power.config':
-        return True
-    if hasattr(item, 'name'):
-        return False
-    return hasattr(item, 'config')
-
-
-def powertodo_convert(item) -> Todo:
-    # power import is not required
-    return todo(resource=item.resource, pages=item.pages, **item.config)

@@ -406,7 +406,7 @@ def generate(  # pylint:disable=R0914
             codero=codero,
         ),
     )
-    files = genex.config.prepare_files(files, pages=pages)
+    files = resinf.prepares(files, pages=pages)
     todo = []
     for resource in files:
         dest = utila.forward_slash(os.path.join(outpath, resource.name))
