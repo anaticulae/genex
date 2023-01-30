@@ -2,6 +2,24 @@
 
 Every noteable change is logged here.
 
+## v0.38.0 (2023-01-30)
+
+### Feature
+
+* add new sections tool (7b63b6cc94f1)
+
+### Documentation
+
+* happy New Year! (042146b5911c)
+
+### Chore
+
+* improve step order (232ca4af6cba)
+* use new pre-release step (0424cb1bbffc)
+* upgrade pipe library (6edac55c53fb)
+* upgrade Jenkinsfile (8a40867f39c6)
+* upgrade requirements.txt (aa84703be8d3)
+
 ## v0.37.1 (2022-12-19)
 
 ### Chore
