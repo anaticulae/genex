@@ -22,7 +22,7 @@ PROCESS = 'genex_regen'
 
 @utila.saveme
 def main(generated=None):
-    root = determine_root(os.getcwd())
+    root = utila.baw_root(os.getcwd())
     parser = create_parser()
     start, worker = parse_args(parser)
     if returncode := run(root, start, worker, generated=generated):
@@ -80,13 +80,3 @@ def create_parser():
         default='1',
     )
     return parser
-
-
-def determine_root(path) -> str:
-    # STOLEN FROM BAW PROJECT
-    current = str(path)
-    while not os.path.exists(os.path.join(current, '.baw')):  # pylint:disable=W0149
-        current, base = os.path.split(current)
-        if not str(base).strip():
-            return None
-    return current
