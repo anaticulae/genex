@@ -193,7 +193,11 @@ class JobMaker:  # pylint:disable=R0904
     def add_sections(self):
         if not self.sections:
             return None
-        return f'sections --pdf={self.src} {self.ddp} -j=auto'
+        result = [
+            f'sections_ref {self.dd} -j=auto',
+            f'sections --pdf={self.src} {self.ddp} -j=auto',
+        ]
+        return result
 
     def add_reftable_selected(self):
         if not self.sections or not self.reftable:
