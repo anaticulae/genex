@@ -30,9 +30,10 @@ pipeline {
                 }
             }
         }
-        stage('pre-release'){
-            when{not{branch 'master'}}
-            steps{sh 'baw publish --pre'}
+        stage('pre'){
+            steps{
+                script{baw.pre()}
+            }
         }
         stage('all'){
             steps{
