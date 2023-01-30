@@ -40,7 +40,7 @@ def test_cli_regen(td, mp):
         groupme=True,
         headnote=True,
         pagenumber=True,
-        base=power.REPOSITORY,
+        base=power.REPO,
         pages='0:5',
     )
     generated = td.tmpdir.join('bachelor_bachelor090')

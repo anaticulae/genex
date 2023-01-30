@@ -29,7 +29,7 @@ def test_select_titlepage(td):
         headnote=True,
         pagenumber=True,
         sections=True,
-        base=power.REPOSITORY,
+        base=power.REPO,
         pages='0:10',
     )
     generated = td.tmpdir.join('bachelor_bachelor090')

@@ -31,7 +31,7 @@ def test_extract_bachelor37_abbrev_table(td):
         pagenumber=True,
         reftable=True,
         sections=True,
-        base=power.REPOSITORY,
+        base=power.REPO,
         pages='0:15',
     )
     bachelor37 = td.tmpdir.join('bachelor_bachelor037')

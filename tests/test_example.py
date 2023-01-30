@@ -78,7 +78,7 @@ def test_example_disable_abbrev_step(td):
         headnote=True,
         pagenumber=True,
         sections=False,
-        base=power.REPOSITORY,
+        base=power.REPO,
     )
     assert os.path.exists(generated), str(generated)
 
