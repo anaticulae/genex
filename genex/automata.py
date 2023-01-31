@@ -190,11 +190,23 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'pagenumber {self.dd}']
         return result
 
-    def add_sections(self):
-        if not self.sections:
+    def add_sections_ref(self):
+        if not self.sections_ref:
             return None
         result = [
             f'sections_ref {self.dd} -j=auto',
+        ]
+        return result
+
+    def add_sections(self):
+        if not self.sections:
+            return None
+        result = []
+        if not self.sections_ref:
+            result += [
+                f'sections_ref {self.dd} -j=auto',
+            ]
+        result += [
             f'sections --pdf={self.src} {self.ddp} -j=auto',
         ]
         return result
