@@ -11,7 +11,6 @@ import os
 
 from genex.config import CONFIG
 from genex.config import ONELINE
-from genex.config import bypages
 from genex.example import extract
 from genex.example import generate
 from genex.example import run_job
