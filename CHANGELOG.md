@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.39.0 (2023-01-31)
+
+### Feature
+
+* allow separate sections_ref selection (2dcda7b53c78)
+
+### Chore
+
+* upgrade requirements.txt (5c8bd11b8adc)
+
 ## v0.38.0 (2023-01-30)
 
 ### Feature
