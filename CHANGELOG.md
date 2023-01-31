@@ -2,6 +2,20 @@
 
 Every noteable change is logged here.
 
+## v0.40.0 (2023-01-31)
+
+### Feature
+
+* inform about invalid regen (f55d5ff2763c)
+
+### Fix
+
+* add missing parameter (1847b8ffbfa0)
+
+### Chore
+
+* convert to cov step (311fd5664d49)
+
 ## v0.39.0 (2023-01-31)
 
 ### Feature
