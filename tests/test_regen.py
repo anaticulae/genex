@@ -16,12 +16,12 @@ import utilatest
 import genex.cli.regen
 
 
-def run_genex_regen(cmd: str, mp, generated=None) -> int:
+def run_genex_regen(cmd: str, mp, generated=None, expect=True) -> int:
     completed = utilatest.run_cov(
         cmd,
         genex.cli.regen.PROCESS,
         functools.partial(genex.cli.regen.main, generated=generated),
-        expect=True,
+        expect=expect,
         mp=mp,
     )
     return completed
@@ -49,3 +49,9 @@ def test_cli_regen(td, mp):
         # start after third step
         run_genex_regen(cmd='3', mp=mp, generated=td.tmpdir)
     assert 'Steps: 3 Start: 3' in stdout()
+
+
+def test_cli_regen_error(td, mp, capsys):
+    run_genex_regen(cmd='0', mp=mp, generated=td.tmpdir, expect=False)
+    stderr = utilatest.stderr(capsys)
+    assert 'nothing todo:' in stderr

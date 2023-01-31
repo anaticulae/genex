@@ -42,6 +42,9 @@ def run(root, start, worker: int = 1, generated=None) -> int:
         if not os.path.exists(path):
             continue
         todo.append(functools.partial(single, path, start))
+    if not todo:
+        utila.error(f'nothing todo: {generated}')
+        return utila.FAILURE
     utila.fork(*todo, worker=worker)
     return utila.SUCCESS
 
