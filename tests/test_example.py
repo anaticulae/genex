@@ -83,6 +83,27 @@ def test_example_disable_abbrev_step(td):
     assert os.path.exists(generated), str(generated)
 
 
+@utilatest.longrun
+def test_example_sections_ref(td):
+    generated = td.tmpdir.join('generated')
+    pdfs = [
+        power.DOCU009_PDF,
+    ]
+    genex.extract(
+        pdfs,
+        generated,
+        pages='0:5',
+        footnote=True,
+        groupme=True,
+        headnote=True,
+        pagenumber=True,
+        sections_ref=False,
+        sections=False,
+        base=power.REPO,
+    )
+    assert os.path.exists(generated), str(generated)
+
+
 def test_example_order():
     generated = genex.example.generate(
         files=['source/test.pdf'],
