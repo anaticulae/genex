@@ -191,6 +191,11 @@ def extract(  # pylint:disable=R0914,R0913,W0613
 
 
 def default_destination(dest: str) -> str:
+    """\
+    >>> import power; import genex; power.setup(genex.ROOT)
+    >>> default_destination(None)
+    '...'
+    """
     if dest is None:
         dest = resinf.generated()
     return dest
