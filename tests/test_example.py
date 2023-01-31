@@ -104,6 +104,43 @@ def test_example_sections_ref(td):
     assert os.path.exists(generated), str(generated)
 
 
+@utilatest.longrun
+def test_example_nothing(td):
+    """Only rawmaker is runned."""
+    generated = td.tmpdir.join('generated')
+    pdfs = [
+        power.DOCU009_PDF,
+    ]
+    genex.extract(
+        pdfs,
+        generated,
+        pages='0:5',
+        pdfinfo=False,
+        oneline=None,
+        base=power.REPO,
+    )
+    assert os.path.exists(generated), str(generated)
+
+
+@utilatest.longrun
+def test_example_nothing_and_cleanup(td):
+    """Only rawmaker and cleanup is runned."""
+    generated = td.tmpdir.join('generated')
+    pdfs = [
+        power.DOCU009_PDF,
+    ]
+    genex.extract(
+        pdfs,
+        generated,
+        pages='0:5',
+        pdfinfo=False,
+        cleanup=True,
+        oneline=None,
+        base=power.REPO,
+    )
+    assert os.path.exists(generated), str(generated)
+
+
 def test_example_order():
     generated = genex.example.generate(
         files=['source/test.pdf'],
