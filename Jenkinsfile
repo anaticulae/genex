@@ -52,7 +52,7 @@ pipeline {
         }
         stage('all'){
             steps{
-                script{baw.all()}
+                script{baw.cov(16, false, true)}
             }
         }
         stage('release'){
