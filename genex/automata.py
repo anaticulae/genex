@@ -85,7 +85,7 @@ class JobMaker:  # pylint:disable=R0904
         if self.pdfinfo:
             result += [f'pdfinfo {self.sd} --format=yaml']
         if True:  # pylint:disable=using-constant-test
-            # without rawmaker this makes no sence
+            # without rawmaker this makes no sense
             result += [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']
         if self.oneline:
             result += [f'rawmaker -j=auto {self.sdp} {self.oneline}']
