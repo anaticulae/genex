@@ -63,6 +63,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     pdfinfo: bool = True,
     reftable: bool = False,
     sections: bool = False,
+    sections_ref: bool = False,
     smarty: bool = False,
     spacestation: bool = False,
     tablero: bool = False,
@@ -110,6 +111,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         pagenumber(bool): run if True
         reftable(bool): run if True
         sections(bool): run if True
+        sections_ref(bool): run if True
         smarty(bool): run if True
         spacestation(bool): run if True
         textflow(bool): run if True
@@ -158,6 +160,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         rawmaker=rawmaker,
         reftable=reftable,
         sections=sections,
+        sections_ref=sections_ref,
         smarty=smarty,
         spacestation=spacestation,
         tablero=tablero,
@@ -237,6 +240,7 @@ def todolist(  # pylint:disable=R0914,R0913
     pagenumber: bool = False,
     reftable: bool = False,
     sections: bool = False,
+    sections_ref: bool = False,
     smarty: bool = False,
     spacestation: bool = False,
     textflow: bool = False,
@@ -278,6 +282,7 @@ def todolist(  # pylint:disable=R0914,R0913
         pdfinfo = True
         reftable = True
         sections = True
+        sections_ref = True
         smarty = True
         spacestation = True
         tablero = True
@@ -304,6 +309,7 @@ def todolist(  # pylint:disable=R0914,R0913
         pagenumber=pagenumber,
         reftable=reftable,
         sections=sections,
+        sections_ref=sections_ref,
         smarty=smarty,
         spacestation=spacestation,
         textflow=textflow,
