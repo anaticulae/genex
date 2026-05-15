@@ -1,709 +1,1706 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
+
+## v1.0.0 (2026-05-15)
+
+### Bug Fixes
+
+- **imports**: Adjust to new package names
+  ([`5bae7f2`](https://github.com/anaticulae/genex/commit/5bae7f2c2307de66deea4859aaf99803109d3bca))
+
+- **refactor**: Adjust parameter to new package name
+  ([`91c5a39`](https://github.com/anaticulae/genex/commit/91c5a39d4d9547d2f65215e9df658dac0da7fffc))
+
+### Chores
+
+- **github**: Add .github
+  ([`03be19e`](https://github.com/anaticulae/genex/commit/03be19eaadf9b34f6380ec1a52788829ac05d199))
+
+- **pyproject**: Add missing import
+  ([`0c39473`](https://github.com/anaticulae/genex/commit/0c394739e461ff7c3a05a9125ded352f3a8bca91))
+
+- **pyproject**: Add modern project approach
+  ([`5fb1cce`](https://github.com/anaticulae/genex/commit/5fb1cce98fcaffdd08940f8014a17774c89cc529))
+
+- **pyproject**: Add todo list for hoverpower
+  ([`0b33092`](https://github.com/anaticulae/genex/commit/0b330923f751369566e32396f1856f5b948b87c3))
+
+### Documentation
+
+- **nopage**: Fix interface documentation
+  ([`9c7c674`](https://github.com/anaticulae/genex/commit/9c7c6741e473b95019cd1acc3c5c62afbd9d296d))
+
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`f6ef729`](https://github.com/anaticulae/genex/commit/f6ef729ce7d7fb4716d47e62b44c45f1e46a5d5c))
+
+### Testing
+
+- **conftest**: Add missing setup
+  ([`ba6471d`](https://github.com/anaticulae/genex/commit/ba6471d13a86075cac34c1e7332622833746142e))
+
+- **pdf**: Skip tests if resources absunt
+  ([`e347290`](https://github.com/anaticulae/genex/commit/e34729072b3e786e2f02df03649924541e143490))
+
+- **skip**: Skip tests with missing tooling
+  ([`a1cac2c`](https://github.com/anaticulae/genex/commit/a1cac2ce03951df6f2eebfcac41e2bb8810367b2))
+
 
 ## v0.40.0 (2023-01-31)
 
-### Feature
+### Bug Fixes
 
-* inform about invalid regen (f55d5ff2763c)
+- **example**: Add missing parameter
+  ([`1847b8f`](https://github.com/anaticulae/genex/commit/1847b8ffbfa02991e9f00b7f63ed696151b0a998))
 
-### Fix
+### Chores
 
-* add missing parameter (1847b8ffbfa0)
+- **Jenkins**: Convert to cov step
+  ([`311fd56`](https://github.com/anaticulae/genex/commit/311fd5664d4962a22232d51d044f5de0b1b0e346))
 
-### Chore
+### Code Style
 
-* convert to cov step (311fd5664d49)
+- **automata**: Fix spelling error
+  ([`be7bc4b`](https://github.com/anaticulae/genex/commit/be7bc4b82ae5af6db24e168cfc186efec4016aac))
+
+### Features
+
+- **regen**: Inform about invalid regen
+  ([`f55d5ff`](https://github.com/anaticulae/genex/commit/f55d5ff2763cd4055dfc6185fe593c246db25350))
+
+### Refactoring
+
+- **config**: Remove outdated code
+  ([`f3760b4`](https://github.com/anaticulae/genex/commit/f3760b4b93cc174576b241653ed1559847e5eae7))
+
+### Testing
+
+- **example**: Extend test cov
+  ([`52b6179`](https://github.com/anaticulae/genex/commit/52b61790755f93c27e7b5f50e270cab83f39b8bc))
+
+- **example**: Verify automate with smallest config
+  ([`d1b9cb2`](https://github.com/anaticulae/genex/commit/d1b9cb2fc9806afd0afe4fd73dafca0b10df5ccd))
+
+- **example**: Verify sections_ref selection
+  ([`3a919b8`](https://github.com/anaticulae/genex/commit/3a919b830c4f120e54c3cc917407d666a37bf513))
+
 
 ## v0.39.0 (2023-01-31)
 
-### Feature
+### Chores
 
-* allow separate sections_ref selection (2dcda7b53c78)
+- **requirements**: Upgrade requirements.txt
+  ([`5c8bd11`](https://github.com/anaticulae/genex/commit/5c8bd11b8adcea2fe279764e08db58d15f6fc1b6))
 
-### Chore
+### Features
 
-* upgrade requirements.txt (5c8bd11b8adc)
+- **automata**: Allow separate sections_ref selection
+  ([`2dcda7b`](https://github.com/anaticulae/genex/commit/2dcda7b53c7881ccf1591136414c0d3e9467f147))
+
 
 ## v0.38.0 (2023-01-30)
 
-### Feature
+### Chores
 
-* add new sections tool (7b63b6cc94f1)
+- **Jenkins**: Improve step order
+  ([`232ca4a`](https://github.com/anaticulae/genex/commit/232ca4af6cba5dfec6b9f1a587668ccf74733cb5))
+
+- **Jenkins**: Upgrade Jenkinsfile
+  ([`8a40867`](https://github.com/anaticulae/genex/commit/8a40867f39c6c4723f651086d44f12fbbf9fad3e))
+
+- **Jenkins**: Upgrade pipe library
+  ([`6edac55`](https://github.com/anaticulae/genex/commit/6edac55c53fbd1387504ceafc292c283f1cf130b))
+
+- **Jenkins**: Use new pre-release step
+  ([`0424cb1`](https://github.com/anaticulae/genex/commit/0424cb1bbffca060ac0363ebedb33c20e3e6425f))
+
+- **requirements**: Upgrade requirements.txt
+  ([`aa84703`](https://github.com/anaticulae/genex/commit/aa84703be8d3c45c45c2f3c491c263dd0ced8b22))
 
 ### Documentation
 
-* happy New Year! (042146b5911c)
+- **copyright**: Happy New Year!
+  ([`042146b`](https://github.com/anaticulae/genex/commit/042146b5911c36a38b438b62091f459e3c0da716))
 
-### Chore
+### Features
 
-* improve step order (232ca4af6cba)
-* use new pre-release step (0424cb1bbffc)
-* upgrade pipe library (6edac55c53fb)
-* upgrade Jenkinsfile (8a40867f39c6)
-* upgrade requirements.txt (aa84703be8d3)
+- **automata**: Add new sections tool
+  ([`7b63b6c`](https://github.com/anaticulae/genex/commit/7b63b6cc94f19caa797d4d9151a23748d5a1a471))
+
+### Refactoring
+
+- **regen**: Replace with utila code
+  ([`649119e`](https://github.com/anaticulae/genex/commit/649119e308e7b1e01f06fa7a66858521b4e82092))
+
 
 ## v0.37.1 (2022-12-19)
 
-### Chore
+### Chores
 
-* add rebase step (57b060f82ca1)
-* upgrade requirements.txt (9aae193c0fe1)
-* upgrade Jenkinsfile (cad01a694cf0)
-* upgrade pipe library (6b01bdf9f27f)
+- **Jenkins**: Add rebase step
+  ([`57b060f`](https://github.com/anaticulae/genex/commit/57b060f82ca10d216e99fe0d197a791c31fbbb98))
+
+- **Jenkins**: Upgrade Jenkinsfile
+  ([`cad01a6`](https://github.com/anaticulae/genex/commit/cad01a694cf0437595fd4c6768db7773b086e2fc))
+
+- **Jenkins**: Upgrade pipe library
+  ([`6b01bdf`](https://github.com/anaticulae/genex/commit/6b01bdf9f27f1ab9452dd7158862ddec6f331ba2))
+
+- **requirements**: Upgrade requirements.txt
+  ([`9aae193`](https://github.com/anaticulae/genex/commit/9aae193c0fe1568b2eaea703f675f396c3d61774))
+
+### Refactoring
+
+- **config**: Remove code which was moved to resinf
+  ([`3fbddd0`](https://github.com/anaticulae/genex/commit/3fbddd068d77ede5b3f79df0d04ee061fe3f2f03))
+
 
 ## v0.37.0 (2022-12-02)
 
-### Feature
+### Chores
 
-* make assertion more informative (0a32254f8757)
+- **Jenkins**: Upgrade pipeline
+  ([`76f6d69`](https://github.com/anaticulae/genex/commit/76f6d69cc397732ac5d08a300d4eb647856c971b))
 
-### Chore
+- **requirements**: Simplify requirements
+  ([`eafd066`](https://github.com/anaticulae/genex/commit/eafd066e80e53900b460fb783c65329c694c6499))
 
-* simplify requirements (eafd066e80e5)
-* upgrade pipeline (76f6d69cc397)
-* use quick installer (a84d1937eb51)
-* add missing resource generator (b040963f9e94)
-* upgrade requirements.txt (965f1c023bc6)
-* add resinf (a1eaec2182a3)
+- **requirements**: Upgrade requirements.txt
+  ([`965f1c0`](https://github.com/anaticulae/genex/commit/965f1c023bc695bf713eef57ca6be10369fa9897))
+
+- **resources**: Add missing resource generator
+  ([`b040963`](https://github.com/anaticulae/genex/commit/b040963f9e94c7c6a69386d08be6db5062e393fd))
+
+- **resources**: Add resinf
+  ([`a1eaec2`](https://github.com/anaticulae/genex/commit/a1eaec2182a341bc34d565f0886d4766c5b3da70))
+
+- **setup**: Use quick installer
+  ([`a84d193`](https://github.com/anaticulae/genex/commit/a84d1937eb514cc79f4dd130bbdbccab84efa1de))
+
+### Features
+
+- **automata**: Make assertion more informative
+  ([`0a32254`](https://github.com/anaticulae/genex/commit/0a32254f8757da065db2d60b83e8bbf03b2428e6))
+
+### Refactoring
+
+- **resources**: Replace power with resinf
+  ([`6177b15`](https://github.com/anaticulae/genex/commit/6177b15cfb45bf40aec026955323f600db290cec))
+
+### Testing
+
+- **nopage**: Add missing resource generator
+  ([`4e2dca7`](https://github.com/anaticulae/genex/commit/4e2dca7e67e03017f98c870cc5c6397e64189037))
+
+- **nopage**: Verify all selector
+  ([`c62a4f4`](https://github.com/anaticulae/genex/commit/c62a4f4f243b71ae6749d317d2951b4cd29689c7))
+
 
 ## v0.36.0 (2022-10-16)
 
-### Feature
+### Chores
 
-* add parameter to skip result locking (c06b8caf1e95)
+- **Jenkins**: Convert nightly to all
+  ([`cb9f7c1`](https://github.com/anaticulae/genex/commit/cb9f7c1a31539ba2ed83e74331cbd9c5148e6f2a))
 
-### Chore
+- **Jenkins**: Do not run in privileged mode
+  ([`580c27d`](https://github.com/anaticulae/genex/commit/580c27d85611b58ab5ebbe171ee0816801a660e6))
 
-* upgrade requirements.txt (55fa53852e70)
-* upgrade baw (172ae53ba529)
-* do not run in privileged mode (580c27d85611)
-* convert nightly to all (cb9f7c1a3153)
+- **Jenkins**: Upgrade baw
+  ([`172ae53`](https://github.com/anaticulae/genex/commit/172ae53ba52985c473f6c2a410e03a9fd5bd30c6))
+
+- **requirements**: Upgrade requirements.txt
+  ([`55fa538`](https://github.com/anaticulae/genex/commit/55fa53852e70f44750abe3637194446acc91f694))
+
+### Features
+
+- **example**: Add parameter to skip result locking
+  ([`c06b8ca`](https://github.com/anaticulae/genex/commit/c06b8caf1e95d216fe7a24e172f0d6323e25ce90))
+
+### Refactoring
+
+- **linter**: Solve linter warnings
+  ([`abe7aea`](https://github.com/anaticulae/genex/commit/abe7aeac2b53a6d295540465648583f6f49fa1c4))
+
+- **nopage**: Simplify code
+  ([`88c3e19`](https://github.com/anaticulae/genex/commit/88c3e19085a8b64288618254ccabecfec42a673d))
+
+- **nopage**: Simplify code
+  ([`440f081`](https://github.com/anaticulae/genex/commit/440f081a97a8dc06534e2e9e4ea93dc35ba22d38))
+
 
 ## v0.35.5 (2022-10-01)
 
-### Fix
+### Bug Fixes
 
-* fix list selection (4ba43623fc7b)
+- **lists**: Fix list selection
+  ([`4ba4362`](https://github.com/anaticulae/genex/commit/4ba43623fc7bc5294716cae910d452c153fd6b40))
+
+### Testing
+
+- **automata**: Verify empty section
+  ([`a5e4d7b`](https://github.com/anaticulae/genex/commit/a5e4d7b3b6dfc25bbc72378087ef5c08ae562f1a))
+
 
 ## v0.35.4 (2022-10-01)
 
-### Feature
+### Bug Fixes
 
-* add example debugging information (33a0926c3948)
+- **example**: Debug information about invalid pages
+  ([`7c6d493`](https://github.com/anaticulae/genex/commit/7c6d49381e39b369fc7ba041f9f2d4d9cdc5c017))
 
-### Fix
+### Features
 
-* debug information about invalid pages (7c6d49381e39)
+- **debug**: Add example debugging information
+  ([`33a0926`](https://github.com/anaticulae/genex/commit/33a0926c39489ce846091afed28d1e589d08e9fe))
+
 
 ## v0.35.3 (2022-09-29)
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (4145d03d8dbb)
+- **requirements**: Upgrade requirements.txt
+  ([`4145d03`](https://github.com/anaticulae/genex/commit/4145d03d8dbbbb5389581e0f05b4ed0ebae9ea67))
+
+### Testing
+
+- **fix**: Adjust test data generator
+  ([`c97736e`](https://github.com/anaticulae/genex/commit/c97736e2751f91364747422339ec8150ae6656c6))
+
 
 ## v0.35.2 (2022-09-29)
 
-### Fix
+### Bug Fixes
 
-* use new groupme, footnote, pagenumber split (a746710925f8)
+- **automata**: Use new groupme, footnote, pagenumber split
+  ([`a746710`](https://github.com/anaticulae/genex/commit/a746710925f8b93559de7ccacd9ba1ca84e90e80))
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (6f6ba25f5226)
+- **requirements**: Upgrade requirements.txt
+  ([`6f6ba25`](https://github.com/anaticulae/genex/commit/6f6ba25f5226485ec53e8e8f62511b7f92c3f6c0))
+
 
 ## v0.35.1 (2022-09-28)
 
-### Fix
+### Bug Fixes
 
-* do not destroy generation due too many worker (4ba54c81365d)
+- **nopage**: Do not destroy generation due too many worker
+  ([`4ba54c8`](https://github.com/anaticulae/genex/commit/4ba54c81365d1e01bb45490be998823f139bf2d8))
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (ee0103a1995a)
+- **requirements**: Upgrade requirements.txt
+  ([`ee0103a`](https://github.com/anaticulae/genex/commit/ee0103a1995a80a5c784ac140e06bf1189b949ef))
+
+### Testing
+
+- **example**: Enable test after upgrading
+  ([`b05e43b`](https://github.com/anaticulae/genex/commit/b05e43b03e2da83acb1b37a66ae1d51dc8e90aaf))
+
 
 ## v0.35.0 (2022-09-28)
 
-### Feature
+### Chores
 
-* ease investigate data generation error (760109dc4224)
+- **ci**: Add Jenkinsfile
+  ([`fe3559a`](https://github.com/anaticulae/genex/commit/fe3559ac4bf5b02e6bad58b17d7e5d7587c59a8d))
 
-### Chore
+- **fix**: Increase layout to run extraction
+  ([`8b61a33`](https://github.com/anaticulae/genex/commit/8b61a3373175661b257177bf4b1000e1cfb1e9aa))
 
-* increase layout to run extraction (8b61a3373175)
-* add Jenkinsfile (fe3559ac4bf5)
-* upgrade requirements.txt (f6d18dc9d2db)
+- **requirements**: Upgrade requirements.txt
+  ([`f6d18dc`](https://github.com/anaticulae/genex/commit/f6d18dc9d2db8109a49195b8d96034824116b9e8))
 
-## v0.34.1
+### Code Style
 
-### Feature
+- **changelog**: Adjust to automated release
+  ([`f8f4470`](https://github.com/anaticulae/genex/commit/f8f4470d4fffee20e8657af3aa0e32c6efa90217))
 
-* use select to reduce cleanup effort (9873044a3815)
+- **copyright**: Add missing copyright header
+  ([`f8b142e`](https://github.com/anaticulae/genex/commit/f8b142e608e6389e4387de693fe05ab0347c53ce))
 
-## v0.34.0
+### Features
 
-### Feature
+- **example**: Ease investigate data generation error
+  ([`760109d`](https://github.com/anaticulae/genex/commit/760109dc4224f52e5c965dbfd297dd78ccb94bad))
 
-* add headnote runner (2b76bc65d4cc)
+### Testing
 
-## v0.33.0
+- **example**: Disable test to run release
+  ([`fabdafd`](https://github.com/anaticulae/genex/commit/fabdafdadf90a07d24a59776399abd57ab6311b7))
 
-### Feature
 
-* add footnote runner (69640b3fbac4)
-* do not generate resources twice (080b351e1417)
+## v0.34.1 (2022-08-05)
 
-## v0.32.0
+### Chores
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`7d24667`](https://github.com/anaticulae/genex/commit/7d24667bb5ea22865988f05aea14dcbdaad1543d))
 
-* add cleanup step in page number processing (58f0915fc2cc)
+### Features
 
-## v0.31.0
+- **automata**: Use select to reduce cleanup effort
+  ([`9873044`](https://github.com/anaticulae/genex/commit/9873044a3815675f5f1a112e08dba94bbfb6aa34))
 
-### Feature
 
-* add pagenumber runner (e84a41150fad)
-* do not run lists on intro/toc/title etc. (0a7764585e92)
+## v0.34.0 (2022-07-30)
 
-### Fix
+### Chores
 
-* replace words headlines with headlines (48b2f07cae55)
+- **requirements**: Add headnote
+  ([`71e1f23`](https://github.com/anaticulae/genex/commit/71e1f23fbba14ab07eecc5715b80b132c730fe3b))
 
-## v0.30.0
+- **requirements**: Upgrade requirements.txt
+  ([`34959ae`](https://github.com/anaticulae/genex/commit/34959ae294ea2a18722ecb4f9e23d3d007bb22e4))
 
-### Feature
+### Features
 
-* add write protection to generated data (a657326926b6)
+- **example**: Add headnote runner
+  ([`2b76bc6`](https://github.com/anaticulae/genex/commit/2b76bc65d4cc9b3b03ce7efc17afa3de67480c59))
 
-## v0.29.1
+### Testing
 
-### Feature
+- **refactor**: Adjust unit test
+  ([`d6c2075`](https://github.com/anaticulae/genex/commit/d6c207509a0c9380b1d87df557c54fb12281ad3c))
 
-* do not run generator for duplicate file definition (d5e6e9bef75e)
 
-### Fix
+## v0.33.0 (2022-07-22)
 
-* do not require power for importing genex (ce647b5f108c)
+### Chores
 
-## v0.29.0
+- **requirements**: Add footnote
+  ([`827650f`](https://github.com/anaticulae/genex/commit/827650f0fd45c2ea5b703722b19c257761ef21c3))
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`bbe5702`](https://github.com/anaticulae/genex/commit/bbe570248eff1cd0bc80a57229d9c8d121fb0da9))
 
-* add chapter runner to external interface (a22559225667)
-* use all as default cause nearly all project uses : (de90e140d522)
-* add default dest to ease using interface (c53913486a0f)
+### Features
 
-## v0.28.2
+- **example**: Add footnote runner
+  ([`69640b3`](https://github.com/anaticulae/genex/commit/69640b3fbac436824c81d015d16c0d60cf07bc3d))
 
-### Fix
+- **example**: Do not generate resources twice
+  ([`080b351`](https://github.com/anaticulae/genex/commit/080b351e1417f981012d3af3dd0a4eb18255fd44))
 
-* remove outdated bibliography step (4c4c6db0fda5)
 
-## v0.28.1
+## v0.32.0 (2022-07-18)
 
-### Feature
+### Chores
 
-* add lists runner (7504355a560a)
+- **requirements**: Upgrade requirements.txt
+  ([`e705185`](https://github.com/anaticulae/genex/commit/e705185fb53e0c6ceff9c269df43577fd95c8063))
 
-## v0.28.0
+### Features
 
-### Feature
+- **automata**: Add cleanup step in page number processing
+  ([`58f0915`](https://github.com/anaticulae/genex/commit/58f0915fc2cc0de6b8b144aa9fed50b0824cff12))
 
-* use separate bibliography runner (8f09e39e2dc1)
+### Testing
 
-## v0.27.3
+- **refactor**: Shorten test code
+  ([`0b45f3f`](https://github.com/anaticulae/genex/commit/0b45f3f60df0b55df8a86985fb126236f5979436))
 
-### Fix
 
-* run groupme again to use cleanup to improve detection (906014f516e2)
+## v0.31.0 (2022-07-17)
 
-## v0.27.2
+### Bug Fixes
 
-### Fix
+- **automata**: Replace words headlines with headlines
+  ([`48b2f07`](https://github.com/anaticulae/genex/commit/48b2f07cae55db5a88287489acd9543ea71cfe2e))
 
-* remove outdated steps (d3f2d6406806)
+### Chores
 
-## v0.27.1
+- **requirements**: Add pagenumber
+  ([`0453b83`](https://github.com/anaticulae/genex/commit/0453b83e8c1678dcad44bac84144a4cbf1326317))
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`054fd53`](https://github.com/anaticulae/genex/commit/054fd53f56fa9a0d05b53d2a43af7a1abebfd91a))
 
-* exit with return code if process fails (234e9333b3ff)
+### Features
 
-### Fix
+- **automata**: Do not run lists on intro/toc/title etc.
+  ([`0a77645`](https://github.com/anaticulae/genex/commit/0a7764585e9291684fe963aba5493296be868510))
 
-* handle double colon correctly (df2774773c5f)
-* adjust logging (078961c6ab96)
+- **example**: Add pagenumber runner
+  ([`e84a411`](https://github.com/anaticulae/genex/commit/e84a41150fad628e292626aeffb3dbf6e73c7ffc))
 
-## v0.27.0
+### Testing
 
-### Feature
+- **refactor**: Use shorten pytest fixtures
+  ([`5029ac3`](https://github.com/anaticulae/genex/commit/5029ac32fd5797d7f070d6e4d8778dbaf2ca3e32))
 
-* add reftable processor (6aca57ba991f)
-* add reftable (4c25899d51d3)
-* sort documents by page count (3d2c57fad35e)
 
-### Fix
+## v0.30.0 (2022-06-27)
 
-* ensure that failing process is logged (4ddd79b1e5bb)
+### Chores
 
-## v0.26.0
+- **requirements**: Upgrade requirements.txt
+  ([`2c60ab0`](https://github.com/anaticulae/genex/commit/2c60ab09c1ddaa4c1c7b4bb862c2df8697637202))
 
-### Feature
+### Features
 
-* add headlines parameter (a24ce6ccf1e7)
-* add headline step (fee36073498c)
+- **example**: Add write protection to generated data
+  ([`a657326`](https://github.com/anaticulae/genex/commit/a657326926b6dada64b30a4a5ee0513b7eba6330))
 
-## v0.25.1
+### Refactoring
 
-### Feature
+- **example**: Shorten interface parameter
+  ([`d648d1b`](https://github.com/anaticulae/genex/commit/d648d1bee0ae435c8b57ef667bc837f7eef511a6))
 
-* replace rawmaker cleanup due new cleanup (aecd891e6c27)
 
-## v0.25.0
+## v0.29.1 (2022-06-24)
 
-### Feature
+### Bug Fixes
 
-* run caption earlier to cleanup captions also (755eb4c90713)
-* run pdfinfo first to verify pdf version if error occurs (2f94a5aa97bb)
-* reduce generation time (abf1598e61d7)
+- **genex**: Do not require power for importing genex
+  ([`ce647b5`](https://github.com/anaticulae/genex/commit/ce647b5f108c6cfcef4db38edc7d8f74acda1224))
 
-## v0.24.5
+### Features
 
-### Feature
+- **example**: Do not run generator for duplicate file definition
+  ([`d5e6e9b`](https://github.com/anaticulae/genex/commit/d5e6e9bef75e1b236455e2ad64e5e8ece739ecad))
 
-* add index detector (beff69e450ef)
 
-### Fix
+## v0.29.0 (2022-06-21)
 
-* adjust runnable name (23172332c5e5)
+### Chores
 
-## v0.24.4
+- **requirements**: Upgrade requirements.txt
+  ([`2af8618`](https://github.com/anaticulae/genex/commit/2af86181391ad205ddb1b3e0925da8e3853eb960))
 
-### Fix
+### Features
 
-* adjust power converter (be9cb8981a95)
-* adjust regression after refactoring (02521b317d6c)
+- **example**: Add chapter runner to external interface
+  ([`a225592`](https://github.com/anaticulae/genex/commit/a225592256673631b428a58cc397fe45ab08003e))
 
-## v0.24.3
+- **example**: Add default dest to ease using interface
+  ([`c539134`](https://github.com/anaticulae/genex/commit/c53913486a0fbd4b4c504c97af5612aca4ff6562))
 
-### Feature
+- **example**: Use all as default cause nearly all project uses :
+  ([`de90e14`](https://github.com/anaticulae/genex/commit/de90e140d5221a419e3e464b317d806402297663))
 
-* add color runner (66c9c286170f)
 
-## v0.24.2
+## v0.28.2 (2022-06-17)
 
-### Feature
+### Bug Fixes
 
-* add weblink processor (0095a1a31b31)
+- **automata**: Remove outdated bibliography step
+  ([`4c4c6db`](https://github.com/anaticulae/genex/commit/4c4c6db0fda5d4896d64f2b57239b53e6eeeb415))
 
-## v0.24.1
+### Chores
 
-### Feature
+- **requirements**: Move to dev
+  ([`648b80d`](https://github.com/anaticulae/genex/commit/648b80dbca4db83efe858c698b818a3a55fce130))
 
-* evaluate more (9227b3221d44)
+- **requirements**: Upgrade requirements.txt
+  ([`1b1d37f`](https://github.com/anaticulae/genex/commit/1b1d37f5f4b7ea1d52f5b22869755e1086874305))
 
-### Fix
 
-* make todo power independent (52714b02e5bb)
+## v0.28.1 (2022-06-11)
 
-## v0.24.0
+### Features
 
-### Feature
+- **example**: Add lists runner
+  ([`7504355`](https://github.com/anaticulae/genex/commit/7504355a560a5c2a14198c67a73b6b02dfd34cd3))
 
-* add always option to ensure that process is done (d63df27fc0dd)
-* make cli testable (c84151e27165)
-* shrink words extraction to main part (570dd541a53e)
-* run fewest possible data (21185bfa6c9d)
 
-### Fix
+## v0.28.0 (2022-06-06)
 
-* ensure that extending config does not raise error (0f50a50fae26)
-* reduce verbosity (e8595977c168)
-* adjust error level (0317943f790e)
+### Chores
 
-## v0.23.1
+- **dev**: Add bibliography
+  ([`6db54b8`](https://github.com/anaticulae/genex/commit/6db54b8b7b3814dfd39680d0dcd9cc41d2ca169f))
 
-### Feature
+### Features
 
-* inform about missing section (c22044196621)
+- **automata**: Use separate bibliography runner
+  ([`8f09e39`](https://github.com/anaticulae/genex/commit/8f09e39e2dc19dd51b3b6dca7d5a4fecfb423f0c))
 
-### Fix
+### Testing
 
-* adjust detector skip behavior (3e30484a9c6c)
+- **example**: Add bib step
+  ([`b14f776`](https://github.com/anaticulae/genex/commit/b14f77629b0518e66c3e3e5724e155f0bd697fc0))
 
-## v0.23.0
 
-### Feature
+## v0.27.3 (2022-05-16)
 
-* add cli to rerun log file (144ab2cc7303)
-* add method to parse log file (945586ce5a27)
-* number steps to select steps for rerunning (07b343780e93)
+### Bug Fixes
 
-### Fix
+- **automate**: Run groupme again to use cleanup to improve detection
+  ([`906014f`](https://github.com/anaticulae/genex/commit/906014f516e2719c9563b7d75283cfdeced07582))
 
-* use correct title page section class (8129ab358f25)
 
-## v0.22.1
+## v0.27.2 (2022-05-11)
 
-### Fix
+### Bug Fixes
 
-* do not use global pages (389fecee6527)
+- **automate**: Remove outdated steps
+  ([`d3f2d64`](https://github.com/anaticulae/genex/commit/d3f2d64068062e13093f0acac83e05916b0cc001))
 
-## v0.22.0
 
-### Feature
+## v0.27.1 (2022-05-03)
 
-* run table detector on section pages (1b1d5cb0307a)
-* replace outdated approach with JobMaker (84308ccae9ad)
-* use automate approach to reduce complexity (d5c87c87e300)
+### Bug Fixes
 
-## v0.21.4
+- **config**: Handle double colon correctly
+  ([`df27747`](https://github.com/anaticulae/genex/commit/df2774773c5f8c5a60f338902b38664792756817))
 
-### Fix
+- **example**: Adjust logging
+  ([`078961c`](https://github.com/anaticulae/genex/commit/078961c6ab96b50703bd4fc0afebf9f0caea6746))
 
-* skip step if area is not found (383e56439473)
-* split figureo steps (63155d32152c)
+### Features
+
+- **example**: Exit with return code if process fails
+  ([`234e933`](https://github.com/anaticulae/genex/commit/234e9333b3ff86fa1b7bf1c4068079941dc12ac7))
+
+
+## v0.27.0 (2022-05-03)
+
+### Bug Fixes
+
+- **example**: Ensure that failing process is logged
+  ([`4ddd79b`](https://github.com/anaticulae/genex/commit/4ddd79b1e5bbdc3483c7e7c50d1b27f4c033f1dc))
+
+### Chores
+
+- **requirements**: Add reftable
+  ([`06683b9`](https://github.com/anaticulae/genex/commit/06683b9e5afe8e2a8f324b1d625ecac67d3aa8d0))
+
+- **requirements**: Upgrade requirements.txt
+  ([`c2e6d04`](https://github.com/anaticulae/genex/commit/c2e6d04cdc72bc8d8eff8ef9a36f34d64b1a6374))
+
+### Features
+
+- **automata**: Add reftable
+  ([`4c25899`](https://github.com/anaticulae/genex/commit/4c25899d51d38a4a769fcd350d103b579d096f0d))
+
+- **config**: Sort documents by page count
+  ([`3d2c57f`](https://github.com/anaticulae/genex/commit/3d2c57fad35ee4bc042d1a000287f423a96b54e2))
+
+- **example**: Add reftable processor
+  ([`6aca57b`](https://github.com/anaticulae/genex/commit/6aca57ba991fc635cff0400f2515f653f5b25972))
+
+
+## v0.26.0 (2022-04-26)
+
+### Chores
+
+- **requirements**: Add headlines
+  ([`947ae63`](https://github.com/anaticulae/genex/commit/947ae630b631dd58c60bb3ab298c3e313fe32cee))
+
+- **requirements**: Upgrade requirements.txt
+  ([`3c2b759`](https://github.com/anaticulae/genex/commit/3c2b75949426554bbf558a08de1a15ee3593f994))
+
+### Features
+
+- **automata**: Add headline step
+  ([`fee3607`](https://github.com/anaticulae/genex/commit/fee36073498c3639460ad4f8a8b4f9a555c75753))
+
+- **example**: Add headlines parameter
+  ([`a24ce6c`](https://github.com/anaticulae/genex/commit/a24ce6ccf1e7438239ca9d4b9bbf53967157c4fe))
+
+### Refactoring
+
+- **example**: Clarify interface access
+  ([`322baa3`](https://github.com/anaticulae/genex/commit/322baa3715e4398c904c94dfbfa0232770b8de27))
+
+- **example**: Move job maker to separate module
+  ([`e787f3e`](https://github.com/anaticulae/genex/commit/e787f3eafc5509034ebdf6b1b6a7366198423a16))
+
+
+## v0.25.1 (2022-04-25)
+
+### Chores
+
+- **requirements**: Add new cleanup
+  ([`d608dd0`](https://github.com/anaticulae/genex/commit/d608dd0688e63be15ab516e384e842143f957a7c))
+
+- **requirements**: Upgrade requirements.txt
+  ([`bd061f0`](https://github.com/anaticulae/genex/commit/bd061f0694a83fa004d85862636e0d42771561f6))
+
+### Code Style
+
+- **spelling**: Fix spelling error
+  ([`d615b9f`](https://github.com/anaticulae/genex/commit/d615b9f225f12c8f4fc1be4f70cbef831399e4e8))
+
+### Features
+
+- **example**: Replace rawmaker cleanup due new cleanup
+  ([`aecd891`](https://github.com/anaticulae/genex/commit/aecd891e6c27c77aa98cc88db5cf313d95c79d1e))
+
+
+## v0.25.0 (2022-04-21)
+
+### Features
+
+- **example**: Reduce generation time
+  ([`abf1598`](https://github.com/anaticulae/genex/commit/abf1598e61d77f4a0a7a9856d3ca9ec0f18ac85f))
+
+- **example**: Run caption earlier to cleanup captions also
+  ([`755eb4c`](https://github.com/anaticulae/genex/commit/755eb4c90713f4109ce17359f5c2c13780fd0faf))
+
+- **example**: Run pdfinfo first to verify pdf version if error occurs
+  ([`2f94a5a`](https://github.com/anaticulae/genex/commit/2f94a5aa97bb9e8706b14a0cfb58690ed29ebd96))
+
+
+## v0.24.5 (2022-03-28)
+
+### Bug Fixes
+
+- **example**: Adjust runnable name
+  ([`2317233`](https://github.com/anaticulae/genex/commit/23172332c5e569d2fd6f7d9a10b65a19fe867910))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`b98621f`](https://github.com/anaticulae/genex/commit/b98621fa99948fa5cbb1b699b148a2abc9eaf39f))
+
+### Features
+
+- **example**: Add index detector
+  ([`beff69e`](https://github.com/anaticulae/genex/commit/beff69e450efd8df9527ddf7054ebaf1f7985e47))
+
+
+## v0.24.4 (2022-03-24)
+
+### Bug Fixes
+
+- **config**: Adjust power converter
+  ([`be9cb89`](https://github.com/anaticulae/genex/commit/be9cb8981a9549c513c2a5bdd6799fc3a95ed900))
+
+- **example**: Adjust regression after refactoring
+  ([`02521b3`](https://github.com/anaticulae/genex/commit/02521b317d6cedd22ec014528f084b9ba810c3bf))
+
+
+## v0.24.3 (2022-03-09)
+
+### Features
+
+- **example**: Add color runner
+  ([`66c9c28`](https://github.com/anaticulae/genex/commit/66c9c286170f5d55afd492da3eab2496c0cbc2da))
+
+### Refactoring
+
+- **example**: Improve code style
+  ([`f587480`](https://github.com/anaticulae/genex/commit/f58748042b2f4b8903d516e0e2e0a36ed5e230cd))
+
+
+## v0.24.2 (2022-03-09)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`06d6c00`](https://github.com/anaticulae/genex/commit/06d6c007aecc6eb93ae99bb50a8229993a7f9941))
+
+### Code Style
+
+- **docs**: Adjust headline
+  ([`ddf2c24`](https://github.com/anaticulae/genex/commit/ddf2c24564ee08b9f990522ebd11328368ba35f0))
+
+### Features
+
+- **example**: Add weblink processor
+  ([`0095a1a`](https://github.com/anaticulae/genex/commit/0095a1a31b319fcdce114e485c946dad8e5444ce))
+
+
+## v0.24.1 (2022-03-07)
+
+### Bug Fixes
+
+- **config**: Make todo power independent
+  ([`52714b0`](https://github.com/anaticulae/genex/commit/52714b02e5bb3ba9c7b3fc1545deef1fbf30ec15))
+
+### Features
+
+- **example**: Evaluate more
+  ([`9227b32`](https://github.com/anaticulae/genex/commit/9227b3221d4468059f10aee0e836e49d3088b939))
+
+
+## v0.24.0 (2022-03-03)
+
+### Bug Fixes
+
+- **config**: Ensure that extending config does not raise error
+  ([`0f50a50`](https://github.com/anaticulae/genex/commit/0f50a50fae264da86db281bb9b284c65cf59d4e0))
+
+- **example**: Adjust error level
+  ([`0317943`](https://github.com/anaticulae/genex/commit/0317943f790ebd93958b3ea88c1d5bd9863b8cbf))
+
+- **example**: Reduce verbosity
+  ([`e859597`](https://github.com/anaticulae/genex/commit/e8595977c1685bf5f06aa6c59a6438c7be3ffd86))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`fcddd32`](https://github.com/anaticulae/genex/commit/fcddd32963f70bfafe2fd6496e119f1db4b9341f))
+
+### Code Style
+
+- **genex**: Simplify code
+  ([`f14facf`](https://github.com/anaticulae/genex/commit/f14facfe6667b69240ac2de1023ff3491924e4fc))
+
+### Features
+
+- **cli**: Make cli testable
+  ([`c84151e`](https://github.com/anaticulae/genex/commit/c84151e27165b0cb271227fe5c3bf3eefaedafa2))
+
+- **example**: Add always option to ensure that process is done
+  ([`d63df27`](https://github.com/anaticulae/genex/commit/d63df27fc0dd20ca5d04e6552389b8808dc6d8b4))
+
+- **example**: Run fewest possible data
+  ([`21185bf`](https://github.com/anaticulae/genex/commit/21185bfa6c9d063728de47e49f8df617429b8790))
+
+- **example**: Shrink words extraction to main part
+  ([`570dd54`](https://github.com/anaticulae/genex/commit/570dd541a53e04ac3b13baf5900b8c4e00d52834))
+
+### Refactoring
+
+- **example**: Clarify code
+  ([`9afad75`](https://github.com/anaticulae/genex/commit/9afad7550cb2b7c4564465c7c65e2a247248cf81))
+
+- **example**: Prepare words step to make steps section decedent
+  ([`7374ed7`](https://github.com/anaticulae/genex/commit/7374ed7edf8b183d2eabb6ed1bcff9ce8d7e220e))
+
+### Testing
+
+- **cli**: Run test data regenerator
+  ([`e6d64bd`](https://github.com/anaticulae/genex/commit/e6d64bdbd69bf125763dd9535ce9ac5e4e06e4ca))
+
+- **config**: Increase test coverage
+  ([`1fd8066`](https://github.com/anaticulae/genex/commit/1fd806620c31e9f1a7c03098ea60ff7cec7aa6a2))
+
+- **example**: Increase test coverage
+  ([`dec6e2c`](https://github.com/anaticulae/genex/commit/dec6e2cc239357ac7c3ecc49af5fc69b294bab6b))
+
+- **refactor**: Simplify code
+  ([`1f94c28`](https://github.com/anaticulae/genex/commit/1f94c28581560618616a5625fdbb061b95542059))
+
+
+## v0.23.1 (2022-02-20)
+
+### Bug Fixes
+
+- **example**: Adjust detector skip behavior
+  ([`3e30484`](https://github.com/anaticulae/genex/commit/3e30484a9c6cce0417fa0c4fe3c0f637871fb5c4))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`bbc1f04`](https://github.com/anaticulae/genex/commit/bbc1f041337a0270c07034eba1dd94d8bbd21ed3))
+
+### Features
+
+- **example**: Inform about missing section
+  ([`c220441`](https://github.com/anaticulae/genex/commit/c2204419662106923228427166f0f9c888611777))
+
+### Refactoring
+
+- **example**: Replaces section with improved section name
+  ([`59ea272`](https://github.com/anaticulae/genex/commit/59ea2728577a47042678f341bf0737020b8ee2a2))
+
+- **pages**: Use default path
+  ([`9ba825e`](https://github.com/anaticulae/genex/commit/9ba825e7ed9818e22de0186dc5c8752a89515c05))
+
+### Testing
+
+- **pages**: Verify title page selection
+  ([`b792d34`](https://github.com/anaticulae/genex/commit/b792d34de185c3b2c26071d59e397a5d4e2244f4))
+
+
+## v0.23.0 (2022-02-18)
+
+### Bug Fixes
+
+- **example**: Use correct title page section class
+  ([`8129ab3`](https://github.com/anaticulae/genex/commit/8129ab358f25b7cce3e084297993e2fc2f2e87e4))
+
+### Features
+
+- **cli**: Add cli to rerun log file
+  ([`144ab2c`](https://github.com/anaticulae/genex/commit/144ab2cc730361e4d81e4cb5301f12bb9914f140))
+
+- **example**: Number steps to select steps for rerunning
+  ([`07b3437`](https://github.com/anaticulae/genex/commit/07b343780e9348091466185a7c8eaaf8f0a64e31))
+
+- **rerun**: Add method to parse log file
+  ([`945586c`](https://github.com/anaticulae/genex/commit/945586ce5a27d8c9addeb72d28c37b34bdc54b89))
+
+
+## v0.22.1 (2022-02-16)
+
+### Bug Fixes
+
+- **example**: Do not use global pages
+  ([`389fece`](https://github.com/anaticulae/genex/commit/389fecee6527d7638ff9e6a0ddbfc9e8c9739b78))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`f363131`](https://github.com/anaticulae/genex/commit/f363131e5dd6ea27b41a89ef3accff178c383fa0))
+
+
+## v0.22.0 (2022-02-15)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`8d6c52c`](https://github.com/anaticulae/genex/commit/8d6c52c322eb56e7e19d08b3d92518bed05b0e06))
+
+### Code Style
+
+- **imports**: Organize imports
+  ([`de2a3a0`](https://github.com/anaticulae/genex/commit/de2a3a0c8bf46c217826ac98e70446262ec2b6fc))
+
+### Features
+
+- **example**: Replace outdated approach with JobMaker
+  ([`84308cc`](https://github.com/anaticulae/genex/commit/84308ccae9ad35e3a7d870d18cc26ba0be401920))
+
+- **example**: Run table detector on section pages
+  ([`1b1d5cb`](https://github.com/anaticulae/genex/commit/1b1d5cb0307a649481b9233a418e192177ceea86))
+
+- **example**: Use automate approach to reduce complexity
+  ([`d5c87c8`](https://github.com/anaticulae/genex/commit/d5c87c87e30010f0ac5e7dfd28a4815642aa0202))
+
+### Refactoring
+
+- **example**: Move method
+  ([`a70a2a3`](https://github.com/anaticulae/genex/commit/a70a2a3dba6b35e379c4836b7ea25ed518b8f0af))
+
+- **example**: Move method
+  ([`da3c0d2`](https://github.com/anaticulae/genex/commit/da3c0d2918ec9f3fbb1bf34e68013000cd8cd85c))
+
+- **example**: Reduce complexity
+  ([`6c3eb07`](https://github.com/anaticulae/genex/commit/6c3eb07a1fd2bfb125a95b10ba3050bc6ce304f9))
+
+- **example**: Reduce complexity
+  ([`f0e558c`](https://github.com/anaticulae/genex/commit/f0e558c9dccdbe4b9e9ad457aa4ffbcb4cde318a))
+
+- **example**: Replace with utila code
+  ([`912cd71`](https://github.com/anaticulae/genex/commit/912cd719edd0624b36a029a74a41320219764e2a))
+
+- **example**: Simplify code
+  ([`905c43d`](https://github.com/anaticulae/genex/commit/905c43d021a90237ac77d6eaf95142ed6c729492))
+
+- **example**: Simplify task selection
+  ([`e8604a8`](https://github.com/anaticulae/genex/commit/e8604a869de2e2ca1ceeb99a2cd0a5ec835bf98e))
+
+
+## v0.21.4 (2022-02-04)
+
+### Bug Fixes
+
+- **example**: Skip step if area is not found
+  ([`383e564`](https://github.com/anaticulae/genex/commit/383e56439473e089bac0ad013af461ac7fa4295e))
+
+- **example**: Split figureo steps
+  ([`63155d3`](https://github.com/anaticulae/genex/commit/63155d32152cb3d15097c64d150cf2668aa31fd5))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`bc5c0b1`](https://github.com/anaticulae/genex/commit/bc5c0b1ef252681b649304d9b7cd670766f20a24))
 
 ### Documentation
 
-* adjust modules path (f090bd084fb4)
-* Happy New Year! (8741e00a6807)
+- **copyright**: Happy New Year!
+  ([`8741e00`](https://github.com/anaticulae/genex/commit/8741e00a6807c81db68cb1d3b5a36c3a601ab398))
 
-## v0.21.3
+- **fix**: Adjust modules path
+  ([`f090bd0`](https://github.com/anaticulae/genex/commit/f090bd084fb48f01608d5bb54ac476de1ec036b8))
 
-### Feature
 
-* improve path shorten (77c88b9d5a0d)
+## v0.21.3 (2021-12-07)
 
-### Fix
+### Bug Fixes
 
-* run caption before magic (4ef571ccb8e0)
+- **example**: Run caption before magic
+  ([`4ef571c`](https://github.com/anaticulae/genex/commit/4ef571ccb8e079169c1a94774bd2a3d30adb24e0))
 
-## v0.21.2
+### Chores
 
-## v0.21.1
+- **requirements**: Upgrade requirements.txt
+  ([`41f4817`](https://github.com/anaticulae/genex/commit/41f48176106087053f5380b5fde04af7c0a64ab6))
 
-### Fix
+### Features
 
-* adjust interface (6df182f6cac1)
+- **example**: Improve path shorten
+  ([`77c88b9`](https://github.com/anaticulae/genex/commit/77c88b9d5a0debfebff9192c3be303429bf8f7ac))
 
-## v0.21.0
 
-### Feature
+## v0.21.2 (2021-11-11)
 
-* add option to overwrite rawmaker layout config (b0f5fb27107d)
+### Chores
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`f13310f`](https://github.com/anaticulae/genex/commit/f13310fd7ced82e5bda07abca8203675746cdf6a))
 
-* run caption before words (9e61ec64ac2e)
 
-## v0.20.2
+## v0.21.1 (2021-11-05)
 
-### Fix
+### Bug Fixes
 
-* use Todo to avoid creating wrong output path (4adeb737284e)
-* add missing steps (94f13a898e2b)
+- **example**: Adjust interface
+  ([`6df182f`](https://github.com/anaticulae/genex/commit/6df182f6cac1099fdaa34e2c640800a10675d868))
 
-## v0.20.1
+### Chores
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`3a59c3e`](https://github.com/anaticulae/genex/commit/3a59c3e12367a8669f716b5a7188c96480ea4355))
 
-* ensure that local is updated (9749b6128c46)
 
-## v0.20.0
+## v0.21.0 (2021-11-03)
 
-### Feature
+### Bug Fixes
 
-* overwrite configured step by new config dict (2e341407418f)
-* use new resource definition (05d48dd73e26)
-* introduce name to fix name of generated name (776bc15ae7ed)
-* add method to convert files todo (cdd881e67e38)
-* add todo to create more resource information (7189b3d48f7a)
+- **example**: Run caption before words
+  ([`9e61ec6`](https://github.com/anaticulae/genex/commit/9e61ec64ac2e0ecb4874df8c51f82df91be17000))
 
-## v0.19.1
+### Chores
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`b0e7f3c`](https://github.com/anaticulae/genex/commit/b0e7f3caff2b037e17728f2c853d575af9f81c2e))
 
-* shrink example generator (52082c6c01a1)
+### Features
 
-## v0.19.0
+- **example**: Add option to overwrite rawmaker layout config
+  ([`b0f5fb2`](https://github.com/anaticulae/genex/commit/b0f5fb27107db96e1dbed77125bf30d6ee0607ac))
 
-### Feature
+### Refactoring
 
-* replace with findings --optimize feature (491b65d3e4bd)
+- **example**: Replace with new parameter name
+  ([`a44c7b1`](https://github.com/anaticulae/genex/commit/a44c7b19b18ff742317a10d044d0f3891c9dd6ba))
 
-## v0.18.1
 
-### Feature
+## v0.20.2 (2021-10-17)
 
-* create optimized findings (0ffcb7ed45b4)
+### Bug Fixes
 
-## v0.18.0
+- **example**: Add missing steps
+  ([`94f13a8`](https://github.com/anaticulae/genex/commit/94f13a898e2b4ab915cdbaea39ba6e9018148492))
 
-### Feature
+- **nopage**: Use Todo to avoid creating wrong output path
+  ([`4adeb73`](https://github.com/anaticulae/genex/commit/4adeb737284e13746b8414580278f2a658c79ad5))
 
-* add codero step (ab2f5b3aaaec)
 
-## v0.17.1
+## v0.20.1 (2021-10-17)
 
-### Fix
+### Bug Fixes
 
-* shrink formulero to given pages (1c359804bf71)
+- **example**: Ensure that local is updated
+  ([`9749b61`](https://github.com/anaticulae/genex/commit/9749b6128c4611a74f012ee9f0141366ab787648))
 
-## v0.17.0
 
-### Feature
+## v0.20.0 (2021-10-17)
 
-* add formulero runner (e4fdf976248d)
+### Chores
 
-### Fix
+- **config**: Move config
+  ([`fe372a9`](https://github.com/anaticulae/genex/commit/fe372a9980bf3e52b387a04116ecf42843c7a7d0))
 
-* handle sections selection correctly (8b81fa9ef323)
-* log run command before run (ab8705bfe10d)
+- **requirements**: Upgrade requirements.txt
+  ([`4fb90e6`](https://github.com/anaticulae/genex/commit/4fb90e623555cf24e6094760cedb978c8dd7fcff))
 
-## v0.16.0
+### Features
 
-### Feature
+- **config**: Add method to convert files todo
+  ([`cdd881e`](https://github.com/anaticulae/genex/commit/cdd881e67e3882633dd23cc6bf120f9fd26d2b64))
 
-* log runtime (32fb3482df30)
-* add pdf as sections source (aafb0d3eecef)
+- **config**: Add todo to create more resource information
+  ([`7189b3d`](https://github.com/anaticulae/genex/commit/7189b3d48f7a3683266a134ec89b0a8e19876d92))
 
-### Fix
+- **config**: Introduce name to fix name of generated name
+  ([`776bc15`](https://github.com/anaticulae/genex/commit/776bc15ae7ed3a9272adf69c35f0a43d2077243e))
 
-* add missing newline (3f3e86adc617)
+- **example**: Overwrite configured step by new config dict
+  ([`2e34140`](https://github.com/anaticulae/genex/commit/2e341407418fe3dc8fa10295f7c67604eeca5461))
 
-## v0.15.0
+- **example**: Use new resource definition
+  ([`05d48dd`](https://github.com/anaticulae/genex/commit/05d48dd73e26d08f24f8f26ebf6cc0b209557dbf))
 
-### Feature
 
-* log final execution time (8cab6124f7cd)
-* add cleanup runner (1554246664b4)
+## v0.19.1 (2021-10-15)
 
-### Fix
+### Chores
 
-* log stderr after stdout (e6c33b9a3595)
+- **requirements**: Upgrade requirements.txt
+  ([`72503ef`](https://github.com/anaticulae/genex/commit/72503ef740195acb2035f4239016441f2edbc822))
 
-## v0.14.0
+### Features
 
-### Feature
+- **example**: Shrink example generator
+  ([`52082c6`](https://github.com/anaticulae/genex/commit/52082c6c01a1efe37c0791f5472592b066ff941d))
 
-* use --table parameter to run tablero (b42ac74e17b9)
 
-### Fix
+## v0.19.0 (2021-10-11)
 
-* shrink tablero and figureo to given pages (ecca7e43222e)
+### Chores
 
-## v0.13.1
+- **requirements**: Add findings
+  ([`a4991b8`](https://github.com/anaticulae/genex/commit/a4991b806f1c57a17d700e423e744568eb2878b9))
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`3f9d52f`](https://github.com/anaticulae/genex/commit/3f9d52f2feaed17902605802795ecfd4db7e9738))
 
-* add missing pdf discover path (44ef49e5b877)
+### Features
 
-## v0.13.0
+- **example**: Replace with findings --optimize feature
+  ([`491b65d`](https://github.com/anaticulae/genex/commit/491b65d3e4bd88c524e36b38141766a0f10f4692))
 
-### Feature
 
-* add option to run figureo (be0aa5ef61e3)
+## v0.18.1 (2021-10-07)
 
-### Fix
+### Chores
 
-* do not fail on passing test.tmpdir as dest (8feeecda4be2)
-* use zero base indexing (8e7f6d3e43f2)
+- **requirements**: Upgrade requirements.txt
+  ([`b689e69`](https://github.com/anaticulae/genex/commit/b689e693d0a51d8a8c9582adf6d6df1c9361bfd4))
 
-## v0.12.1
+### Features
 
-### Feature
+- **example**: Create optimized findings
+  ([`0ffcb7e`](https://github.com/anaticulae/genex/commit/0ffcb7ed45b4166c9c4e3a504652a80518e81418))
 
-* run area again to use tablero data (587b651c3b4e)
-* log number of started job (d9b67a09b617)
 
-## v0.12.0
+## v0.18.0 (2021-09-14)
 
-### Feature
+### Chores
 
-* add tablero extraction step (5409395e385f)
+- **requirements**: Upgrade requirements.txt
+  ([`0d701e2`](https://github.com/anaticulae/genex/commit/0d701e2a15de72b062b8d82ace2d63b919178231))
 
-## v0.11.2
+### Features
 
-### Feature
+- **example**: Add codero step
+  ([`ab2f5b3`](https://github.com/anaticulae/genex/commit/ab2f5b3aaaec5317c496d2ab296bc6306ac997a4))
 
-* add option to make generation more specific (1b8cf17c17e9)
 
-### Fix
+## v0.17.1 (2021-08-27)
 
-* convert \n to /n in path (c05ab06ee524)
-* add missing newline (7eb4132a761e)
+### Bug Fixes
 
-## v0.11.1
+- **example**: Shrink formulero to given pages
+  ([`1c35980`](https://github.com/anaticulae/genex/commit/1c359804bf71d0a6d842805651e43ff7646e072f))
 
-### Fix
 
-* do not fail if dir is already created (bbcf8a19714e)
+## v0.17.0 (2021-08-25)
 
-## v0.11.0
+### Bug Fixes
 
-### Feature
+- **example**: Log run command before run
+  ([`ab8705b`](https://github.com/anaticulae/genex/commit/ab8705bfe10d4079e3f4950ab5f0fea989ca9aab))
 
-* add option to run with specialized groupme config (4deaf969c8a6)
-* run magic to use in words (812b1120d146)
-* use live logging (a2cedf93f149)
+- **nopage**: Handle sections selection correctly
+  ([`8b81fa9`](https://github.com/anaticulae/genex/commit/8b81fa9ef32372cae4cd78c647584f9ab7992f09))
 
-## v0.10.0
+### Chores
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`9b7019f`](https://github.com/anaticulae/genex/commit/9b7019f80708b3a796e5f785df9272aaaafabb40))
 
-* run pdfinfo (8a9d5cdb04e0)
+### Features
 
-## v0.9.0
+- **example**: Add formulero runner
+  ([`e4fdf97`](https://github.com/anaticulae/genex/commit/e4fdf976248da4dc9ec1be53d6211a73084e0631))
 
-### Feature
 
-* add extraction with remove step (606c08ff5434)
+## v0.16.0 (2021-08-13)
 
-## v0.8.0
+### Bug Fixes
 
-### Feature
+- **example**: Add missing newline
+  ([`3f3e86a`](https://github.com/anaticulae/genex/commit/3f3e86adc6174e9c92e5824aa90dab77195805d8))
 
-* gather and write generated log (ad0b73b5a4df)
+### Chores
 
-## v0.7.3
+- **requirements**: Upgrade requirements.txt
+  ([`6ee51f6`](https://github.com/anaticulae/genex/commit/6ee51f6adbbbaee2e9f30250983160858bb63299))
 
-### Fix
+### Code Style
 
-* avoid side effect to global config (2e0d470ce9ce)
+- **example**: Reduce verbosity
+  ([`f45977d`](https://github.com/anaticulae/genex/commit/f45977d4cc8a87dd300125cb7237718aa48742df))
 
-## v0.7.2
+### Features
 
-## v0.7.1
+- **example**: Add pdf as sections source
+  ([`aafb0d3`](https://github.com/anaticulae/genex/commit/aafb0d3eecef89adc4d4184b51e7ff067db93610))
 
-### Fix
+- **example**: Log runtime
+  ([`32fb348`](https://github.com/anaticulae/genex/commit/32fb3482df305b8f76c7491e54685d48fdb615fe))
 
-* disable groupme --abbreviations if sections is not given (ba1a22d4adf6)
 
-## v0.7.0
+## v0.15.0 (2021-08-11)
 
-### Feature
+### Bug Fixes
 
-* shrink abbreviation table extractor to section (7387e74a7d62)
-* shrink abbreviation parser (4952b0281bf3)
+- **example**: Log stderr after stdout
+  ([`e6c33b9`](https://github.com/anaticulae/genex/commit/e6c33b9a359580b8cdd6f83be8aa2e7103cd7c0e))
 
-## v0.6.2
+### Chores
 
-### Fix
+- **requirements**: Upgrade requirements.txt
+  ([`36b56b7`](https://github.com/anaticulae/genex/commit/36b56b7d18d1f94251e1cd794b177e57b755451d))
 
-* add missing pages parameter (f56e6464db60)
+### Code Style
 
-## v0.6.1
+- **docs**: Format docs
+  ([`00c7742`](https://github.com/anaticulae/genex/commit/00c77424c1622e02d06c7cdb1a1df975215b95b6))
 
-### Fix
+- **format**: Format code
+  ([`6d1020a`](https://github.com/anaticulae/genex/commit/6d1020aec95502ff047d77bb93d82c596bb8940e))
 
-* adjust order to required resources (4d8a516cc053)
+- **rename**: Shorten variable names
+  ([`028a1cc`](https://github.com/anaticulae/genex/commit/028a1ccab6a9d77f4d8dc4201918dcec196411ca))
 
-## v0.6.0
+### Features
 
-### Feature
+- **example**: Add cleanup runner
+  ([`1554246`](https://github.com/anaticulae/genex/commit/1554246664b4934c7aaca23830a8c4a0ebd90c75))
 
-* add spacestation to example generator (c7750021aa9e)
+- **example**: Log final execution time
+  ([`8cab612`](https://github.com/anaticulae/genex/commit/8cab6124f7cdde83e6d0dda13d3078815cc34be3))
 
-## v0.5.7
+### Refactoring
 
-### Feature
+- **example**: Improve code style and extend documentation
+  ([`8051029`](https://github.com/anaticulae/genex/commit/80510299af318dd76f0954ce0a0ff7ed45747293))
 
-* externalize job run method (32e400dee348)
+- **remove**: Reduce complexity
+  ([`5a71d77`](https://github.com/anaticulae/genex/commit/5a71d775ae79d4c3b886ef91684c2b637492797b))
+
+### Testing
+
+- **selective**: Make test more tolerant
+  ([`43ffd15`](https://github.com/anaticulae/genex/commit/43ffd15811a851568f96c8e90d215085721a7834))
+
+
+## v0.14.0 (2021-08-01)
+
+### Bug Fixes
+
+- **example**: Shrink tablero and figureo to given pages
+  ([`ecca7e4`](https://github.com/anaticulae/genex/commit/ecca7e43222ee4660ee604fa5d506d99d2516588))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`b019475`](https://github.com/anaticulae/genex/commit/b019475f0ca6971f07e1a55d0d39636e5060ddd5))
+
+- **test**: Keep dev run fast
+  ([`a1f8da1`](https://github.com/anaticulae/genex/commit/a1f8da1ec7ab4ad582701777fa4f036e291a9486))
+
+### Features
+
+- **tablero**: Use --table parameter to run tablero
+  ([`b42ac74`](https://github.com/anaticulae/genex/commit/b42ac74e17b917fb2f235f7327d8ff688fe33cee))
+
+### Testing
+
+- **example**: Run tablero and figureo
+  ([`ef5f30e`](https://github.com/anaticulae/genex/commit/ef5f30e6f73d00d081099e68b0ce0beb42dc81d1))
+
+
+## v0.13.1 (2021-07-29)
+
+### Bug Fixes
+
+- **example**: Add missing pdf discover path
+  ([`44ef49e`](https://github.com/anaticulae/genex/commit/44ef49e5b87799299336ea8f0d81b42e3f381b6a))
+
+
+## v0.13.0 (2021-07-29)
+
+### Bug Fixes
+
+- **example**: Do not fail on passing test.tmpdir as dest
+  ([`8feeecd`](https://github.com/anaticulae/genex/commit/8feeecda4be25ddd9ba4441756ce81db0baa6e3e))
+
+- **example**: Use zero base indexing
+  ([`8e7f6d3`](https://github.com/anaticulae/genex/commit/8e7f6d3e43f2135334a9f25283e8e4d4b3472ed2))
+
+### Chores
+
+- **requirements**: Add figureo
+  ([`846ce31`](https://github.com/anaticulae/genex/commit/846ce31827ed2e4c4bd8de1139afe5d5c3755e83))
+
+- **requirements**: Upgrade requirements.txt
+  ([`02033b9`](https://github.com/anaticulae/genex/commit/02033b9f83d5c4d8092dc92c12cf864b3096cedb))
+
+### Features
+
+- **example**: Add option to run figureo
+  ([`be0aa5e`](https://github.com/anaticulae/genex/commit/be0aa5ef61e34435613b1e5b89f6ba8a5c7fb979))
+
+
+## v0.12.1 (2021-07-19)
+
+### Chores
+
+- **requirements**: Add missing tablero
+  ([`99146ef`](https://github.com/anaticulae/genex/commit/99146ef8e45757efaf8969242202ec19bfe01f4e))
+
+- **requirements**: Upgrade requirements.txt
+  ([`ef91937`](https://github.com/anaticulae/genex/commit/ef919370b702aeab23898157cfee850914571755))
+
+### Features
+
+- **example**: Log number of started job
+  ([`d9b67a0`](https://github.com/anaticulae/genex/commit/d9b67a09b6174171dce84d80bd26de9f8b6428d9))
+
+- **example**: Run area again to use tablero data
+  ([`587b651`](https://github.com/anaticulae/genex/commit/587b651c3b4ec5638a5545b8564fb61f71a048d2))
+
+
+## v0.12.0 (2021-07-19)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`77bb15a`](https://github.com/anaticulae/genex/commit/77bb15a5da624f641d7b704be345151611f986e1))
+
+### Code Style
+
+- **format**: Format docs
+  ([`dd07d13`](https://github.com/anaticulae/genex/commit/dd07d131f54d1834b2875f0f387be588d95f9976))
+
+### Features
+
+- **example**: Add tablero extraction step
+  ([`5409395`](https://github.com/anaticulae/genex/commit/5409395e385fb29c593aacfad4ff78986559c18d))
+
+
+## v0.11.2 (2021-07-14)
+
+### Bug Fixes
+
+- **example**: Add missing newline
+  ([`7eb4132`](https://github.com/anaticulae/genex/commit/7eb4132a761ef9ad374d2a59d07ece0c8e804020))
+
+- **example**: Convert \n to /n in path
+  ([`c05ab06`](https://github.com/anaticulae/genex/commit/c05ab06ee524eddb496bd46372bddf9655f0420d))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`720ff78`](https://github.com/anaticulae/genex/commit/720ff7863a574d32b9ac53014925c249e8131dd4))
+
+### Features
+
+- **example**: Add option to make generation more specific
+  ([`1b8cf17`](https://github.com/anaticulae/genex/commit/1b8cf17c17e9df5f4c702ba0e0c23706419fb6a8))
+
+
+## v0.11.1 (2021-07-07)
+
+### Bug Fixes
+
+- **example**: Do not fail if dir is already created
+  ([`bbcf8a1`](https://github.com/anaticulae/genex/commit/bbcf8a19714ea92e7133f3443193010f6a8fbba2))
+
+
+## v0.11.0 (2021-07-07)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`c5078a6`](https://github.com/anaticulae/genex/commit/c5078a6a305e8a7270ec5d0061e8d20478280c47))
+
+### Features
+
+- **example**: Add option to run with specialized groupme config
+  ([`4deaf96`](https://github.com/anaticulae/genex/commit/4deaf969c8a6a351a319d1ed589557fcc95f0664))
+
+- **example**: Run magic to use in words
+  ([`812b112`](https://github.com/anaticulae/genex/commit/812b1120d1465ed422fe5d0d329dad44d0eebeaf))
+
+- **example**: Use live logging
+  ([`a2cedf9`](https://github.com/anaticulae/genex/commit/a2cedf93f14973639a3538bfe45d04e1de3575ed))
+
+
+## v0.10.0 (2021-06-10)
+
+### Code Style
+
+- **format**: Format code
+  ([`15e5010`](https://github.com/anaticulae/genex/commit/15e501069860ac9fe2a37a3829b2922aa0d5f2e2))
+
+### Features
+
+- **example**: Run pdfinfo
+  ([`8a9d5cd`](https://github.com/anaticulae/genex/commit/8a9d5cdb04e0b84239dfdc73d6bec8d129109266))
+
+
+## v0.9.0 (2021-05-23)
+
+### Chores
+
+- **dev**: Add jam package
+  ([`e958e81`](https://github.com/anaticulae/genex/commit/e958e81f7d092246822bb56d1ae761785513dffd))
+
+- **requirements**: Upgrade requirements.txt
+  ([`bee7efe`](https://github.com/anaticulae/genex/commit/bee7efe59ce920f9987d13d2670a281d01a5b08f))
+
+### Code Style
+
+- **format**: Use improved yapf formatter
+  ([`836b7b9`](https://github.com/anaticulae/genex/commit/836b7b9b5ab7d5aa19c712085780b1640ee631c5))
+
+### Features
+
+- **nopage**: Add extraction with remove step
+  ([`606c08f`](https://github.com/anaticulae/genex/commit/606c08ff54347b0c5ff5c50b6a46f34a64640906))
+
+
+## v0.8.0 (2021-03-30)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`544a742`](https://github.com/anaticulae/genex/commit/544a742953eb8229feebbd3e7a7079041081f5c8))
+
+### Code Style
+
+- **imports**: Organize imports
+  ([`4e4df37`](https://github.com/anaticulae/genex/commit/4e4df378474baef54bda13e5ab083558ee8f6025))
+
+### Features
+
+- **example**: Gather and write generated log
+  ([`ad0b73b`](https://github.com/anaticulae/genex/commit/ad0b73b5a4df259f6cf2ceb555826bcc96ab183c))
+
+
+## v0.7.3 (2021-02-13)
+
+### Bug Fixes
+
+- **example**: Avoid side effect to global config
+  ([`2e0d470`](https://github.com/anaticulae/genex/commit/2e0d470ce9ce7b4de1ac5ac019da8fccc71f376c))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`c6b004a`](https://github.com/anaticulae/genex/commit/c6b004a8b5678824c0702b9c9391321fdf7e3d50))
+
+
+## v0.7.2 (2021-02-05)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`581a855`](https://github.com/anaticulae/genex/commit/581a855cdc84aa5685eabd1fd173edec171873be))
+
+
+## v0.7.1 (2021-02-05)
+
+### Bug Fixes
+
+- **example**: Disable groupme --abbreviations if sections is not given
+  ([`ba1a22d`](https://github.com/anaticulae/genex/commit/ba1a22d4adf67c22f6d0f153d33bc79b9dd1b096))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`bdd67ce`](https://github.com/anaticulae/genex/commit/bdd67ce5bf2edbf4d051a04fa28a5fe9eb854f9f))
+
+- **setup**: Cleanup setup file
+  ([`5e3280b`](https://github.com/anaticulae/genex/commit/5e3280bd2c54d39d8f553d68129ce8d688670f86))
+
+### Refactoring
+
+- **test**: Simplify test
+  ([`8660c46`](https://github.com/anaticulae/genex/commit/8660c46eba6ccd4b49f1f29482c2ff08dd3f8267))
+
+
+## v0.7.0 (2021-01-30)
+
+### Chores
+
+- **requirements**: Add missing sections package
+  ([`046294a`](https://github.com/anaticulae/genex/commit/046294ab4b55ad6d3866ccbf50171c49f34ad7fc))
+
+- **requirements**: Upgrade requirements.txt
+  ([`4687e23`](https://github.com/anaticulae/genex/commit/4687e233c033d86afa6a8259d609c4045f081a4a))
+
+### Features
+
+- **example**: Shrink abbreviation parser
+  ([`4952b02`](https://github.com/anaticulae/genex/commit/4952b0281bf31615597aed5be87ad7df81937ae8))
+
+- **example**: Shrink abbreviation table extractor to section
+  ([`7387e74`](https://github.com/anaticulae/genex/commit/7387e74a7d626f851cde6117be73c29dea307e3f))
+
+### Refactoring
+
+- **example**: Simplify code
+  ([`4285f4a`](https://github.com/anaticulae/genex/commit/4285f4aa1a5e1a52acc124183da76ef4a608c4bb))
+
+
+## v0.6.2 (2021-01-12)
+
+### Bug Fixes
+
+- **example**: Add missing pages parameter
+  ([`f56e646`](https://github.com/anaticulae/genex/commit/f56e6464db60324ab07bc265c2ba40ab8b2cc036))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`c3122f0`](https://github.com/anaticulae/genex/commit/c3122f0895938a76665c79bcf8323953457cf1c2))
+
+
+## v0.6.1 (2021-01-12)
+
+### Bug Fixes
+
+- **example**: Adjust order to required resources
+  ([`4d8a516`](https://github.com/anaticulae/genex/commit/4d8a516cc0530079ef06d84fc55a7450e35af218))
+
+
+## v0.6.0 (2021-01-12)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`15cf27b`](https://github.com/anaticulae/genex/commit/15cf27b93ec32ad250ec1599409e010cd0c8ec9a))
+
+### Features
+
+- **example**: Add spacestation to example generator
+  ([`c775002`](https://github.com/anaticulae/genex/commit/c7750021aa9ea40a6e180a980676bb5cb5e9c760))
+
+
+## v0.5.7 (2021-01-12)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`c781849`](https://github.com/anaticulae/genex/commit/c7818492692689ce7c9f5bc61c5a7de99e508d9c))
 
 ### Documentation
 
-* Happy New Year! (f7a281baa399)
-* fix return type information (34dcc2d16987)
+- **copyright**: Happy New Year!
+  ([`f7a281b`](https://github.com/anaticulae/genex/commit/f7a281baa3999c1aee17b819e4b7f71e23eb05f5))
 
-## v0.5.6
+- **fix**: Fix return type information
+  ([`34dcc2d`](https://github.com/anaticulae/genex/commit/34dcc2d1698774c6be7b5f30696b49725991b3c2))
 
-### Fix
+### Features
 
-* add base path to improve auto name generator (8d9f7df7c4af)
+- **run**: Externalize job run method
+  ([`32e400d`](https://github.com/anaticulae/genex/commit/32e400dee348838e4942f1314a3ae1445c179c78))
 
-## v0.5.5
 
-### Fix
+## v0.5.6 (2021-01-04)
 
-* add default repo to avoid single resource error (3107f159ddba)
+### Bug Fixes
 
-## v0.5.4
+- **generator**: Add base path to improve auto name generator
+  ([`8d9f7df`](https://github.com/anaticulae/genex/commit/8d9f7df7c4afea9b5950af866444fd8ef519c2b8))
 
-## v0.5.3
+### Chores
 
-### Feature
+- **requirements**: Upgrade requirements.txt
+  ([`6caf98f`](https://github.com/anaticulae/genex/commit/6caf98fe1edc56fa3b56368e3c360bb379f7d83d))
 
-* use verbose level to provide more information (02f6ffbb250f)
 
-### Fix
+## v0.5.5 (2021-01-04)
 
-* adjust logging after changing data type (7d97ae862fcf)
+### Bug Fixes
 
-## v0.5.2
+- **example**: Add default repo to avoid single resource error
+  ([`3107f15`](https://github.com/anaticulae/genex/commit/3107f159ddbad77b30dd3b5e5feb8d79efd726aa))
 
-### Fix
+### Chores
 
-* add missing import (a5ea3f98d2f8)
+- **requirements**: Do not release so often
+  ([`77dd0f5`](https://github.com/anaticulae/genex/commit/77dd0f52d1228dc25a5d127dd314aee60730fa3d))
 
-## v0.5.1
+- **requirements**: Upgrade requirements.txt
+  ([`f23936e`](https://github.com/anaticulae/genex/commit/f23936ee39919eac64da3c0cda947eb9c2f2f940))
 
-### Feature
 
-* add optional features (7a42b39d3cac)
+## v0.5.4 (2020-12-10)
 
-## v0.5.0
+### Chores
 
-### Feature
+- **requirements**: Add missing package
+  ([`33ef95f`](https://github.com/anaticulae/genex/commit/33ef95ffab13ff3127fd253645ea2be1e6de3f25))
 
-* use sections to select correct ranges (5389da38f523)
+- **requirements**: Upgrade requirements.txt
+  ([`5f33cfc`](https://github.com/anaticulae/genex/commit/5f33cfc6c3c5b99b2d3db922da9c282395613ca0))
 
-### Fix
 
-* forward missing smarty flag (58342d13cfbb)
+## v0.5.3 (2020-12-09)
 
-## v0.4.1
+### Bug Fixes
 
-## v0.4.0
+- **logging**: Adjust logging after changing data type
+  ([`7d97ae8`](https://github.com/anaticulae/genex/commit/7d97ae862fcfe4839210bd3083d3b91fb2e5af87))
 
-### Feature
+### Chores
 
-* add smarty application (71e6038647e0)
+- **requirements**: Do not update so often
+  ([`95df8ac`](https://github.com/anaticulae/genex/commit/95df8ac3811fcf870f083b203c2105effbef9992))
 
-## v0.3.0
+- **requirements**: Upgrade requirements.txt
+  ([`746e6f3`](https://github.com/anaticulae/genex/commit/746e6f38db3b9a86389b8a6d4670f7fd8b4c2fc8))
 
-### Feature
+- **test**: Keep dev build fast
+  ([`0a31361`](https://github.com/anaticulae/genex/commit/0a31361ab7878ae45d33ef46cf88a1f04ff155be))
 
-* add docref to example generator (6282d7aacf47)
+### Features
 
-## v0.2.1
+- **generator**: Use verbose level to provide more information
+  ([`02f6ffb`](https://github.com/anaticulae/genex/commit/02f6ffbb250fb4722efffda0ab03335d8744d368))
 
-## v0.2.0
 
-### Feature
+## v0.5.2 (2020-12-06)
 
-* prepare using cache generator (f3876c51fed1)
+### Bug Fixes
 
-## v0.1.5
+- **import**: Add missing import
+  ([`a5ea3f9`](https://github.com/anaticulae/genex/commit/a5ea3f98d2f8fdf0a96f68a6094457a4e8ee5574))
 
-## v0.1.4
 
-## v0.1.3
+## v0.5.1 (2020-12-06)
 
-## v0.1.2
+### Features
 
-## v0.1.1
+- **example**: Add optional features
+  ([`7a42b39`](https://github.com/anaticulae/genex/commit/7a42b39d3cacfdcbdb6ca95c6ca0932dfc3762c2))
 
-### Feature
+### Refactoring
 
-* extend public API (c46ec300a16d)
+- **names**: Improve naming
+  ([`6efb4c2`](https://github.com/anaticulae/genex/commit/6efb4c2adb7854f2e0b278442ee0e5ad7a480fc8))
 
-## v0.1.0
 
-### Feature
+## v0.5.0 (2020-12-05)
 
-* move example generator from hey project (6afff6846a09)
+### Bug Fixes
 
-## v0.0.0 Initial release
+- **example**: Forward missing smarty flag
+  ([`58342d1`](https://github.com/anaticulae/genex/commit/58342d13cfbb712a45d763847e3626dacf167efd))
+
+### Chores
+
+- **dev**: Add detector package
+  ([`06c0f03`](https://github.com/anaticulae/genex/commit/06c0f0349ba8ecef9b2c8be32bd5ddcaffb793b0))
+
+- **requirements**: Upgrade requirements.txt
+  ([`deabc99`](https://github.com/anaticulae/genex/commit/deabc99ad00f3b63045b4dff661bdc950db23b37))
+
+### Features
+
+- **example**: Use sections to select correct ranges
+  ([`5389da3`](https://github.com/anaticulae/genex/commit/5389da38f5233a7625e0f47a92a2facf31245453))
+
+### Refactoring
+
+- **example**: Move to separate modules
+  ([`e116656`](https://github.com/anaticulae/genex/commit/e116656b3b90bec8da207a6c3665fefcf9fbcd6c))
+
+- **style**: Improve code style
+  ([`363994c`](https://github.com/anaticulae/genex/commit/363994c780fa350958800fe57ee91bc13b8dfc9f))
+
+
+## v0.4.1 (2020-12-04)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`bf1ac7a`](https://github.com/anaticulae/genex/commit/bf1ac7a590b9c4ccb0b627d4b2bac4c72c6cf2ca))
+
+
+## v0.4.0 (2020-12-04)
+
+### Features
+
+- **example**: Add smarty application
+  ([`71e6038`](https://github.com/anaticulae/genex/commit/71e6038647e08839d3e486f21149f71534a2f2f3))
+
+
+## v0.3.0 (2020-12-01)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`aa07421`](https://github.com/anaticulae/genex/commit/aa07421a9f47e17d0643c192598aff473dd0cbdc))
+
+### Features
+
+- **example**: Add docref to example generator
+  ([`6282d7a`](https://github.com/anaticulae/genex/commit/6282d7aacf479077eb378b7cf2c075ddc9535379))
+
+### Refactoring
+
+- **generator**: Simplify code
+  ([`269106f`](https://github.com/anaticulae/genex/commit/269106f3817814c9080148377440e7c52a408367))
+
+
+## v0.2.1 (2020-11-19)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`6b8f645`](https://github.com/anaticulae/genex/commit/6b8f645dbabe28849bb06ef62b2fe94f4537ca2e))
+
+
+## v0.2.0 (2020-11-02)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`5f08e9e`](https://github.com/anaticulae/genex/commit/5f08e9e00900abdf3ff362653e85885c86d1586a))
+
+### Features
+
+- **generator**: Prepare using cache generator
+  ([`f3876c5`](https://github.com/anaticulae/genex/commit/f3876c51fed117759656e0146f43ad8472d42e1a))
+
+
+## v0.1.5 (2020-10-27)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`25e0072`](https://github.com/anaticulae/genex/commit/25e0072457a3a2bc0137a27e33992d93d8ad4208))
+
+
+## v0.1.4 (2020-10-08)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`f4bd2d3`](https://github.com/anaticulae/genex/commit/f4bd2d319f7d9bcbf24f06de304ec82c3b041feb))
+
+
+## v0.1.3 (2020-09-26)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`3070477`](https://github.com/anaticulae/genex/commit/3070477815e58e5684beb7438979ed4915da6216))
+
+
+## v0.1.2 (2020-09-14)
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`a5d6728`](https://github.com/anaticulae/genex/commit/a5d672815c7fbd6d724c545e045a735593f3eedb))
+
+
+## v0.1.1 (2020-09-09)
+
+### Features
+
+- **API**: Extend public API
+  ([`c46ec30`](https://github.com/anaticulae/genex/commit/c46ec300a16db59055f01dcffef81cdcc48eb472))
+
+
+## v0.1.0 (2020-09-09)
+
+- Initial Release
