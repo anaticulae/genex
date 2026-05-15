@@ -9,6 +9,7 @@
 
 import hoverpower
 import iamraw
+import pytest
 import utilo
 import utilotest
 
@@ -16,6 +17,7 @@ import genex
 import tests
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.BACHELOR090_PDF)
 def test_select_titlepage(td):

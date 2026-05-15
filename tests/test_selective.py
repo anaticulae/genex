@@ -10,6 +10,7 @@
 import os
 
 import hoverpower
+import pytest
 import serializeraw
 import utilotest
 
@@ -17,6 +18,7 @@ import genex
 import tests
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.BACHELOR037_PDF)
 def test_extract_bachelor37_abbrev_table(td):

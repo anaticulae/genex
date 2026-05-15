@@ -10,6 +10,7 @@
 import os
 
 import hoverpower
+import pytest
 import utilo
 import utilotest
 
@@ -35,6 +36,7 @@ def test_example_common_root():
     assert root == expected
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @tests.requires(hoverpower.DOCU009_PDF)
 @tests.requires(hoverpower.BACHELOR111_PDF)
 @utilotest.longrun
@@ -66,6 +68,7 @@ def test_example_extract(td):
     assert os.path.exists(generated), str(generated)
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
 def test_example_disable_abbrev_step(td):
@@ -89,6 +92,7 @@ def test_example_disable_abbrev_step(td):
     assert os.path.exists(generated), str(generated)
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
 def test_example_sections_ref(td):
@@ -111,6 +115,7 @@ def test_example_sections_ref(td):
     assert os.path.exists(generated), str(generated)
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
 def test_example_nothing(td):
@@ -130,6 +135,7 @@ def test_example_nothing(td):
     assert os.path.exists(generated), str(generated)
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
 def test_example_nothing_and_cleanup(td):

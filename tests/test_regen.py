@@ -10,6 +10,7 @@
 import functools
 
 import hoverpower
+import pytest
 import utilo
 import utilotest
 
@@ -28,6 +29,7 @@ def run_genex_regen(cmd: str, mp, generated=None, expect=True) -> int:
     return completed
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.BACHELOR090_PDF)
 def test_cli_regen(td, mp):

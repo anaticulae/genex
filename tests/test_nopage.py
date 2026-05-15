@@ -10,12 +10,14 @@
 import os
 
 import hoverpower
+import pytest
 import utilotest
 
 import genex
 import tests
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
 @tests.requires(hoverpower.HOME018_PDF)
@@ -37,6 +39,7 @@ def test_nopage_extract(td):
     assert os.path.exists(generated), str(generated)
 
 
+@pytest.mark.xfail(reason='missing tooling')
 @utilotest.nightly
 @tests.requires(hoverpower.DOCU009_PDF)
 @tests.requires(hoverpower.DOCU007_PDF)
