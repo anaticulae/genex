@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-05-15)
+
+### Chores
+
+- **project**: Rename project
+  ([`42aa214`](https://github.com/anaticulae/gennex/commit/42aa21401e77a060d330109ee37577707961dad7))
+
+
 ## v1.0.0 (2026-05-15)
 
 ### Bug Fixes
@@ -454,7 +462,7 @@
 
 ### Bug Fixes
 
-- **gennex**: Do not require power for importing gennex
+- **genex**: Do not require power for importing genex
   ([`ce647b5`](https://github.com/anaticulae/gennex/commit/ce647b5f108c6cfcef4db38edc7d8f74acda1224))
 
 ### Features
@@ -738,7 +746,7 @@
 
 ### Code Style
 
-- **gennex**: Simplify code
+- **genex**: Simplify code
   ([`f14facf`](https://github.com/anaticulae/gennex/commit/f14facfe6667b69240ac2de1023ff3491924e4fc))
 
 ### Features
