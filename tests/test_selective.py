@@ -9,18 +9,18 @@
 
 import os
 
-import power
+import hoverpower
 import serializeraw
-import utilatest
+import utilotest
 
 import genex
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_extract_bachelor37_abbrev_table(td):
     """Shrink abbreviation table extractor to abbreviation table section."""
     files = [
-        power.BACHELOR037_PDF,
+        hoverpower.BACHELOR037_PDF,
     ]
     genex.extract(
         files,
@@ -31,7 +31,7 @@ def test_extract_bachelor37_abbrev_table(td):
         pagenumber=True,
         reftable=True,
         sections=True,
-        base=power.REPO,
+        base=hoverpower.REPO,
         pages='0:15',
     )
     bachelor37 = td.tmpdir.join('bachelor_bachelor037')

@@ -22,14 +22,14 @@
 []
 """
 
-import utila
+import utilo
 
-PATTERN = utila.compiles(r'\:\:(\d{2})>>(.+)')
+PATTERN = utilo.compiles(r'\:\:(\d{2})>>(.+)')
 
 
 def parse_steps(log: str, start=None):
     result = []
-    log = utila.from_raw_or_path(log)
+    log = utilo.from_raw_or_path(log)
     for line in PATTERN.finditer(log):
         number, cmd = int(line[1]), line[2]
         if start is not None and number < start:

@@ -9,18 +9,18 @@
 
 import os
 
-import power
-import utilatest
+import hoverpower
+import utilotest
 
 import genex
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_nopage_extract(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
-        power.HOME018_PDF,
+        hoverpower.DOCU009_PDF,
+        hoverpower.HOME018_PDF,
     ]
     genex.extract_removepages(
         resources=pdfs,
@@ -34,12 +34,12 @@ def test_nopage_extract(td):
     assert os.path.exists(generated), str(generated)
 
 
-@utilatest.nightly
+@utilotest.nightly
 def test_nopage_full(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
-        power.DOCU007_PDF,
+        hoverpower.DOCU009_PDF,
+        hoverpower.DOCU007_PDF,
     ]
     genex.extract_removepages(
         resources=pdfs,

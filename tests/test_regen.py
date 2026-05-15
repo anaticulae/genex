@@ -9,15 +9,15 @@
 
 import functools
 
-import power
-import utila
-import utilatest
+import hoverpower
+import utilo
+import utilotest
 
 import genex.cli.regen
 
 
 def run_genex_regen(cmd: str, mp, generated=None, expect=True) -> int:
-    completed = utilatest.run_cov(
+    completed = utilotest.run_cov(
         cmd,
         genex.cli.regen.PROCESS,
         functools.partial(genex.cli.regen.main, generated=generated),
@@ -27,10 +27,10 @@ def run_genex_regen(cmd: str, mp, generated=None, expect=True) -> int:
     return completed
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_cli_regen(td, mp):
     files = [
-        power.BACHELOR090_PDF,
+        hoverpower.BACHELOR090_PDF,
     ]
     genex.extract(
         files,
@@ -40,12 +40,12 @@ def test_cli_regen(td, mp):
         groupme=True,
         headnote=True,
         pagenumber=True,
-        base=power.REPO,
+        base=hoverpower.REPO,
         pages='0:5',
     )
     generated = td.tmpdir.join('bachelor_bachelor090')
-    utila.exists_assert(generated)
-    with utila.capture_stdout() as stdout:
+    utilo.exists_assert(generated)
+    with utilo.capture_stdout() as stdout:
         # start after third step
         run_genex_regen(cmd='3', mp=mp, generated=td.tmpdir)
     assert 'Steps: 3 Start: 3' in stdout()
@@ -53,5 +53,5 @@ def test_cli_regen(td, mp):
 
 def test_cli_regen_error(td, mp, capsys):
     run_genex_regen(cmd='0', mp=mp, generated=td.tmpdir, expect=False)
-    stderr = utilatest.stderr(capsys)
+    stderr = utilotest.stderr(capsys)
     assert 'nothing todo:' in stderr

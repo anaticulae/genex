@@ -21,7 +21,7 @@ import os
 import sys
 
 import resinf
-import utila
+import utilo
 
 import genex.automata
 import genex.config
@@ -29,7 +29,7 @@ import genex.pages
 import genex.utils
 
 
-@utila.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     dest: str = None,
@@ -128,9 +128,9 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     # single file the common file pattern-determination is not possible.
     # Therefore we have to add the data root of all test files.
     dest = default_destination(dest)
-    if utila.exists(dest):
+    if utilo.exists(dest):
         # disable write protection to enable regenaration
-        utila.directory_unlock(dest, noerror=True)
+        utilo.directory_unlock(dest, noerror=True)
     # TODO: REMOVE BASE LATER
     todo = todolist(
         files,
@@ -179,20 +179,20 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         for future in concurrent.futures.as_completed(futures):
             try:
                 comment = future.result()
-                utila.info(comment)
+                utilo.info(comment)
             except Exception as failure:
                 selected = todo[futures.index(future)]
-                utila.error(f'Failed, example: {selected}')
-                utila.error(f'{future} failed.')
+                utilo.error(f'Failed, example: {selected}')
+                utilo.error(f'{future} failed.')
                 raise failure
     if lock:
         # enable write protection to avoid changing generated data
-        utila.directory_lock(dest, noerror=True)
+        utilo.directory_lock(dest, noerror=True)
 
 
 def default_destination(dest: str) -> str:
     """\
-    >>> import power; import genex; power.setup(genex.ROOT)
+    >>> import hoverpower; import genex; hoverpower.setup(genex.ROOT)
     >>> default_destination(None)
     '...'
     """
@@ -203,7 +203,7 @@ def default_destination(dest: str) -> str:
 
 def validate_files(files: list):
     """Ensure that file is only defined once."""
-    single = utila.Single()
+    single = utilo.Single()
     error = []
     for item in files:
         src = resinf.pdf(item)
@@ -214,7 +214,7 @@ def validate_files(files: list):
         raise ValueError(f'duplicated resource: {error}')
 
 
-@utila.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
 def todolist(  # pylint:disable=R0914,R0913
     files: list,
     dest: str,
@@ -339,56 +339,56 @@ def todolist(  # pylint:disable=R0914,R0913
 
 def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     steps, dest = job
-    verbosity = -1 if utila.level_current() > utila.LEVEL_DEFAULT else 200
+    verbosity = -1 if utilo.level_current() > utilo.LEVEL_DEFAULT else 200
     # prepare run
-    rawjob = utila.from_tuple(steps, separator=' && ')[0:verbosity]
-    rawjob = utila.forward_slash(rawjob, keep_newline=False)
+    rawjob = utilo.from_tuple(steps, separator=' && ')[0:verbosity]
+    rawjob = utilo.forward_slash(rawjob, keep_newline=False)
     # log job start
     number = '' if not number else f'[{number[0]}|{number[1]}] '
-    utila.log(f'{number} {rawjob}')
+    utilo.log(f'{number} {rawjob}')
     # create result folder
     os.makedirs(dest, exist_ok=True)
     # log job start to log folder
     logpath = os.path.join(dest, 'generated.log')
-    if utila.exists(logpath):
-        utila.log(f'already generated: {logpath}\nskip: {rawjob}\n')
+    if utilo.exists(logpath):
+        utilo.log(f'already generated: {logpath}\nskip: {rawjob}\n')
         return
-    logstep = lambda msg: utila.file_append(logpath, f'{msg}\n')  # pylint:disable=C3001
-    utila.file_create(logpath, f'{utila.timedate()}\n')
+    logstep = lambda msg: utilo.file_append(logpath, f'{msg}\n')  # pylint:disable=C3001
+    utilo.file_create(logpath, f'{utilo.timedate()}\n')
     for index, step in enumerate(steps):
         if not isinstance(step, str):
             step, inpath, section = step
             pages = genex.pages.select_pages(inpath, section)
             if not pages:
-                utila.debug(f'could not find section: {section}; skip: {step}')
+                utilo.debug(f'could not find section: {section}; skip: {step}')
                 continue
             assert isinstance(pages, str), f'invalid page: {pages}; {job}'
             step += f' --pages={pages}'
         # log progress to log file
         index = str(index).zfill(2)
-        forwarded = utila.forward_slash(step, keep_newline=False)
+        forwarded = utilo.forward_slash(step, keep_newline=False)
         logstep(f'::{index}>>{forwarded}')
-        start = utila.now()
-        completed = utila.run(
+        start = utilo.now()
+        completed = utilo.run(
             step,
             expect=None,
         )
-        diff = utila.now() - start
+        diff = utilo.now() - start
         if completed.stdout:
             logstep(completed.stdout)
         if completed.stderr:
             logstep(completed.stderr)
         logstep(f'runtime: {diff} sec\n')
         if completed.returncode:
-            utila.log(logpath)
-            utila.error(step)
-            utila.error(completed.stderr)
-            utila.log(completed.stdout)
+            utilo.log(logpath)
+            utilo.error(step)
+            utilo.error(completed.stderr)
+            utilo.log(completed.stdout)
             sys.exit(completed.returncode)
     # log final time
-    logstep(utila.timedate())
+    logstep(utilo.timedate())
     rawjob = genex.utils.shorten_path(rawjob)
-    utila.log(f'completed: {rawjob}')
+    utilo.log(f'completed: {rawjob}')
 
 
 def generate(  # pylint:disable=R0914
@@ -406,7 +406,7 @@ def generate(  # pylint:disable=R0914
     morefeatures: list = None,
 ) -> list:
     # TODO: MAY REMOVE LATER
-    config = utila.dicts_united(
+    config = utilo.dicts_united(
         config,
         dict(
             rawmaker=rawmaker,
@@ -420,8 +420,8 @@ def generate(  # pylint:disable=R0914
     files = resinf.prepares(files, pages=pages)
     todo = []
     for resource in files:
-        dest = utila.forward_slash(os.path.join(outpath, resource.name))
-        jobconfig = utila.dicts_united(
+        dest = utilo.forward_slash(os.path.join(outpath, resource.name))
+        jobconfig = utilo.dicts_united(
             config,
             resource.config,
         )

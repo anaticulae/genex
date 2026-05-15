@@ -9,9 +9,9 @@
 
 import os
 
-import power
-import utila
-import utilatest
+import hoverpower
+import utilo
+import utilotest
 
 import genex
 import genex.example
@@ -19,25 +19,25 @@ import genex.example
 
 def test_example_common_root():
     pdfs = [
-        power.DOCU009_PDF,
-        power.BACHELOR111_PDF,
+        hoverpower.DOCU009_PDF,
+        hoverpower.BACHELOR111_PDF,
     ]
     expected = {
         'docu_docu009',
         'bachelor_bachelor111',
     }
-    root = utilatest.simplify_testfile_names(pdfs)
+    root = utilotest.simplify_testfile_names(pdfs)
     # the expected order is not important
     root = set(root)  # pylint:disable=R0204
     assert root == expected
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_example_extract(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
-        power.BACHELOR111_PDF,
+        hoverpower.DOCU009_PDF,
+        hoverpower.BACHELOR111_PDF,
     ]
     genex.extract(
         pdfs,
@@ -61,13 +61,13 @@ def test_example_extract(td):
     assert os.path.exists(generated), str(generated)
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_example_disable_abbrev_step(td):
     """Disable groupme --abbreviation if sections is disabled cause
     groupme --abbreviations requires section_result."""
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
+        hoverpower.DOCU009_PDF,
     ]
     genex.extract(
         pdfs,
@@ -78,16 +78,16 @@ def test_example_disable_abbrev_step(td):
         headnote=True,
         pagenumber=True,
         sections=False,
-        base=power.REPO,
+        base=hoverpower.REPO,
     )
     assert os.path.exists(generated), str(generated)
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_example_sections_ref(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
+        hoverpower.DOCU009_PDF,
     ]
     genex.extract(
         pdfs,
@@ -99,17 +99,17 @@ def test_example_sections_ref(td):
         pagenumber=True,
         sections_ref=False,
         sections=False,
-        base=power.REPO,
+        base=hoverpower.REPO,
     )
     assert os.path.exists(generated), str(generated)
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_example_nothing(td):
     """Only rawmaker is runned."""
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
+        hoverpower.DOCU009_PDF,
     ]
     genex.extract(
         pdfs,
@@ -117,17 +117,17 @@ def test_example_nothing(td):
         pages='0:5',
         pdfinfo=False,
         oneline=None,
-        base=power.REPO,
+        base=hoverpower.REPO,
     )
     assert os.path.exists(generated), str(generated)
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_example_nothing_and_cleanup(td):
     """Only rawmaker and cleanup is runned."""
     generated = td.tmpdir.join('generated')
     pdfs = [
-        power.DOCU009_PDF,
+        hoverpower.DOCU009_PDF,
     ]
     genex.extract(
         pdfs,
@@ -136,7 +136,7 @@ def test_example_nothing_and_cleanup(td):
         pdfinfo=False,
         cleanup=True,
         oneline=None,
-        base=power.REPO,
+        base=hoverpower.REPO,
     )
     assert os.path.exists(generated), str(generated)
 
@@ -155,7 +155,7 @@ def test_example_order():
     )
     todo: str = ' && '.join(generated[0][0])
     # ensure to run caption before magic
-    magics = utila.findindex(todo, 'magic')
+    magics = utilo.findindex(todo, 'magic')
     assert len(magics) == 2
     # assert magics[0] < todo.find('caption') < magics[1]
     assert todo.find('caption') < magics[1]

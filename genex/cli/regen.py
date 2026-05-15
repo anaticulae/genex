@@ -13,29 +13,29 @@ import os
 import sys
 
 import resinf
-import utila
+import utilo
 
 import genex.rerun
 
 PROCESS = 'genex_regen'
 
 
-@utila.saveme
+@utilo.saveme
 def main(generated=None):
-    root = utila.baw_root(os.getcwd())
+    root = utilo.baw_root(os.getcwd())
     parser = create_parser()
     start, worker = parse_args(parser)
     if returncode := run(root, start, worker, generated=generated):
         return sys.exit(returncode)
-    return sys.exit(utila.SUCCESS)
+    return sys.exit(utilo.SUCCESS)
 
 
 def run(root, start, worker: int = 1, generated=None) -> int:
     if not generated:
         generated = resinf.generated(project=root)
-    if not utila.exists(generated):
-        utila.error(f'no resource generated: {generated}')
-        return utila.FAILURE
+    if not utilo.exists(generated):
+        utilo.error(f'no resource generated: {generated}')
+        return utilo.FAILURE
     todo = []
     for path in os.listdir(generated):
         path = os.path.join(generated, path, 'generated.log')
@@ -43,22 +43,22 @@ def run(root, start, worker: int = 1, generated=None) -> int:
             continue
         todo.append(functools.partial(single, path, start))
     if not todo:
-        utila.error(f'nothing todo: {generated}')
-        return utila.FAILURE
-    utila.fork(*todo, worker=worker)
-    return utila.SUCCESS
+        utilo.error(f'nothing todo: {generated}')
+        return utilo.FAILURE
+    utilo.fork(*todo, worker=worker)
+    return utilo.SUCCESS
 
 
 def single(logfile, start: int = 0):
     steps = genex.rerun.parse_steps(logfile, start=start)
     logmsg = f'Steps: {len(steps)} Start: {start} {logfile}'
-    utila.log(logmsg)
+    utilo.log(logmsg)
     for _, step in steps:
-        utila.log(step)
-        completed = utila.run(cmd=step)
+        utilo.log(step)
+        completed = utilo.run(cmd=step)
         if not completed.returncode:
             continue
-        utila.error(f'{logmsg}\n{completed.stderr}\n{completed.stdout}')
+        utilo.error(f'{logmsg}\n{completed.stderr}\n{completed.stdout}')
 
 
 def parse_args(parser) -> tuple:

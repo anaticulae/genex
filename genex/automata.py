@@ -8,7 +8,7 @@
 # =============================================================================
 
 import iamraw
-import utila
+import utilo
 
 
 class JobMaker:  # pylint:disable=R0904
@@ -35,8 +35,8 @@ class JobMaker:  # pylint:disable=R0904
 
     def __init__(self, src, dest, pages: str, config: dict, more: list = None):
         src, dest = str(src), str(dest)
-        self.src = utila.forward_slash(src, keep_newline=False)
-        self.dest = utila.forward_slash(dest, keep_newline=False)
+        self.src = utilo.forward_slash(src, keep_newline=False)
+        self.dest = utilo.forward_slash(dest, keep_newline=False)
         self.pages = f'--pages={pages}' if pages is not None else ''
         self.config = dict(config) if config else {}
         self.more = more
@@ -44,7 +44,7 @@ class JobMaker:  # pylint:disable=R0904
 
     def run(self) -> list:
         result = []
-        methods = utila.methods(self, starts='add_')
+        methods = utilo.methods(self, starts='add_')
         assert methods[-1] == self.add_optimize, f'optimize last: {methods}'  # pylint:disable=W0143
         for method in methods:
             task = method()
@@ -160,7 +160,7 @@ class JobMaker:  # pylint:disable=R0904
             return []
         # separate steps are required, cause standard produces figure
         # files which are required for cleanup step. In the current state
-        # utila determines inputs only at startup time. Therefore figureo
+        # utilo determines inputs only at startup time. Therefore figureo
         # want know that those later generated files exists.
         # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
         return [

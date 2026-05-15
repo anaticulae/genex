@@ -11,7 +11,7 @@ import functools
 import os
 
 import resinf
-import utila
+import utilo
 
 import genex
 
@@ -38,8 +38,8 @@ def extract_removepages(
     )
     todo.extend(extract_pdf)
     # avoid race condition that jam is not ready before starting extraction
-    worker = utila.mins(len(files), worker)
-    utila.fork(
+    worker = utilo.mins(len(files), worker)
+    utilo.fork(
         *todo,
         worker=worker,
         process=False,
@@ -66,12 +66,12 @@ def pdf_strip(files, removepages, dest):
     for inpath, outpath in zip(files, without_titlepage):
         todo.append(
             functools.partial(
-                utila.run,
+                utilo.run,
                 cmd=f'jam -i {inpath} -o {outpath} --remove={removepages}',
             ))
     # ensure correct parent [dest]
     without_titlepage = [
-        resinf.todo(item, name=utila.file_name(item))
+        resinf.todo(item, name=utilo.file_name(item))
         for item in without_titlepage
     ]
     return todo, without_titlepage

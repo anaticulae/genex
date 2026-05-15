@@ -7,6 +7,6 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import utilatest
+import utilotest
 
-utilatest.register_marker('holyvalue')
+utilotest.register_marker('holyvalue')

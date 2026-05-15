@@ -7,18 +7,18 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw
-import power
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import genex
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_select_titlepage(td):
     files = [
-        power.BACHELOR090_PDF,
+        hoverpower.BACHELOR090_PDF,
     ]
     genex.extract(
         files,
@@ -29,10 +29,10 @@ def test_select_titlepage(td):
         headnote=True,
         pagenumber=True,
         sections=True,
-        base=power.REPO,
+        base=hoverpower.REPO,
         pages='0:10',
     )
     generated = td.tmpdir.join('bachelor_bachelor090')
-    utila.exists_assert(generated)
+    utilo.exists_assert(generated)
     selected = genex.select_pages(generated, select=iamraw.TitlePageSection)
     assert selected == '1'

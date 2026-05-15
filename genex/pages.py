@@ -8,7 +8,7 @@
 # =============================================================================
 
 import serializeraw
-import utila
+import utilo
 
 
 def select_pages(path: str, select) -> str:
@@ -24,7 +24,7 @@ def select_pages(path: str, select) -> str:
     if not pages:
         if always:
             return ':'
-        utila.debug(f'could not find section, skip: {select} in {path}')
+        utilo.debug(f'could not find section, skip: {select} in {path}')
         return None
     pages = pages2str(pages)
     return pages
