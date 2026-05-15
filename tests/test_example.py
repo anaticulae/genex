@@ -14,8 +14,8 @@ import pytest
 import utilo
 import utilotest
 
-import genex
-import genex.example
+import gennex
+import gennex.example
 import tests
 
 
@@ -46,7 +46,7 @@ def test_example_extract(td):
         hoverpower.DOCU009_PDF,
         hoverpower.BACHELOR111_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         pdfs,
         generated,
         pages='0:5',
@@ -78,7 +78,7 @@ def test_example_disable_abbrev_step(td):
     pdfs = [
         hoverpower.DOCU009_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         pdfs,
         generated,
         pages='0:5',
@@ -100,7 +100,7 @@ def test_example_sections_ref(td):
     pdfs = [
         hoverpower.DOCU009_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         pdfs,
         generated,
         pages='0:5',
@@ -124,7 +124,7 @@ def test_example_nothing(td):
     pdfs = [
         hoverpower.DOCU009_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         pdfs,
         generated,
         pages='0:5',
@@ -144,7 +144,7 @@ def test_example_nothing_and_cleanup(td):
     pdfs = [
         hoverpower.DOCU009_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         pdfs,
         generated,
         pages='0:5',
@@ -157,7 +157,7 @@ def test_example_nothing_and_cleanup(td):
 
 
 def test_example_order():
-    generated = genex.example.generate(
+    generated = gennex.example.generate(
         files=['source/test.pdf'],
         outpath='dest',
         rawmaker='rawmaker_normal',

@@ -14,15 +14,15 @@ import pytest
 import utilo
 import utilotest
 
-import genex.cli.regen
+import gennex.cli.regen
 import tests
 
 
-def run_genex_regen(cmd: str, mp, generated=None, expect=True) -> int:
+def run_gennex_regen(cmd: str, mp, generated=None, expect=True) -> int:
     completed = utilotest.run_cov(
         cmd,
-        genex.cli.regen.PROCESS,
-        functools.partial(genex.cli.regen.main, generated=generated),
+        gennex.cli.regen.PROCESS,
+        functools.partial(gennex.cli.regen.main, generated=generated),
         expect=expect,
         mp=mp,
     )
@@ -36,7 +36,7 @@ def test_cli_regen(td, mp):
     files = [
         hoverpower.BACHELOR090_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         files,
         dest=td.tmpdir,
         oneline=None,
@@ -51,11 +51,11 @@ def test_cli_regen(td, mp):
     utilo.exists_assert(generated)
     with utilo.capture_stdout() as stdout:
         # start after third step
-        run_genex_regen(cmd='3', mp=mp, generated=td.tmpdir)
+        run_gennex_regen(cmd='3', mp=mp, generated=td.tmpdir)
     assert 'Steps: 3 Start: 3' in stdout()
 
 
 def test_cli_regen_error(td, mp, capsys):
-    run_genex_regen(cmd='0', mp=mp, generated=td.tmpdir, expect=False)
+    run_gennex_regen(cmd='0', mp=mp, generated=td.tmpdir, expect=False)
     stderr = utilotest.stderr(capsys)
     assert 'nothing todo:' in stderr

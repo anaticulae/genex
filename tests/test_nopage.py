@@ -13,7 +13,7 @@ import hoverpower
 import pytest
 import utilotest
 
-import genex
+import gennex
 import tests
 
 
@@ -27,7 +27,7 @@ def test_nopage_extract(td):
         hoverpower.DOCU009_PDF,
         hoverpower.HOME018_PDF,
     ]
-    genex.extract_removepages(
+    gennex.extract_removepages(
         resources=pdfs,
         dest=generated,
         pagenumber=True,
@@ -49,7 +49,7 @@ def test_nopage_full(td):
         hoverpower.DOCU009_PDF,
         hoverpower.DOCU007_PDF,
     ]
-    genex.extract_removepages(
+    gennex.extract_removepages(
         resources=pdfs,
         dest=generated,
         full=True,

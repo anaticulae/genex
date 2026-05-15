@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "genex"
+name = "gennex"
 version = "1.0.0"
 description = ""
 requires-python = ">=3.12"
@@ -42,11 +42,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/genex"
-Repository = "https://github.com/anaticulae/genex"
+Homepage = "https://github.com/anaticulae/gennex"
+Repository = "https://github.com/anaticulae/gennex"
 
 [project.scripts]
-genex_regen = "genex.cli.regen:main"
+gennex_regen = "gennex.cli.regen:main"
 
 [tool.semantic_release]
 version_toml = [
@@ -79,8 +79,8 @@ where = [
     ".",
 ]
 include = [
-    "genex",
-    "genex.cli",
+    "gennex",
+    "gennex.cli",
 ]
 exclude = [
     "tests*",

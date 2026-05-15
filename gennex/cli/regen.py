@@ -15,9 +15,9 @@ import sys
 import resinf
 import utilo
 
-import genex.rerun
+import gennex.rerun
 
-PROCESS = 'genex_regen'
+PROCESS = 'gennex_regen'
 
 
 @utilo.saveme
@@ -50,7 +50,7 @@ def run(root, start, worker: int = 1, generated=None) -> int:
 
 
 def single(logfile, start: int = 0):
-    steps = genex.rerun.parse_steps(logfile, start=start)
+    steps = gennex.rerun.parse_steps(logfile, start=start)
     logmsg = f'Steps: {len(steps)} Start: {start} {logfile}'
     utilo.log(logmsg)
     for _, step in steps:

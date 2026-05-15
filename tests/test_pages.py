@@ -13,7 +13,7 @@ import pytest
 import utilo
 import utilotest
 
-import genex
+import gennex
 import tests
 
 
@@ -24,7 +24,7 @@ def test_select_titlepage(td):
     files = [
         hoverpower.BACHELOR090_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         files,
         dest=td.tmpdir,
         detector=False,
@@ -38,5 +38,5 @@ def test_select_titlepage(td):
     )
     generated = td.tmpdir.join('bachelor_bachelor090')
     utilo.exists_assert(generated)
-    selected = genex.select_pages(generated, select=iamraw.TitlePageSection)
+    selected = gennex.select_pages(generated, select=iamraw.TitlePageSection)
     assert selected == '1'

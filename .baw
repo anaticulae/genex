@@ -8,5 +8,5 @@
 # =============================================================================
 
 [project]
-short = genex
+short = gennex
 name = example generator

@@ -13,7 +13,7 @@ import os
 import resinf
 import utilo
 
-import genex
+import gennex
 
 
 def extract_removepages(
@@ -83,11 +83,11 @@ def generate(
     **kwargs,
 ):
     # generate
-    todolist = genex.todolist(without_titlepage, dest=dest, **kwargs)
+    todolist = gennex.todolist(without_titlepage, dest=dest, **kwargs)
     todo = []
     for index, job in enumerate(todolist):
         job = functools.partial(
-            genex.run_job,
+            gennex.run_job,
             job=job,
             number=(index, len(todolist) - 1),
         )

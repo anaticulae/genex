@@ -23,10 +23,10 @@ import sys
 import resinf
 import utilo
 
-import genex.automata
-import genex.config
-import genex.pages
-import genex.utils
+import gennex.automata
+import gennex.config
+import gennex.pages
+import gennex.utils
 
 
 @utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
@@ -35,8 +35,8 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     dest: str = None,
     pages: str = ':',
     worker: int = 12,
-    rawmaker: str = genex.config.CONFIG,
-    oneline: str = genex.config.ONELINE,
+    rawmaker: str = gennex.config.CONFIG,
+    oneline: str = gennex.config.ONELINE,
     lock: bool = True,
     *,
     cleanup: bool = False,
@@ -192,7 +192,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
 
 def default_destination(dest: str) -> str:
     """\
-    >>> import hoverpower; import genex; hoverpower.setup(genex.ROOT)
+    >>> import hoverpower; import gennex; hoverpower.setup(gennex.ROOT)
     >>> default_destination(None)
     '...'
     """
@@ -219,8 +219,8 @@ def todolist(  # pylint:disable=R0914,R0913
     files: list,
     dest: str,
     pages: str = '0:10',
-    rawmaker: str = genex.config.CONFIG,
-    oneline: str = genex.config.ONELINE,
+    rawmaker: str = gennex.config.CONFIG,
+    oneline: str = gennex.config.ONELINE,
     tablero: bool = False,
     formulero: bool = False,
     codero: bool = False,
@@ -358,7 +358,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
     for index, step in enumerate(steps):
         if not isinstance(step, str):
             step, inpath, section = step
-            pages = genex.pages.select_pages(inpath, section)
+            pages = gennex.pages.select_pages(inpath, section)
             if not pages:
                 utilo.debug(f'could not find section: {section}; skip: {step}')
                 continue
@@ -387,7 +387,7 @@ def run_job(job: tuple, number: tuple = None):  # pylint:disable=R0914
             sys.exit(completed.returncode)
     # log final time
     logstep(utilo.timedate())
-    rawjob = genex.utils.shorten_path(rawjob)
+    rawjob = gennex.utils.shorten_path(rawjob)
     utilo.log(f'completed: {rawjob}')
 
 
@@ -425,7 +425,7 @@ def generate(  # pylint:disable=R0914
             config,
             resource.config,
         )
-        jobmaker = genex.automata.JobMaker(
+        jobmaker = gennex.automata.JobMaker(
             src=resource.resource,
             dest=dest,
             pages=resource.pages,

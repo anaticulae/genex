@@ -14,7 +14,7 @@ import pytest
 import serializeraw
 import utilotest
 
-import genex
+import gennex
 import tests
 
 
@@ -26,7 +26,7 @@ def test_extract_bachelor37_abbrev_table(td):
     files = [
         hoverpower.BACHELOR037_PDF,
     ]
-    genex.extract(
+    gennex.extract(
         files,
         dest=td.tmpdir,
         footnote=True,

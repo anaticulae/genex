@@ -3,7 +3,7 @@
 VERSION := $(shell git rev-parse --short HEAD 2>/dev/null || echo "latest")
 CURDIR := $(CURDIR)
 
-NAME = genex
+NAME = gennex
 IMAGE := $(NAME):$(VERSION)
 IMAGE_BASE := ghcr.io/anaticulae/$(IMAGE)
 

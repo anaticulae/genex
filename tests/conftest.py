@@ -11,8 +11,8 @@ import resinf
 from utilotest import mp  # pylint:disable=W0611
 from utilotest import td  # pylint:disable=W0611
 
-import genex
+import gennex
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
-resinf.setup(genex.ROOT)
+resinf.setup(gennex.ROOT)

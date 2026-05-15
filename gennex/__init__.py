@@ -9,15 +9,15 @@
 
 import os
 
-from genex.config import CONFIG
-from genex.config import ONELINE
-from genex.example import extract
-from genex.example import generate
-from genex.example import run_job
-from genex.example import todolist
-from genex.nopage import extract_removepages
-from genex.pages import select_pages
-from genex.rerun import parse_steps
+from gennex.config import CONFIG
+from gennex.config import ONELINE
+from gennex.example import extract
+from gennex.example import generate
+from gennex.example import run_job
+from gennex.example import todolist
+from gennex.nopage import extract_removepages
+from gennex.pages import select_pages
+from gennex.rerun import parse_steps
 
 __version__ = '0.40.0'
 
