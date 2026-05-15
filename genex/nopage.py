@@ -21,7 +21,7 @@ def extract_removepages(
     dest=None,
     removepages: str = '1:3',
     folder: str = 'notoc',
-    worker: str = 8,
+    worker: int = 8,
     **kwargs,
 ):
     assert worker <= len(resources), 'worker count too high, see jam and step after'  # yapf:disable
