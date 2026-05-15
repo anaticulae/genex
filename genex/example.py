@@ -60,7 +60,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     magic: bool = False,
     morefeatures: list = None,
     pagenumber: bool = False,
-    pdfinfo: bool = True,
+    pdflog: bool = True,
     reftable: bool = False,
     sections: bool = False,
     sections_ref: bool = False,
@@ -91,7 +91,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         footnote(bool): run if True
         codero(bool): run if True
         color(bool): run if True
-        pdfinfo(bool): run if True
+        pdflog(bool): run if True
         optimize(bool): run if True
         base(str): root to determine generated output names, see comment below
         ----------
@@ -156,7 +156,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         oneline=oneline,
         optimize=optimize,
         pagenumber=pagenumber,
-        pdfinfo=pdfinfo,
+        pdflog=pdflog,
         rawmaker=rawmaker,
         reftable=reftable,
         sections=sections,
@@ -224,7 +224,7 @@ def todolist(  # pylint:disable=R0914,R0913
     tablero: bool = False,
     formulero: bool = False,
     codero: bool = False,
-    pdfinfo: bool = True,
+    pdflog: bool = True,
     color: bool = False,
     cleanup: bool = False,
     optimize: bool = False,
@@ -261,7 +261,7 @@ def todolist(  # pylint:disable=R0914,R0913
         full: overwrites every selection and runs all extraction steps
 
     >>> todolist(['bachelor/bachelor090_PDF.pdf'], 'basedir', full=True)
-    [(['pdfinfo...', 'rawmaker...-o=basedir/bachelor_bachelor090_PDF..., 'basedir/bachelor_bachelor090_PDF')]
+    [(['pdflog...', 'rawmaker...-o=basedir/bachelor_bachelor090_PDF..., 'basedir/bachelor_bachelor090_PDF')]
     """
     if full:
         # enable every extraction step
@@ -284,7 +284,7 @@ def todolist(  # pylint:disable=R0914,R0913
         magic = True
         optimize = True
         pagenumber = True
-        pdfinfo = True
+        pdflog = True
         reftable = True
         sections = True
         sections_ref = True
@@ -328,7 +328,7 @@ def todolist(  # pylint:disable=R0914,R0913
         config=config,
         rawmaker=rawmaker,
         oneline=oneline,
-        pdfinfo=pdfinfo,
+        pdflog=pdflog,
         tablero=tablero,
         formulero=formulero,
         codero=codero,
@@ -400,7 +400,7 @@ def generate(  # pylint:disable=R0914
     oneline: str,
     *,
     formulero: bool = True,
-    pdfinfo: bool = True,
+    pdflog: bool = True,
     tablero: bool = True,
     codero: bool = True,
     morefeatures: list = None,
@@ -412,7 +412,7 @@ def generate(  # pylint:disable=R0914
             rawmaker=rawmaker,
             oneline=oneline,
             formulero=formulero,
-            pdfinfo=pdfinfo,
+            pdflog=pdflog,
             tablero=tablero,
             codero=codero,
         ),

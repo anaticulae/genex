@@ -82,8 +82,8 @@ class JobMaker:  # pylint:disable=R0904
 
     def add_basic(self):
         result = []
-        if self.pdfinfo:
-            result += [f'pdfinfo {self.sd} --format=yaml']
+        if self.pdflog:
+            result += [f'pdflog {self.sd} --format=yaml']
         if True:  # pylint:disable=using-constant-test
             # without rawmaker this makes no sense
             result += [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']

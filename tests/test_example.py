@@ -115,7 +115,7 @@ def test_example_nothing(td):
         pdfs,
         generated,
         pages='0:5',
-        pdfinfo=False,
+        pdflog=False,
         oneline=None,
         base=hoverpower.REPO,
     )
@@ -133,7 +133,7 @@ def test_example_nothing_and_cleanup(td):
         pdfs,
         generated,
         pages='0:5',
-        pdfinfo=False,
+        pdflog=False,
         cleanup=True,
         oneline=None,
         base=hoverpower.REPO,
