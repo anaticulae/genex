@@ -294,33 +294,33 @@ def todolist(  # pylint:disable=R0914,R0913
         textflow = True
         weblink = True
         words = True
-    config = dict(
-        bibliography=bibliography,
-        caption=caption,
-        chapter=chapter,
-        cleanup=cleanup,
-        color=color,
-        detector=detector,
-        docref=docref,
-        doctextstyle=doctextstyle,
-        figureo=figureo,
-        footnote=footnote,
-        groupme=groupme,
-        headlines=headlines,
-        headnote=headnote,
-        lists=lists,
-        magic=magic,
-        optimize=optimize,
-        pagenumber=pagenumber,
-        reftable=reftable,
-        sections=sections,
-        sections_ref=sections_ref,
-        smarty=smarty,
-        spacestation=spacestation,
-        textflow=textflow,
-        weblink=weblink,
-        words=words,
-    )
+    config = {
+        "bibliography": bibliography,
+        "caption": caption,
+        "chapter": chapter,
+        "cleanup": cleanup,
+        "color": color,
+        "detector": detector,
+        "docref": docref,
+        "doctextstyle": doctextstyle,
+        "figureo": figureo,
+        "footnote": footnote,
+        "groupme": groupme,
+        "headlines": headlines,
+        "headnote": headnote,
+        "lists": lists,
+        "magic": magic,
+        "optimize": optimize,
+        "pagenumber": pagenumber,
+        "reftable": reftable,
+        "sections": sections,
+        "sections_ref": sections_ref,
+        "smarty": smarty,
+        "spacestation": spacestation,
+        "textflow": textflow,
+        "weblink": weblink,
+        "words": words,
+    }
     todo = generate(
         files,
         dest,
@@ -408,14 +408,14 @@ def generate(  # pylint:disable=R0914
     # TODO: MAY REMOVE LATER
     config = utilo.dicts_united(
         config,
-        dict(
-            rawmaker=rawmaker,
-            oneline=oneline,
-            formulero=formulero,
-            pdflog=pdflog,
-            tablero=tablero,
-            codero=codero,
-        ),
+        {
+            "rawmaker": rawmaker,
+            "oneline": oneline,
+            "formulero": formulero,
+            "pdflog": pdflog,
+            "tablero": tablero,
+            "codero": codero,
+        },
     )
     files = resinf.prepares(files, pages=pages)
     todo = []

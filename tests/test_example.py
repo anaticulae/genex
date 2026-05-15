@@ -156,10 +156,10 @@ def test_example_order():
         outpath='dest',
         rawmaker='rawmaker_normal',
         oneline='rawmaker_oneline',
-        config=dict(
-            caption=True,
-            magic=True,
-        ),
+        config={
+            "caption": True,
+            "magic": True,
+        },
         pages='0:10',
     )
     todo: str = ' && '.join(generated[0][0])
