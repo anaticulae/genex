@@ -7,6 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
+import pytest
+import utilo
 import utilotest
 
 utilotest.register_marker('holyvalue')
+
+requires = lambda x: pytest.mark.skipif(
+    not utilo.exists(x),
+    reason=f'requires: {x}',
+)

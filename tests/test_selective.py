@@ -14,9 +14,11 @@ import serializeraw
 import utilotest
 
 import genex
+import tests
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.BACHELOR037_PDF)
 def test_extract_bachelor37_abbrev_table(td):
     """Shrink abbreviation table extractor to abbreviation table section."""
     files = [

@@ -13,9 +13,11 @@ import utilo
 import utilotest
 
 import genex
+import tests
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.BACHELOR090_PDF)
 def test_select_titlepage(td):
     files = [
         hoverpower.BACHELOR090_PDF,

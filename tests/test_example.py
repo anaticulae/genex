@@ -15,8 +15,11 @@ import utilotest
 
 import genex
 import genex.example
+import tests
 
 
+@tests.requires(hoverpower.DOCU009_PDF)
+@tests.requires(hoverpower.BACHELOR111_PDF)
 def test_example_common_root():
     pdfs = [
         hoverpower.DOCU009_PDF,
@@ -32,6 +35,8 @@ def test_example_common_root():
     assert root == expected
 
 
+@tests.requires(hoverpower.DOCU009_PDF)
+@tests.requires(hoverpower.BACHELOR111_PDF)
 @utilotest.longrun
 def test_example_extract(td):
     generated = td.tmpdir.join('generated')
@@ -62,6 +67,7 @@ def test_example_extract(td):
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.DOCU009_PDF)
 def test_example_disable_abbrev_step(td):
     """Disable groupme --abbreviation if sections is disabled cause
     groupme --abbreviations requires section_result."""
@@ -84,6 +90,7 @@ def test_example_disable_abbrev_step(td):
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.DOCU009_PDF)
 def test_example_sections_ref(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
@@ -105,6 +112,7 @@ def test_example_sections_ref(td):
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.DOCU009_PDF)
 def test_example_nothing(td):
     """Only rawmaker is runned."""
     generated = td.tmpdir.join('generated')
@@ -123,6 +131,7 @@ def test_example_nothing(td):
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.DOCU009_PDF)
 def test_example_nothing_and_cleanup(td):
     """Only rawmaker and cleanup is runned."""
     generated = td.tmpdir.join('generated')

@@ -13,9 +13,12 @@ import hoverpower
 import utilotest
 
 import genex
+import tests
 
 
 @utilotest.longrun
+@tests.requires(hoverpower.DOCU009_PDF)
+@tests.requires(hoverpower.HOME018_PDF)
 def test_nopage_extract(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
@@ -35,6 +38,8 @@ def test_nopage_extract(td):
 
 
 @utilotest.nightly
+@tests.requires(hoverpower.DOCU009_PDF)
+@tests.requires(hoverpower.DOCU007_PDF)
 def test_nopage_full(td):
     generated = td.tmpdir.join('generated')
     pdfs = [
