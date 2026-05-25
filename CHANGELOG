@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.3 (2026-05-25)
+
+### Bug Fixes
+
+- **nopage**: Adjust whitespace
+  ([`e568691`](https://github.com/anaticulae/gennex/commit/e5686911576b738b6bf8107827b5323872a8cdb2))
+
+
 ## v1.0.2 (2026-05-25)
 
 ### Bug Fixes
