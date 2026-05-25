@@ -67,7 +67,7 @@ def pdf_strip(files, removepages, dest):
         todo.append(
             functools.partial(
                 utilo.run,
-                cmd=f'jamer-i {inpath} -o {outpath} --remove={removepages}',
+                cmd=f'jamer -i {inpath} -o {outpath} --remove={removepages}',
             ))
     # ensure correct parent [dest]
     without_titlepage = [
