@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-05-25)
+
+### Bug Fixes
+
+- **nopage**: Adjust jamer invocation
+  ([`3a0f2bd`](https://github.com/anaticulae/gennex/commit/3a0f2bd80aa997d7ff80e4b61a4d8be3dafbf513))
+
+
 ## v1.0.1 (2026-05-15)
 
 ### Chores
