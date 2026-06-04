@@ -89,9 +89,9 @@ class JobMaker:  # pylint:disable=R0904
             result += [f'rawmaker -j=auto {self.sdp} {self.rawmaker}']
         if self.oneline:
             result += [f'rawmaker -j=auto {self.sdp} {self.oneline}']
-        if self.cleanup:
+        if self.mundare:
             # save rawmaker result to ease debugging
-            result += [f'cleanup --backup {self.ddp}']
+            result += [f'mundare --backup {self.ddp}']
         if self.formulero:
             result += [f'formulero {self.sdp} -j2']
         if self.spacestation:
@@ -104,27 +104,27 @@ class JobMaker:  # pylint:disable=R0904
         if not self.pagenumber:
             return None
         result = [f'pagenumber {self.dd}']
-        if self.cleanup:
+        if self.mundare:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp} --select pagenumber']
+            result += [f'mundare --mundare {self.ddp} --select pagenumber']
         return result
 
     def add_footnote(self):
         if not self.footnote:
             return None
         result = [f'footnote {self.dd} -j2']
-        if self.cleanup:
+        if self.mundare:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp} --select footnote']
+            result += [f'mundare --mundare {self.ddp} --select footnote']
         return result
 
     def add_headnote(self):
         if not self.headnote:
             return None
         result = [f'headnote {self.dd} -j2']
-        if self.cleanup:
+        if self.mundare:
             # hide pagenumber to improve further processing
-            result += [f'cleanup --cleanup {self.ddp} --select headnote']
+            result += [f'mundare --mundare {self.ddp} --select headnote']
         return result
 
     def add_groupme(self):
@@ -159,29 +159,29 @@ class JobMaker:  # pylint:disable=R0904
         if not self.figureo:
             return []
         # separate steps are required, cause standard produces figure
-        # files which are required for cleanup step. In the current state
+        # files which are required for mundare step. In the current state
         # utilo determines inputs only at startup time. Therefore figureo
         # want know that those later generated files exists.
         # TODO: REMOVE AFTER UPGRADING INPUTS AFTER EVERY STEP
         return [
             f'figureo --standard {self.sddp}',
-            f'figureo --cleanup {self.sddp}',
+            f'figureo --mundare {self.sddp}',
         ]
 
     def add_caption(self):
         # TODO: USE DECORATOR
         return self.auto('caption') if self.caption else None
 
-    def add_cleanup(self):
-        if not self.cleanup:
+    def add_mundare(self):
+        if not self.mundare:
             return []
         # skip backup if pagenumber is generated, this step is already done
         nobackup = '--backup!' if self.pagenumber else ''
         result = [
-            f'cleanup {self.ddp} {nobackup}',
+            f'mundare {self.ddp} {nobackup}',
         ]
         if self.oneline:
-            result += [f'cleanup --prefix=oneline {self.ddp}']
+            result += [f'mundare --prefix=oneline {self.ddp}']
         if self.footnote:
             # run groupme again
             result += [f'footnote {self.dd} -j2']

@@ -51,7 +51,7 @@ def test_example_extract(td):
         generated,
         pages='0:5',
         bibliography=True,
-        cleanup=True,
+        mundare=True,
         detector=True,
         doctextstyle=True,
         figureo=True,
@@ -138,8 +138,8 @@ def test_example_nothing(td):
 @pytest.mark.xfail(reason='missing tooling')
 @utilotest.longrun
 @tests.requires(hoverpower.DOCU009_PDF)
-def test_example_nothing_and_cleanup(td):
-    """Only rawmaker and cleanup is runned."""
+def test_example_nothing_and_mundare(td):
+    """Only rawmaker and mundare is runned."""
     generated = td.tmpdir.join('generated')
     pdfs = [
         hoverpower.DOCU009_PDF,
@@ -149,7 +149,7 @@ def test_example_nothing_and_cleanup(td):
         generated,
         pages='0:5',
         pdflog=False,
-        cleanup=True,
+        mundare=True,
         oneline=None,
         base=hoverpower.REPO,
     )

@@ -29,7 +29,7 @@ import gennex.pages
 import gennex.utils
 
 
-@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_mundare='cleanup', cleanup='mundare', destination='dest')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     dest: str = None,
@@ -39,7 +39,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
     oneline: str = gennex.config.ONELINE,
     lock: bool = True,
     *,
-    cleanup: bool = False,
+    mundare: bool = False,
     optimize: bool = False,
     base: str = None,
     bibliography: bool = False,
@@ -85,7 +85,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         rawmaker(str): default config
         oneline(str): oneline config
         lock(bool): add write lock if selected
-        cleanup(str): run if True
+        mundare(str): run if True
         tablero(bool): run if True
         formulero(bool): run if True
         footnote(bool): run if True
@@ -139,7 +139,7 @@ def extract(  # pylint:disable=R0914,R0913,W0613
         bibliography=bibliography,
         caption=caption,
         chapter=chapter,
-        cleanup=cleanup,
+        mundare=mundare,
         codero=codero,
         color=color,
         detector=detector,
@@ -214,7 +214,7 @@ def validate_files(files: list):
         raise ValueError(f'duplicated resource: {error}')
 
 
-@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_mundare='cleanup', cleanup='mundae', destination='dest')
 def todolist(  # pylint:disable=R0914,R0913
     files: list,
     dest: str,
@@ -226,7 +226,7 @@ def todolist(  # pylint:disable=R0914,R0913
     codero: bool = False,
     pdflog: bool = True,
     color: bool = False,
-    cleanup: bool = False,
+    mundare: bool = False,
     optimize: bool = False,
     *,
     bibliography: bool = False,
@@ -268,7 +268,7 @@ def todolist(  # pylint:disable=R0914,R0913
         bibliography = True
         caption = True
         chapter = True
-        cleanup = True
+        mundare = True
         codero = True
         color = True
         detector = True
@@ -298,7 +298,7 @@ def todolist(  # pylint:disable=R0914,R0913
         "bibliography": bibliography,
         "caption": caption,
         "chapter": chapter,
-        "cleanup": cleanup,
+        "mundare": mundare,
         "color": color,
         "detector": detector,
         "docref": docref,
