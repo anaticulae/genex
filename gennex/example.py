@@ -29,7 +29,7 @@ import gennex.pages
 import gennex.utils
 
 
-@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_mundare='cleanup', destination='dest')
 def extract(  # pylint:disable=R0914,R0913,W0613
     files: list,
     dest: str = None,
@@ -214,7 +214,7 @@ def validate_files(files: list):
         raise ValueError(f'duplicated resource: {error}')
 
 
-@utilo.rename(rawmaker_cleanup='cleanup', destination='dest')
+@utilo.rename(rawmaker_mundare='cleanup', cleanup='mundae', destination='dest')
 def todolist(  # pylint:disable=R0914,R0913
     files: list,
     dest: str,
